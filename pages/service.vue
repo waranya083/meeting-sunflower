@@ -187,7 +187,7 @@ button {
 
 .about-image {
   width: 100%;
-  height: 380px;
+  height: 300px;
   /* Ensure a fixed height */
   object-fit: cover;
   align-self: flex-start;
@@ -200,7 +200,7 @@ button {
 
 .about-content {
   max-width: 60%; /* ควบคุมความกว้างสูงสุด */
-  margin-left: 350px;
+  margin-left: 150px;
   padding-right: 30px;
   margin-top: 30px;
 }

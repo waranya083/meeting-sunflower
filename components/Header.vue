@@ -88,18 +88,18 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 10px;
   background-color: transparent;
   z-index: 1001;
   position: relative;
   margin-top: 50px;
-  padding: 20px 150px;
+  padding: 20px 100px;
 }
 
 .nav .logo {
   display: flex;
   align-items: center;
-  margin-left: 200px;
+  margin-left: 100px;
 }
 
 .nav .logo img {
@@ -177,7 +177,7 @@ export default {
 .social-icons {
   display: flex;
   margin-left: 40px;
-  margin-right: 200px;
+  margin-right: 100px;
 }
 
 .social-icons a {

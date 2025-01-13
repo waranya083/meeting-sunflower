@@ -720,7 +720,7 @@ img {
 }
 
 .section-spacing {
-  padding: 60px 0;
+  padding: 20px 0;
 }
 
 .carousel-section {
@@ -739,22 +739,23 @@ img {
 .slide-overlay {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: -50%;
   transform: translate(-50%, -50%);
   text-align: left; /* Align text to the left */
   color: white;
-
   border-radius: 10px;
 }
 
 .slide-overlay h3 {
-  font-size: 2rem; /* ขนาดตัวอักษรของหัวข้อ */
+  font-size: 2.5rem; /* ขนาดตัวอักษรของหัวข้อ */
+  font-weight: bold;
   margin-bottom: 10px;
+  
 }
 
 .slide-overlay span {
-  font-size: 1rem; /* ขนาดตัวอักษรของข้อความ */
-  margin-bottom: 20px;
+  font-size: 1.2rem; /* ขนาดตัวอักษรของข้อความ */
+  margin-bottom: 30px;
   display: block;
 }
 
