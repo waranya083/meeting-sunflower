@@ -45,9 +45,9 @@
     <section class="section-spacing">
       <div class="container-fluid">
         <div class="d-flex justify-content-start align-items-center"
-          style="min-height: 90vh; padding: 0; margin-top: -310px;">
+          style="min-height: 90vh; padding: 0; margin-top: -300px;">
           <div class="text-left p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto; padding-bottom: 120px;">
-            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
               <div
                 style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px;">
               </div>
@@ -93,8 +93,8 @@
 
 
     <!-- New section -->
-    <section class="section-spacing">
-      <div class="d-flex justify-content-start align-items-center" style="display: flex; padding: 0;">
+    <section class="section-spacing" ">
+      <div class="d-flex justify-content-start align-items-center" style="display: flex; padding: 0; margin-top: -150px;">
         <div class="text-left p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto;">
           <div style="display: flex; align-items: center; margin-bottom: 10px;">
             <div
@@ -169,7 +169,7 @@
     <!-- End of new section -->
     <section wapper class="design-section">
       <div class="d-flex justify-content-center align-items-center"
-        style="min-height: 60vh; padding: 0; margin-top: 30px;">
+        style="min-height: 60vh; padding: 0; margin-top: 50px;">
         <div class="text-center p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto;">
           <div style="display: flex; align-items: center; margin-bottom: 20px;">
             <div
@@ -283,7 +283,7 @@
 
     <section id="video-showcase">
       <div class="d-flex justify-content-center align-items-center"
-        style="min-height: 80vh; padding: 0; margin-top: 40px;">
+        style="min-height: 80vh; padding: 0; margin-top: 50px;">
         <div class="text-center p-3"
           style="width: 100%; max-width: 1200px; font-size: 1.1rem; margin: auto; border-radius: 30px; overflow: hidden;">
 
@@ -300,7 +300,7 @@
 
     <section class="section-spacing">
       <div class="container-fluid">
-        <div class="d-flex justify-content-start align-items-center ">
+        <div class="d-flex justify-content-start align-items-center " style="margin-top: -90px;">
           <div class="text-left p-3 about-content">
             <div style="display: flex; align-items: center; margin-bottom: 10px;">
               <div
@@ -318,7 +318,7 @@
       </div>
     </section>
 
-    <section class="wrapper bg-light wrapper-border section-spacing" style="margin-top: -200px;">
+    <section class="wrapper bg-light wrapper-border section-spacing" style="margin-top: 50px;">
       <div class="container py-14 py-md-16" style="max-width: 1200px; margin: 0 auto;">
         <div class="swiper-container clients mb-0" data-margin="0" data-dots="false" data-loop="true"
           data-autoplay="true" data-autoplaytime="0" data-speed="10000" data-space-between="0" data-items-xxl="8"
@@ -477,7 +477,9 @@ button {
   font-family: 'Athiti', 'IBM Plex Sans Thai', sans-serif;
   /* Ensure the same font is used throughout the website */
 }
-
+.section-spacing {
+  margin: 20px 0; /* กำหนดระยะห่างที่ต้องการ */
+}
 .header-section {
   position: absolute;
   top: 0;
