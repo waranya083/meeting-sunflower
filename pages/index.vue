@@ -23,7 +23,6 @@
     <!-- End of simplified banner content -->
     <section class="section-spacing">
       <div class="container-fluid">
-        <!-- <h1>API DATA : {{ message }}</h1> -->
         <div class="d-flex justify-content-start align-items-center about-section">
           <div class="text-left p-3 about-content">
             <div style="display: flex; align-items: center; margin-bottom: 10px;">
@@ -190,37 +189,39 @@
           </div>
           <!-- ตกแต่งภายในบ้าน -->
           <div v-if="currentDesign === 'house'">
-            <div id="outside-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-              <div style="display: grid; gap: 20px;">
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/room/Living room.jpg" alt="Living room" class="zoom-effect-left"
-                    style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">Living
-                    room</p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+            <div v-if="services && services.length">
+              <!-- กรองเฉพาะ service ที่มี service_category_id === 113 -->
+              <div id="outside-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <!-- 2 รูปแรก (แนวตั้ง) -->
+                <div style="display: grid; gap: 20px;">
+                  <div class="grid-item" style="position: relative;"
+                    v-for="(service, index) in services.filter(service => service.service_category_id === 113).slice(0, 2)"
+                    :key="index">
+                    <div v-if="service.image && service.image.length">
+                      <img :src="service.image[0]" :alt="service.title" class="zoom-effect-left"
+                        style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
+                      {{ service.title }}
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
                 </div>
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/room/Bedroom.png" alt="Bedroom" class="zoom-effect-right"
-                    style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    Bedroom</p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
-                </div>
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/room/kitchen.png" alt="Kitchen" class="zoom-effect-pop"
-                    style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    Kitchen</p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/room/walkin.png" alt="Walkin" class="zoom-effect-pop"
-                    style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    Walk-in Closet</p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+
+                <!-- 2 รูปหลัง (แนวนอน) -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                  <div class="grid-item" style="position: relative;"
+                    v-for="(service, index) in services.filter(service => service.service_category_id === 113).slice(2, 4)"
+                    :key="index">
+                    <div v-if="service.image && service.image.length">
+                      <img :src="service.image[0]" :alt="service.title" class="zoom-effect-pop"
+                        style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
+                      {{ service.title }}
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -229,44 +230,47 @@
               onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
               onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
               More</a>
-
           </div>
+          
           <!-- ตกแต่งภายในคอนโด -->
           <div v-if="currentDesign === 'condo'">
-            <div id="inside-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-              <div style="display: grid; gap: 20px;">
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/room/Living room-condo.png" alt="Living room-condo" class="zoom-effect-left"
-                    style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    Living room </p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+            <div v-if="services && services.length">
+              <!-- กรองเฉพาะ service ที่มี service_category_id === 114 -->
+              <div id="inside-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <!-- 2 รูปแรก (แนวตั้ง) -->
+                <div style="display: grid; gap: 20px;">
+                  <div class="grid-item" style="position: relative;"
+                    v-for="(service, index) in services.filter(service => service.service_category_id === 114).slice(0, 2)"
+                    :key="index">
+                    <div v-if="service.image && service.image.length">
+                      <img :src="service.image[0]" :alt="service.title" class="zoom-effect-left"
+                        style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
+                      {{ service.title }}
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
                 </div>
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/room/bedroom-condo.png" alt="bedroom-condo" class="zoom-effect-right"
-                    style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    Bedroom</p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
-                </div>
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/room/kitchen-condo.png" alt="kitchen-condo" class="zoom-effect-left"
-                    style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    Kitchen</p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/room/walkin-condo.png" alt="Walkin-condo" class="zoom-effect-right"
-                    style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    Walk-in Closet</p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+
+                <!-- 2 รูปหลัง (แนวนอน) -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                  <div class="grid-item" style="position: relative;"
+                    v-for="(service, index) in services.filter(service => service.service_category_id === 114).slice(2, 4)"
+                    :key="index">
+                    <div v-if="service.image && service.image.length">
+                      <img :src="service.image[0]" :alt="service.title" class="zoom-effect-right"
+                        style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
+                      {{ service.title }}
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
+
             <a href="#" id="inside-readmore" class="btn btn-soft-yellow rounded-pill"
               style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0;"
               onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
@@ -417,6 +421,34 @@ export default {
     },
     handleButtonClick(title) {
       console.log(`Button clicked on ${title}`);
+    }
+  },
+  async asyncData({ $axios }) {
+    const serviceCategoryId1 = 113; // กำหนดค่า service_category_id1
+    const serviceCategoryId2 = 114; // กำหนดค่า service_category_id2
+
+    try {
+      const response1 = await $axios.get('/service', {
+        params: { service_category_id: serviceCategoryId1 },
+      });
+
+      const response2 = await $axios.get('/service', {
+        params: { service_category_id: serviceCategoryId2 },
+      });
+
+      const filteredServices1 = response1.data.service.filter(service => service.service_category_id === serviceCategoryId1);
+      const filteredServices2 = response2.data.service.filter(service => service.service_category_id === serviceCategoryId2);
+
+      const combinedServices = [...filteredServices1, ...filteredServices2];
+
+      return {
+        services: Array.isArray(combinedServices) ? combinedServices : [],
+      };
+    } catch (error) {
+      console.error('Error fetching services:', error);
+      return {
+        services: [],
+      };
     }
   }
 }
@@ -741,30 +773,35 @@ img {
   top: 50%;
   left: -50%;
   transform: translate(-50%, -50%);
-  text-align: left; /* Align text to the left */
+  text-align: left;
+  /* Align text to the left */
   color: white;
   border-radius: 10px;
 }
 
 .slide-overlay h3 {
-  font-size: 2.5rem; /* ขนาดตัวอักษรของหัวข้อ */
+  font-size: 2.5rem;
+  /* ขนาดตัวอักษรของหัวข้อ */
   font-weight: bold;
   margin-bottom: 10px;
-  
+
 }
 
 .slide-overlay span {
-  font-size: 1.2rem; /* ขนาดตัวอักษรของข้อความ */
+  font-size: 1.2rem;
+  /* ขนาดตัวอักษรของข้อความ */
   margin-bottom: 30px;
   display: block;
 }
 
 .shop-now-btn {
   padding: 10px 20px;
-  font-size: 1.2rem; /* ขนาดตัวอักษรของปุ่ม */
+  font-size: 1.2rem;
+  /* ขนาดตัวอักษรของปุ่ม */
   font-weight: bold;
   color: white;
-  background-color: #333; /* สีของปุ่ม */
+  background-color: #333;
+  /* สีของปุ่ม */
   border: none;
   border-radius: 50px;
   transition: background-color 0.3s ease;
@@ -773,5 +810,4 @@ img {
 .shop-now-btn:hover {
   background-color: #333;
 }
-
 </style>
