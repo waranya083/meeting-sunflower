@@ -17,80 +17,27 @@
       </div>
     </div>
     <div class="content-container">
-      <div class="d-flex justify-content-center align-items-center about-section">
-        <div class="text-left p-3 about-content">
-          <div class="about-heading-container">
-            <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">
-              <div style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px; display: inline-block;"></div>
-              Livingroom
-            </h2>
+      <div v-if="services && services.length">
+        <div v-for="(service, index) in services" :key="index">
+          <div class="d-flex justify-content-center align-items-center about-section">
+            <div class="text-left p-3 about-content">
+              <div class="about-heading-container">
+                <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">
+                  <div
+                    style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px; display: inline-block;">
+                  </div>
+                  {{ service.title }}
+                </h2>
+              </div>
+              <p class="mb-3 about-text">
+                {{ service.short_detail }}
+              </p>
+              <a href="#" class="btn btn-primary rounded-pill about-btn">Read More</a>
+            </div>
+            <div class="about-image frame" v-if="service.image && service.image.length">
+              <img :src="service.image[0]" alt="Livingroom" class="img-fluid">
+            </div>
           </div>
-          <p class="mb-3 about-text">
-            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl
-            consectetur et.
-          </p>
-          <a href="#" class="btn btn-primary rounded-pill about-btn">Read More</a>
-        </div>
-        <div class="about-image frame">
-          <img src="@/static/service/Livingroom.jpg" alt="Livingroom" class="img-fluid">
-        </div>
-      </div>
-      <div class="d-flex justify-content-center align-items-center about-section">
-        <div class="text-left p-3 about-content">
-          <div class="about-heading-container">
-            <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">
-              <div style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px; display: inline-block;"></div>
-              Bedroom
-            </h2>
-          </div>
-          <p class="mb-3 about-text">
-            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl
-            consectetur et.
-          </p>
-          <a href="#" class="btn btn-primary rounded-pill about-btn">Read More</a>
-        </div>
-        <div class="about-image frame">
-          <img src="@/static/service/Bedroom.jpg" alt="Bedroom" class="img-fluid">
-        </div>
-      </div>
-      <div class="d-flex justify-content-center align-items-center about-section">
-        <div class="text-left p-3 about-content">
-          <div class="about-heading-container">
-            <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">
-              <div style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px; display: inline-block;"></div>
-              Walk-in Closet
-            </h2>
-          </div>
-          <p class="mb-3 about-text">
-            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl
-            consectetur et.
-          </p>
-          <a href="#" class="btn btn-primary rounded-pill about-btn">Read More</a>
-        </div>
-        <div class="about-image frame">
-          <img src="@/static/service/Walk-in Closet.jpg" alt="Walk-in Closet" class="img-fluid">
-        </div>
-      </div>
-      <div class="d-flex justify-content-center align-items-center about-section">
-        <div class="text-left p-3 about-content">
-          <div class="about-heading-container">
-            <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">
-              <div style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px; display: inline-block;"></div>
-              Kitchen
-            </h2>
-          </div>
-          <p class="mb-3 about-text">
-            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl
-            consectetur et.
-          </p>
-          <a href="#" class="btn btn-primary rounded-pill about-btn">Read More</a>
-        </div>
-        <div class="about-image frame">
-          <img src="@/static/service/Kitchen.jpg" alt="Kitchen" class="img-fluid">
         </div>
       </div>
     </div>
@@ -110,7 +57,27 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0); // Ensure the page scrolls to the top on reload
-  }
+  },
+  async asyncData({ $axios }) {
+    const serviceCategoryId = 114; // กำหนดค่า service_category_id
+
+    try {
+      const response = await $axios.get('/service', {
+        params: { service_category_id: serviceCategoryId },
+      });
+
+      const filteredServices = response.data.service.filter(service => service.service_category_id === serviceCategoryId);
+
+      return {
+        services: Array.isArray(filteredServices) ? filteredServices : [],
+      };
+    } catch (error) {
+      console.error('Error fetching services:', error);
+      return {
+        services: [],
+      };
+    }
+  },
 }
 </script>
 
@@ -175,6 +142,7 @@ button {
   align-items: center;
   flex-direction: column;
 }
+
 .frame {
   border-radius: 180px 0px 0px 180px;
   /* ปรับค่านี้เพื่อให้เฉพาะมุมซ้ายบนโค้ง */
@@ -192,18 +160,22 @@ button {
   object-fit: cover;
   align-self: flex-start;
 }
+
 .about-section {
   display: flex;
   justify-content: start;
-  margin-bottom: -10%; /* ลบช่องว่างด้านล่างของแต่ละ section */
+  margin-bottom: -10%;
+  /* ลบช่องว่างด้านล่างของแต่ละ section */
 }
 
 .about-content {
-  max-width: 60%; /* ควบคุมความกว้างสูงสุด */
+  max-width: 60%;
+  /* ควบคุมความกว้างสูงสุด */
   margin-left: 150px;
   padding-right: 30px;
   margin-top: 30px;
 }
+
 .about-text {
   font-size: 1.2rem;
   line-height: 1.2;
