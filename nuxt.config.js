@@ -39,6 +39,15 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.ico$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash:7].[ext]'
+        }
+      });
+    }
   },
 
   _layers: []
