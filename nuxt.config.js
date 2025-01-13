@@ -35,10 +35,23 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios'
   ],
+  axios: {
+    baseURL: 'http://127.0.0.1:8000/api', // URL API ของ Laravel
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.ico$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash:7].[ext]'
+        }
+      });
+    }
   },
 
   _layers: []
