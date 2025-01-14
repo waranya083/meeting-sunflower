@@ -2,7 +2,7 @@
   <div class="page-container">
     <HeaderComponent class="header-section" />
     <div class="banner bg-overlay bg-overlay-400 bg-dark"
-      style="background-image: url('/banner/aboutbn.png'); height: 50vh; background-position: bottom;">
+      :style="{ backgroundImage: 'url(' + bannerAboutUs + ')', height: '50vh', backgroundPosition: 'bottom' }">
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
           <h1 class="text-white">About Us</h1>
@@ -116,10 +116,6 @@ export default {
     HeaderComponent,
     FooterComponent
   },
-  data() {
-    return {
-    }
-  },
   mounted() {
     const slider = document.querySelector('.about-image');
     const images = slider.querySelectorAll('img');
@@ -134,6 +130,25 @@ export default {
         });
       });
     });
+  },
+  async asyncData({ $axios }) {
+
+    try {
+      const websiteResponse = await $axios.get('/website'); // ปรับ URL ให้ตรงกับ API ของคุณ
+      const websiteData = websiteResponse.data;
+      const bannerAboutUs = websiteData.banneraboutus || null; // ดึงข้อมูล banneraboutus
+
+      return {
+        bannerAboutUs, // ส่ง bannerAboutUs กลับไปด้วย
+      };
+    } catch (error) {
+      console.error('Error fetching data:', error.message || error);
+
+      // กรณีเกิดข้อผิดพลาด ส่งค่า default กลับไป
+      return {
+        bannerAboutUs: null, // ส่ง null ถ้าหากเกิดข้อผิดพลาด
+      };
+    }
   }
 }
 </script>

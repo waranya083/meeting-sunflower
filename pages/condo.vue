@@ -2,7 +2,7 @@
   <div class="page-container">
     <HeaderComponent class="header-section" />
     <div class="banner bg-overlay bg-overlay-400 bg-dark"
-      style="background-image:url('/banner/servicebn.png'); height: 50vh; background-position: bottom;">
+      :style="{ backgroundImage: 'url(' + bannerService + ')', height: '50vh', backgroundPosition: 'bottom' }">
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
           <h1 class="text-white">รับออกแบบตกแต่งภายในคอนโด</h1>
@@ -50,7 +50,7 @@ import HeaderComponent from '~/components/Header.vue';
 import FooterComponent from '~/components/Footer.vue';
 
 export default {
-  name: 'home',
+  name: 'condo',
   components: {
     HeaderComponent,
     FooterComponent
@@ -62,22 +62,37 @@ export default {
     const serviceCategoryId = 114; // กำหนดค่า service_category_id
 
     try {
+      // ดึงข้อมูล services จาก API
       const response = await $axios.get('/service', {
         params: { service_category_id: serviceCategoryId },
       });
 
-      const filteredServices = response.data.service.filter(service => service.service_category_id === serviceCategoryId);
+      // ดึงข้อมูลเว็บไซต์เพื่อรับข้อมูล banneraboutus
+      const websiteResponse = await $axios.get('/website'); // ปรับ URL ให้ตรงกับ API ของคุณ
+      const websiteData = websiteResponse.data;
+      const bannerService = websiteData.bannerservice || null; // ดึงข้อมูล banneraboutus
+
+
+      // ตรวจสอบว่า response มีข้อมูลหรือไม่
+      const filteredServices = (response.data?.service || []).filter(
+        (service) => service.service_category_id === serviceCategoryId
+      );
 
       return {
         services: Array.isArray(filteredServices) ? filteredServices : [],
+        bannerService, // ส่ง bannerAboutUs กลับไปด้วย
+
       };
     } catch (error) {
-      console.error('Error fetching services:', error);
+      console.error('Error fetching services:', error.message || error);
+
+      // กรณีเกิดข้อผิดพลาด ส่งค่า default กลับไป
       return {
         services: [],
+        bannerService: null, // ส่ง null ถ้าหากเกิดข้อผิดพลาด
       };
     }
-  },
+  }
 }
 </script>
 
