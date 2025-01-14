@@ -2,7 +2,7 @@
   <div class="page-container">
     <HeaderComponent class="header-section" />
     <div class="banner bg-overlay bg-overlay-400 bg-dark"
-      style="background-image:url('/banner/servicebn.png'); height: 50vh; background-position: bottom;">
+      style="background-image:url('/banner/servicebn.png'); height: 60vh; background-position: bottom;">
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center banner-text">
           <h1 class="text-white banner-title">รับออกแบบตกแต่งภายในบ้าน</h1>
@@ -158,7 +158,7 @@ button {
 .content-container {
   width: 100%;
   flex: 1;
-  margin-top: 70vh;
+  margin-top: 80vh;
   /* Reduce the margin-top to move content closer to the banner */
 }
 

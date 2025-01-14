@@ -2,7 +2,7 @@
   <div class="page-container">
     <HeaderComponent class="header-section" />
     <div class="banner bg-overlay bg-overlay-400 bg-dark"
-      style="background-image: url('/banner/aboutbn.png'); height: 50vh; background-position: bottom;">
+      style="background-image: url('/banner/aboutbn.png'); height: 60vh; background-position: bottom;">
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
           <h1 class="text-white">About Us</h1>
@@ -276,11 +276,10 @@ button {
 
 .content-container {
   width: 100%;
-  padding: 20px;
-  /* Add padding to ensure content is not hidden */
+
   flex: 1;
   /* Ensure content container takes available space */
-  margin-top: 40vh;
+  margin-top: 55vh;
   /* Add margin to push content below the banner */
   overflow-x: hidden;
   /* Prevent horizontal scrolling */
