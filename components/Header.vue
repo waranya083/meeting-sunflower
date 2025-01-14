@@ -9,25 +9,25 @@
       <div class="logo">
         <img src="@/static/logo.png" alt="Sunflower House Logo">
       </div>
-      <div class="menu" :class="{ 'menu-open': isMenuOpen }">
-        <nuxt-link to="/" exact-active-class="active-tab">Home</nuxt-link>
-        <nuxt-link to="/about" exact-active-class="active-tab">About Us</nuxt-link>
+      <nav class="flex gap-x-1 menu" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
+        <nuxt-link to="/" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="true" aria-controls="home-tab">Home</nuxt-link>
+        <nuxt-link to="/about" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false" aria-controls="about-tab">About Us</nuxt-link>
         <div class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn" :class="{ 'active-tab': isDropdownOpen }" @click="toggleDropdown">Service</a>
+          <a href="javascript:void(0)" class="dropbtn menu-item" :class="{ 'active-tab': isDropdownOpen || $route.path === '/home' || $route.path === '/condo' }" @click="toggleDropdown" role="tab" aria-selected="false" aria-controls="service-tab">Service</a>
           <div class="dropdown-content" :class="{ 'dropdown-open': isDropdownOpen }">
-            <nuxt-link to="/home" exact-active-class="active-tab"><i class="fas fa-home"></i> รับออกแบบตกแต่งภายใน บ้าน</nuxt-link>
-            <nuxt-link to="/condo" exact-active-class="active-tab"><i class="fas fa-building"></i> รับออกแบบตกแต่งภายใน คอนโด</nuxt-link>
+            <nuxt-link to="/home" exact-active-class="active-tab" class="menu-item"><i class="fas fa-home"></i> รับออกแบบตกแต่งภายใน บ้าน</nuxt-link>
+            <nuxt-link to="/condo" exact-active-class="active-tab" class="menu-item"><i class="fas fa-building"></i> รับออกแบบตกแต่งภายใน คอนโด</nuxt-link>
           </div>
         </div>
-        <nuxt-link to="/portfolio" exact-active-class="active-tab">Portfolio</nuxt-link>
-        <nuxt-link to="/contact" exact-active-class="active-tab">Contact Us</nuxt-link>
+        <nuxt-link to="/portfolio" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false" aria-controls="portfolio-tab">Portfolio</nuxt-link>
+        <nuxt-link to="/contact" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false" aria-controls="contact-tab">Contact Us</nuxt-link>
         <div class="social-icons">
           <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-line"></i></a>
           <a href="#"><i class="fas fa-phone"></i></a>
           <a href="#"><i class="fas fa-envelope"></i></a>
         </div>
-      </div>
+      </nav>
       <div class="hamburger" @click="toggleMenu">
         <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
       </div>
@@ -136,6 +136,22 @@ export default {
   text-align: center;
 }
 
+.menu-item {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  padding: 8px 16px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.menu-item:hover,
+.menu-item:focus,
+.menu-item.active-tab,
+.nuxt-link-exact-active {
+  background-color: white;
+  border-color: none;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -143,10 +159,8 @@ export default {
 
 .dropbtn {
   font-size: 1.1rem;
-  border: none;
   cursor: pointer;
   font-family: 'Athiti', sans-serif;
-  background-color: transparent;
   color: #333;
 }
 
@@ -157,6 +171,7 @@ export default {
   min-width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  border-radius: 10px; /* Add border-radius to make corners rounded */
 }
 
 .dropdown-content.dropdown-open {
@@ -313,6 +328,7 @@ export default {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    border-radius: 10px; /* Add border-radius to make corners rounded */
   }
 
   .dropdown-content nuxt-link {
@@ -357,11 +373,5 @@ export default {
   .header .promo button {
     padding: 3px 6px;
   }
-}
-
-.active-tab {
-  background-color: white;
-  border-radius: 15px;
-   /* Reduce padding to make the button shorter */
 }
 </style>
