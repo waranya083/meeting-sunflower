@@ -210,6 +210,120 @@
                   <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
                 </div>
               </div>
+      <div class=" d-flex justify-content-start align-items-center"
+      style="display: flex; padding: 0; margin-top: -150px;">
+      <div class="text-left p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto;">
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+          <div
+            style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px;">
+          </div>
+          <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">6 Steps to Service</h2>
+        </div>
+        <p class="mb-3" style="font-size: 1.2rem; line-height: 1.2; margin-top: 0; margin-bottom: 30px;">
+          Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
+          dapibus ac facilisis in, egestas eget quam.
+        </p>
+      </div>
+  </div>
+  <div class="grid-container"
+    style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; max-width: 1200px; margin: auto;">
+    <!-- Consultation -->
+    <div class="grid-item-container" style="text-align: center;">
+      <div class="grid-item"
+        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+        <img src="@/static/step/conversation.png" alt="conversation" class="zoom-effect-step"
+          style="width: 60px; height: 60px; object-fit: cover;">
+      </div>
+      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Consultation</h3>
+    </div>
+    <!-- Estimate Price -->
+    <div class="grid-item-container" style="text-align: center;">
+      <div class="grid-item"
+        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+        <img src="@/static/step/Estimate.png" alt="Estimate Price" class="zoom-effect-step"
+          style="width: 60px; height: 60px; object-fit: cover;">
+      </div>
+      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Estimate Price</h3>
+    </div>
+    <!-- Drafting 3D -->
+    <div class="grid-item-container" style="text-align: center;">
+      <div class="grid-item"
+        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+        <img src="@/static/step/Drafting.png" alt="Drafting" class="zoom-effect-step"
+          style="width: 60px; height: 60px; object-fit: cover;">
+      </div>
+      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Drafting 3D</h3>
+    </div>
+    <!-- Built-in Installation -->
+    <div class="grid-item-container" style="text-align: center;">
+      <div class="grid-item"
+        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+        <img src="@/static/step/Built-in.png" alt="Built-in" class="zoom-effect-step"
+          style="width: 60px; height: 60px; object-fit: cover;">
+      </div>
+      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Built-in installation</h3>
+    </div>
+    <!-- Project Delivery -->
+    <div class="grid-item-container" style="text-align: center;">
+      <div class="grid-item"
+        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+        <img src="@/static/step/Project.png" alt="Project" class="zoom-effect-step"
+          style="width: 60px; height: 60px; object-fit: cover;">
+      </div>
+      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Project delivery</h3>
+    </div>
+    <!-- Warranty -->
+    <div class="grid-item-container" style="text-align: center;">
+      <div class="grid-item"
+        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+        <img src="@/static/step/warranty.png" alt="Warranty" class="zoom-effect-step"
+          style="width: 60px; height: 60px; object-fit: cover;">
+      </div>
+      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">1 year warranty</h3>
+    </div>
+  </div>
+  </section>
+  <!-- End of new section -->
+  <section wapper class="design-section">
+    <div class="d-flex justify-content-center align-items-center"
+      style="min-height: 60vh; padding: 0; margin-top: 50px;">
+      <div class="text-center p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto;">
+        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+          <div
+            style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px;">
+          </div>
+          <h2 id="design-option1" class="text-uppercase mb-2"
+            :class="{ 'text-muted': currentDesign !== 'house', 'text-bold': currentDesign === 'house' }"
+            style="font-size: 1.3rem; cursor: pointer;" @click="toggleDesign('house')">
+            รับออกแบบตกแต่งภายในบ้าน
+          </h2>
+          <span style="margin: 0 5px; ">/</span>
+          <h3 id="design-option2" class="text-uppercase mb-2"
+            :class="{ 'text-muted': currentDesign !== 'condo', 'text-bold': currentDesign === 'condo' }"
+            style="font-size: 1.3rem; cursor: pointer;" @click="toggleDesign('condo')">
+            รับออกแบบตกแต่งภายในคอนโด
+          </h3>
+        </div>
+        <!-- ตกแต่งภายในบ้าน -->
+        <div v-if="currentDesign === 'house'">
+          <div v-if="services && services.length">
+            <!-- กรองเฉพาะ service ที่มี service_category_id === 113 -->
+            <div id="outside-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+              <!-- 2 รูปแรก (แนวตั้ง) -->
+              <div style="display: grid; gap: 20px;">
+                <div class="grid-item" style="position: relative;"
+                  v-for="(service, index) in services.filter(service => service.service_category_id === 113).slice(0, 2)"
+                  :key="index">
+                  <div v-if="service.image && service.image.length">
+                    <img :src="service.image[0]" :alt="service.title" class="zoom-effect-left"
+                      style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
+                  </div>
+                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
+                    {{ service.title }}
+                  </p>
+                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
 
               <!-- 2 รูปหลัง (แนวนอน) -->
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
@@ -289,7 +403,21 @@
       style="min-height: 80vh; padding: 0; margin-top: 50px;">
       <div class="text-center p-3"
         style="width: 100%; max-width: 1200px; font-size: 1.1rem; margin: auto; border-radius: 30px; overflow: hidden;">
+  <section id="video-showcase">
+    <div class="d-flex justify-content-center align-items-center"
+      style="min-height: 80vh; padding: 0; margin-top: 50px;">
+      <div class="text-center p-3"
+        style="width: 100%; max-width: 1200px; font-size: 1.1rem; margin: auto; border-radius: 30px; overflow: hidden;">
 
+        <!-- วิดีโอ -->
+        <video autoplay controls preload="auto"
+          style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 20px;">
+          <source src="@/static/video/room-video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
         <!-- วิดีโอ -->
         <video autoplay controls preload="auto"
           style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 20px;">
@@ -348,6 +476,38 @@
   </section>
   <!-- /section -->
 
+  <section class="section-spacing">
+    <div>
+      <div class="d-flex justify-content-center align-items-center" style="display: flex; margin-top: 50px;">
+        <div class="text-center p-3" :style="{
+          width: '1200px',
+          height: '450px',
+          fontSize: '1.1rem',
+          margin: 'auto',
+          marginBottom: '50px',
+          backgroundImage: `url(${require('@/static/contact.png')})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          borderRadius: '10px',
+          color: '#333',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }">
+          <div class="about-us" style="font-family: 'Athiti', sans-serif; text-align: center;">
+            <h2 class="widget-title text-center" style="font-size: 1.5rem; font-weight: 150px;">Get in Touch</h2>
+            <p class="widget-title text-center mb-0" style="font-size: 1.1rem;">
+              Have any questions? Reach out to us from our contact <br>
+              form and we will get back to you shortly.
+            </p>
+            <a href="#" class="cta-button"
+              style="padding: 10px 20px; background-color: #fff; color: #333; text-decoration: none; border-radius: 25px; margin-top: 20px; display: inline-block;">Contact
+              Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="section-spacing">
     <div>
       <div class="d-flex justify-content-center align-items-center" style="display: flex; margin-top: 50px;">
@@ -601,14 +761,7 @@ h2 {
   transform: scale(1.05);
 }
 
-/* Added styles for yellow dot */
-.yellow-dot {
-  width: 10px;
-  height: 10px;
-  background-color: rgb(249, 204, 56);
-  border-radius: 50%;
-  margin-right: 5px;
-}
+
 
 /* Styles for new section */
 .grid-item {
@@ -754,12 +907,7 @@ h2 {
   height: 300px;
 }
 
-.container-fluid {
-  padding-top: 10px;
-  /* Reduce top padding */
-  padding-bottom: 10px;
-  /* Reduce bottom padding */
-}
+
 
 img {
   width: 100%;
@@ -804,6 +952,14 @@ img {
   font-size: 1.2rem;
   margin-bottom: 30px;
   display: block;
+  max-width: 700px;
+  /* Adjust the width to fit the text */
+  white-space: normal;
+  /* Allow text to wrap */
+  overflow: hidden;
+  /* Hide overflow */
+  text-overflow: ellipsis;
+  /* Add ellipsis for overflow text */
 }
 
 .shop-now-btn {
@@ -814,7 +970,8 @@ img {
   background-color: #333;
   border: none;
   border-radius: 50px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Add transition for color */
 }
 
 .shop-now-btn:hover {

@@ -1,5 +1,44 @@
 import axios from 'axios';
 
+<<<<<<< HEAD
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: [
+    'swiper/swiper-bundle.css'
+  ],
+
+  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  plugins: [
+  ],
+
+  // Auto import components: https://go.nuxtjs.dev/config-components
+  components: true,
+
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/tailwindcss',
+  ],
+
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/axios'
+  ],
+  axios: {
+    baseURL: 'http://127.0.0.1:8000/api', // URL API ของ Laravel
+  },
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.ico$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash:7].[ext]'
+        }
+      });
+=======
 export default async () => {
   let websiteTitle = 'meeting-sunflower'; // ค่าเริ่มต้น
 
@@ -8,6 +47,7 @@ export default async () => {
     const response = await axios.get('http://127.0.0.1:8000/api/website');
     if (response.data && response.data.title) {
       websiteTitle = response.data.title; // ใช้ title จาก API
+>>>>>>> f8cf6f5 (เพิ่ม banner)
     }
   } catch (error) {
     console.error('Error fetching website title:', error);

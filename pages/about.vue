@@ -2,7 +2,11 @@
   <div class="page-container">
     <HeaderComponent class="header-section" />
     <div class="banner bg-overlay bg-overlay-400 bg-dark"
+<<<<<<< HEAD
+      style="background-image: url('/banner/aboutbn.png'); height: 60vh; background-position: bottom;">
+=======
       :style="{ backgroundImage: 'url(' + bannerAboutUs + ')', height: '50vh', backgroundPosition: 'bottom' }">
+>>>>>>> f8cf6f5 (เพิ่ม banner)
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
           <h1 class="text-white">About Us</h1>
@@ -22,11 +26,11 @@
         <div class="container-fluid">
           <div class="d-flex justify-content-start align-items-center about-section">
             <div class="text-left p-3 about-content">
-              <div class="d-flex align-items-center mb-2">
+              <div style="display: flex; align-items: center; margin-bottom: 10px;">
                 <div
-                  style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px;">
+                  style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 10px;">
                 </div>
-                <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">About Us</h2>
+                <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">About us</h2>
               </div>
               <p class="mb-3 about-text">
                 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
@@ -53,9 +57,11 @@
         <div class="container-fluid">
           <div class="d-flex align-items-center mission-section">
             <div class="text-left p-3 mission-content">
-              <div class="d-flex align-items-center mb-2">
-                <div class="yellow-dot mr-2"></div>
-                <h2 class="text-bold mb-2 about-heading">Meet the Team</h2>
+              <div style="display: flex; align-items: center; ">
+                <div
+                  style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 10px;">
+                </div>
+                <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">Meet the Team</h2>
               </div>
               <p class=" mb-3 about-text">
                 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
@@ -68,7 +74,7 @@
                 <img src="@/static/picture.png" alt="Image 1" class="img-fluid rounded-circle"
                   data-v-inspector="pages/about.vue:62:44">
                 <div class="image-caption" data-v-inspector="pages/about.vue:63:19">
-                  <p data-v-inspector="pages/about.vue:64:19">Jackie Sanders</p>
+                  <p data-v-inspector="pages/about.vue:64:19" style="font-size: 1.2rem; font-weight: 600;">Jackie Sanders</p>
                 </div>
                 <p data-v-inspector="pages/about.vue:66:19">CEO</p>
               </div>
@@ -76,7 +82,7 @@
                 <img src="@/static/picture.png" alt="Image 2" class="img-fluid rounded-circle"
                   data-v-inspector="pages/about.vue:68:44">
                 <div class="image-caption" data-v-inspector="pages/about.vue:69:19">
-                  <p data-v-inspector="pages/about.vue:70:19">Cory Zamora</p>
+                  <p data-v-inspector="pages/about.vue:70:19"style="font-size: 1.2rem;font-weight: 600;">Cory Zamora</p>
                 </div>
                 <p data-v-inspector="pages/about.vue:72:19">Marketing Specialist</p>
               </div>
@@ -88,15 +94,86 @@
         <div class="container-fluid">
           <div class="d-flex align-items-center Company-section">
             <div class="text-left p-3 Company-content">
-              <div class="d-flex align-items-center mb-2">
-                <div class="yellow-dot mr-2"></div>
-                <h2 class="text-bold mb-2 about-heading">Company Facts</h2>
+              <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                <div
+                  style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 10px;">
+                </div>
+                <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">Company Facts</h2>
               </div>
               <p class="mb-3 about-text"> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
                 ridiculus mus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus
                 magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Donec sed odio dui.</p>
             </div>
+          </div>
+          <div class="progressbar-container">
+            <!-- Gauge Component 1 -->
+            <div class="relative size-40">
+              <svg class="size-half rotate-180" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Circle (Gauge) -->
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-orange-200 dark:text-orange-200" stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
+                <!-- Gauge Progress -->
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-orange-600 dark:text-orange-500" stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
+              </svg>
+              <!-- Value Text -->
+              <div class="absolute top-10 start-1/2 transform -translate-x-1/2 text-center" style="width: 150px;">
+                <span class="text-4xl font-bold text-orange-600 dark:text-orange-500">50%</span>
+                <p class="text-l text-orange-600 dark:text-orange-500 block mt-1">New Visitors</p>
+                <p class="text-center mt-1">This is the average score.</p>
+              </div>
+            </div>
+            <!-- End Gauge Component 1 -->
+
+            <!-- Gauge Component 2 -->
+            <div class="relative size-40">
+              <svg class="size-full rotate-180" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Circle (Gauge) -->
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-green-200 dark:text-green-200" stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
+                <!-- Gauge Progress -->
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-green-600 dark:text-green-500" stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
+              </svg>
+              <!-- Value Text -->
+              <div class="absolute top-10 start-1/2 transform -translate-x-1/2 text-center" style="width: 150px;">
+                <span class="text-4xl font-bold text-green-600 dark:text-green-500">75%</span>
+                <p class="text-l text-green-600 dark:text-green-500 block mt-1">New Visitors</p>
+                <p class="text-center mt-1">This is the average score.</p>
+              </div>
+            </div>
+            <!-- End Gauge Component 2 -->
+
+            <!-- Gauge Component 3 -->
+            <div class="relative size-40">
+              <svg class="size-full rotate-180" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Circle (Gauge) -->
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-blue-200 dark:text-blue-200" stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
+                <!-- Gauge Progress -->
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-blue-600 dark:text-blue-500" stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
+              </svg>
+              <!-- Value Text -->
+              <div class="absolute top-10 start-1/2 transform -translate-x-1/2 text-center" style="width: 150px;">
+                <span class="text-4xl font-bold text-blue-600 dark:text-blue-500">60%</span>
+                <p class="text-l text-blue-600 dark:text-blue-500 block mt-1">New Visitors</p>
+                <p class="text-center mt-1">This is the average score.</p>
+              </div>
+            </div>
+            <!-- End Gauge Component 3 -->
+
+            <!-- Gauge Component 4 -->
+            <div class="relative size-40">
+              <svg class="size-full rotate-180" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Circle (Gauge) -->
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-red-200 dark:text-red-200" stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
+                <!-- Gauge Progress -->
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-red-600 dark:text-red-500" stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
+              </svg>
+              <!-- Value Text -->
+              <div class="absolute top-10 start-1/2 transform -translate-x-1/2 text-center" style="width: 150px;">
+                <span class="text-4xl font-bold text-red-600 dark:text-red-500">80%</span>
+                <p class="text-l text-red-600 dark:text-red-500 block mt-1">New Visitors</p>
+                <p class="text-center mt-1">This is the average score.</p>
+              </div>
+            </div>
+            <!-- End Gauge Component 4 -->
           </div>
         </div>
       </section>
@@ -130,6 +207,15 @@ export default {
         });
       });
     });
+<<<<<<< HEAD
+
+    // Set progress bar values
+    const progressBars = document.querySelectorAll('.progressbar');
+    progressBars.forEach(bar => {
+      const value = bar.getAttribute('data-value');
+      bar.style.setProperty('--percentage', value);
+    });
+=======
   },
   async asyncData({ $axios }) {
 
@@ -149,6 +235,7 @@ export default {
         bannerAboutUs: null, // ส่ง null ถ้าหากเกิดข้อผิดพลาด
       };
     }
+>>>>>>> f8cf6f5 (เพิ่ม banner)
   }
 }
 </script>
@@ -211,11 +298,10 @@ button {
 
 .content-container {
   width: 100%;
-  padding: 20px;
-  /* Add padding to ensure content is not hidden */
+
   flex: 1;
   /* Ensure content container takes available space */
-  margin-top: 70vh;
+  margin-top: 55vh;
   /* Add margin to push content below the banner */
   overflow-x: hidden;
   /* Prevent horizontal scrolling */
@@ -255,7 +341,8 @@ button {
 .about-section {
   display: flex;
   flex-wrap: wrap;
-
+  margin-top: 20px;
+  /* Adjusted margin-top to move the section up */
   /* Move the "About us" section down slightly */
 }
 
@@ -320,7 +407,7 @@ button {
 
 
 .about-text {
-  color: #666;
+  color: #414042;
   font-size: 1.2rem;
 }
 
@@ -362,7 +449,9 @@ button {
   color: #666;
   font-size: 14px;
 }
-
+.image-caption p {
+  color: black;
+}
 .container-fluid .mission-section {
   max-width: 100%;
 
@@ -371,7 +460,6 @@ button {
 .mission-section {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px;
   /* Move the "Our Mission" section down slightly */
   background-color: #F5F5F5;
   /* Change background color */
@@ -399,10 +487,6 @@ button {
   /* Center the section */
 }
 
-.Company-section {
-  border-radius: 8px;
-  padding: 20px;
-}
 
 .yellow-dot {
   width: 10px;
@@ -460,6 +544,22 @@ button {
 h1 {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.progressbar-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.progressbar {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  text-align: center;
 }
 
 </style>
