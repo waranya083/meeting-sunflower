@@ -2,11 +2,7 @@
   <div class="page-container">
     <HeaderComponent class="header-section" />
     <div class="banner bg-overlay bg-overlay-400 bg-dark"
-<<<<<<< HEAD
-      style="background-image:url('/banner/servicebn.png'); height: 60vh; background-position: bottom;">
-=======
       :style="{ backgroundImage: 'url(' + bannerService + ')', height: '50vh', backgroundPosition: 'bottom' }">
->>>>>>> f8cf6f5 (เพิ่ม banner)
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
           <h1 class="text-white">รับออกแบบตกแต่งภายในคอนโด</h1>
@@ -44,9 +40,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="d-flex justify-content-center" style="margin-top: 30px; margin-bottom: 60px;">
-      <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
     </div>
     <FooterComponent class="footer-section" /> <!-- Ensure this is correctly placed -->
   </div>
@@ -153,7 +146,7 @@ button {
 .content-container {
   width: 100%;
   flex: 1;
-  margin-top: 80vh;
+  margin-top: 70vh;
   /* Reduce the margin-top to move content closer to the banner */
 }
 
@@ -196,7 +189,6 @@ button {
   margin-left: 150px;
   padding-right: 30px;
   margin-top: 30px;
-  text-align: left; /* Align text to the left */
 }
 
 .about-text {
@@ -252,115 +244,5 @@ h1 {
 
 .breadcrumb-link {
   font-size: 1.3rem;
-}
-
-.work-btn {
-  /* Increase margin-bottom to create more space from the bottom edge */
-  padding: 10px 40px;
-  font-size: 1.2rem;
-  text-align: center;
-  border-radius: 50px;
-  background-color: #333;
-  color: white;
-  border: none;
-  transition: background-color 0.3s ease;
-  position: relative;
-  /* เพื่อให้สามารถวางลูกศรได้ */
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.work-btn:hover {
-  background-color: #555;
-}
-
-.work-btn::after {
-  content: "\2192";
-  /* เพิ่มลูกศร */
-  position: absolute;
-  right: 20px;
-  /* ระยะห่างจากขอบปุ่ม */
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  /* ขนาดลูกศร */
-  color: white;
-  /* สีลูกศร */
-}
-
-.about-image img {
-  width: 100%;
-  height: auto;
-  max-width: 300px; /* Set a maximum width for the image */
-}
-
-@media (min-width: 769px) {
-  .about-image img {
-    max-width: none; /* Remove the maximum width for larger screens */
-  }
-}
-
-@media (max-width: 768px) {
-  .banner {
-    height: 70vh;
-  }
-
-  h1 {
-    font-size: 1.2rem;
-  }
-
-  .about-section {
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-
-  .about-content {
-    max-width: 100%;
-    margin-left: 0;
-    padding-right: 0;
-    text-align: left; /* Align text to the left */
-  }
-
-  .about-image {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-  }
-
-  .work-btn {
-    width: 80%;
-    padding: 10px 20px;
-  }
-
-  .about-image img {
-    max-width: 200px; /* Adjust the maximum width for smaller screens */
-  }
-}
-
-@media (max-width: 576px) {
-  .banner {
-    height: 30vh;
-  }
-
-  h1 {
-    font-size: 1rem;
-  }
-
-  .breadcrumb-link {
-    font-size: 1rem;
-  }
-
-  .about-text {
-    font-size: 1rem;
-  }
-
-  .work-btn {
-    width: 100%;
-    padding: 30px 40px;
-  }
-
-  .about-image img {
-    max-width: 150px; /* Adjust the maximum width for even smaller screens */
-  }
 }
 </style>
