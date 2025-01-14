@@ -41,6 +41,9 @@
         </div>
       </div>
     </div>
+    <div class="d-flex justify-content-center" style="margin-top: 30px; margin-bottom: 60px;">
+      <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
+    </div>
     <FooterComponent class="footer-section" /> <!-- Ensure this is correctly placed -->
   </div>
 </template>
@@ -229,5 +232,39 @@ h1 {
 
 .breadcrumb-link {
   font-size: 1.3rem;
+}
+
+.work-btn {
+  /* Increase margin-bottom to create more space from the bottom edge */
+  padding: 10px 40px;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 50px;
+  background-color: #333;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+  position: relative;
+  /* เพื่อให้สามารถวางลูกศรได้ */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.work-btn:hover {
+  background-color: #555;
+}
+
+.work-btn::after {
+  content: "\2192";
+  /* เพิ่มลูกศร */
+  position: absolute;
+  right: 20px;
+  /* ระยะห่างจากขอบปุ่ม */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  /* ขนาดลูกศร */
+  color: white;
+  /* สีลูกศร */
 }
 </style>

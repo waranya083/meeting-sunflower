@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" style="margin-top: 30px; margin-bottom: 60px;">
       <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
     </div>
     <FooterComponent class="footer-section" /> <!-- Ensure this is correctly placed -->
@@ -212,8 +212,6 @@ button {
 }
 
 .work-btn {
-  margin-top: 20px;
-  margin-bottom: 10%;
   /* Increase margin-bottom to create more space from the bottom edge */
   padding: 10px 40px;
   font-size: 1.2rem;
