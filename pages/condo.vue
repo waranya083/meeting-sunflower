@@ -177,6 +177,7 @@ button {
   margin-left: 150px;
   padding-right: 30px;
   margin-top: 30px;
+  text-align: left; /* Align text to the left */
 }
 
 .about-text {
@@ -266,5 +267,81 @@ h1 {
   /* ขนาดลูกศร */
   color: white;
   /* สีลูกศร */
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  max-width: 300px; /* Set a maximum width for the image */
+}
+
+@media (min-width: 769px) {
+  .about-image img {
+    max-width: none; /* Remove the maximum width for larger screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 70vh;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .about-section {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .about-content {
+    max-width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    text-align: left; /* Align text to the left */
+  }
+
+  .about-image {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .work-btn {
+    width: 80%;
+    padding: 10px 20px;
+  }
+
+  .about-image img {
+    max-width: 200px; /* Adjust the maximum width for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .banner {
+    height: 30vh;
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  .breadcrumb-link {
+    font-size: 1rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .work-btn {
+    width: 100%;
+    padding: 30px 40px;
+  }
+
+  .about-image img {
+    max-width: 150px; /* Adjust the maximum width for even smaller screens */
+  }
 }
 </style>
