@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
     <HeaderComponent class="header-section" />
-    <div class="banner bg-overlay bg-overlay-400 bg-dark" style="background-image:url('/banner/servicebn.png'); height: 50vh; background-position: bottom;">
+    <div class="banner bg-overlay bg-overlay-400 bg-dark" style="background-image:url('/banner/servicebn.png'); height: 60vh; background-position: bottom;">
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
           <h1 class="text-white">Contact</h1>

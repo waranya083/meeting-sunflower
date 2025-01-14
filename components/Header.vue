@@ -13,8 +13,8 @@
         <nuxt-link to="/" exact-active-class="active-tab">Home</nuxt-link>
         <nuxt-link to="/about" exact-active-class="active-tab">About Us</nuxt-link>
         <div class="dropdown">
-          <nuxt-link to="/service" exact-active-class="active-tab">Service</nuxt-link>
-          <div class="dropdown-content">
+          <a href="javascript:void(0)" class="dropbtn" :class="{ 'active-tab': isDropdownOpen }" @click="toggleDropdown">Service</a>
+          <div class="dropdown-content" :class="{ 'dropdown-open': isDropdownOpen }">
             <nuxt-link to="/home" exact-active-class="active-tab"><i class="fas fa-home"></i> รับออกแบบตกแต่งภายใน บ้าน</nuxt-link>
             <nuxt-link to="/condo" exact-active-class="active-tab"><i class="fas fa-building"></i> รับออกแบบตกแต่งภายใน คอนโด</nuxt-link>
           </div>
@@ -40,12 +40,17 @@ export default {
   name: 'HeaderComponent',
   data() {
     return {
-      isMenuOpen: false
+      isMenuOpen: false,
+      isDropdownOpen: false
     };
   },
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
+    },
+    toggleDropdown(event) {
+      event.preventDefault();
+      this.isDropdownOpen = !this.isDropdownOpen;
     }
   }
 }
@@ -99,7 +104,7 @@ export default {
 .nav .logo {
   display: flex;
   align-items: center;
-  margin-left: 100px;
+  margin-left: 70px;
 }
 
 .nav .logo img {
@@ -154,7 +159,7 @@ export default {
   z-index: 1;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown-content.dropdown-open {
   display: block;
 }
 

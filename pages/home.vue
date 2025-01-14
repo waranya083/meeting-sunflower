@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" style="margin-top: 30px; margin-bottom: 60px;">
       <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
     </div>
     <FooterComponent class="footer-section" /> <!-- Ensure this is correctly placed -->
@@ -166,7 +166,7 @@ button {
 .content-container {
   width: 100%;
   flex: 1;
-  margin-top: 70vh;
+  margin-top: 80vh;
   /* Reduce the margin-top to move content closer to the banner */
 }
 
@@ -195,6 +195,12 @@ button {
   align-self: flex-start;
 }
 
+.about-image img {
+  width: 100%;
+  height: auto;
+  max-width: 300px; /* Set a maximum width for the image */
+}
+
 .about-section {
   display: flex;
   justify-content: start;
@@ -208,6 +214,7 @@ button {
   margin-left: 150px;
   padding-right: 30px;
   margin-top: 30px;
+  text-align: left; /* Align text to the left */
 }
 
 .about-text {
@@ -220,8 +227,6 @@ button {
 }
 
 .work-btn {
-  margin-top: 20px;
-  margin-bottom: 10%;
   /* Increase margin-bottom to create more space from the bottom edge */
   padding: 10px 40px;
   font-size: 1.2rem;
@@ -286,5 +291,75 @@ button {
 .breadcrumb-item:last-child::after {
   content: "";
   /* ไม่มีลูกศรในรายการสุดท้าย */
+}
+
+@media (min-width: 769px) {
+  .about-image img {
+    max-width: none; /* Remove the maximum width for larger screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 40vh;
+  }
+
+  .banner-title {
+    font-size: 1.2rem;
+  }
+
+  .about-section {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .about-content {
+    max-width: 100%;
+    margin-left: 0;
+    padding-right: 0;
+    text-align: left; /* Align text to the left */
+  }
+
+  .about-image {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .about-image img {
+    max-width: 200px; /* Adjust the maximum width for smaller screens */
+  }
+
+  .work-btn {
+    width: 80%;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .banner {
+    height: 30vh;
+  }
+
+  .banner-title {
+    font-size: 1rem;
+  }
+
+  .breadcrumb-link {
+    font-size: 1rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .about-image img {
+    max-width: 150px; /* Adjust the maximum width for even smaller screens */
+  }
+
+  .work-btn {
+    width: 100%;
+    padding: 10px 10px;
+  }
 }
 </style>
