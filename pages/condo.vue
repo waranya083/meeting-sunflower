@@ -2,7 +2,7 @@
   <div class="page-container">
     <HeaderComponent class="header-section" />
     <div class="banner bg-overlay bg-overlay-400 bg-dark"
-      :style="{ backgroundImage: 'url(' + bannerService + ')', height: '50vh', backgroundPosition: 'bottom' }">
+      :style="{ backgroundImage: 'url(' + bannerService + ')', height: '60vh', backgroundPosition: 'bottom' }">
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
           <h1 class="text-white">รับออกแบบตกแต่งภายในคอนโด</h1>
@@ -40,8 +40,11 @@
           </div>
         </div>
       </div>
+      <div class="d-flex justify-content-center" style="margin-top: 30px; margin-bottom: 60px;">
+        <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
+      </div>
+      <FooterComponent class="footer-section" /> <!-- Ensure this is correctly placed -->
     </div>
-    <FooterComponent class="footer-section" /> <!-- Ensure this is correctly placed -->
   </div>
 </template>
 
@@ -146,7 +149,7 @@ button {
 .content-container {
   width: 100%;
   flex: 1;
-  margin-top: 70vh;
+  margin-top: 80vh;
   /* Reduce the margin-top to move content closer to the banner */
 }
 
@@ -244,5 +247,39 @@ h1 {
 
 .breadcrumb-link {
   font-size: 1.3rem;
+}
+
+.work-btn {
+  /* Increase margin-bottom to create more space from the bottom edge */
+  padding: 10px 40px;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 50px;
+  background-color: #333;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+  position: relative;
+  /* เพื่อให้สามารถวางลูกศรได้ */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.work-btn:hover {
+  background-color: #555;
+}
+
+.work-btn::after {
+  content: "\2192";
+  /* เพิ่มลูกศร */
+  position: absolute;
+  right: 20px;
+  /* ระยะห่างจากขอบปุ่ม */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  /* ขนาดลูกศร */
+  color: white;
+  /* สีลูกศร */
 }
 </style>

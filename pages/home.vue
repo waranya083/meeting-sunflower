@@ -2,7 +2,7 @@
   <div class="page-container">
     <HeaderComponent class="header-section" />
     <div class="banner bg-overlay bg-overlay-400 bg-dark"
-      :style="{ backgroundImage: 'url(' + bannerService + ')', height: '50vh', backgroundPosition: 'bottom' }">
+      :style="{ backgroundImage: 'url(' + bannerService + ')', height: '60vh', backgroundPosition: 'bottom' }">
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center banner-text">
           <h1 class="text-white banner-title">รับออกแบบตกแต่งภายในบ้าน</h1>
@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" style="margin-top: 30px; margin-bottom: 60px;">
       <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
     </div>
     <FooterComponent class="footer-section" /> <!-- Ensure this is correctly placed -->
@@ -166,7 +166,7 @@ button {
 .content-container {
   width: 100%;
   flex: 1;
-  margin-top: 70vh;
+  margin-top: 80vh;
   /* Reduce the margin-top to move content closer to the banner */
 }
 
@@ -219,9 +219,8 @@ button {
   /* Reduce margin-bottom to make text closer to button */
 }
 
+
 .work-btn {
-  margin-top: 20px;
-  margin-bottom: 10%;
   /* Increase margin-bottom to create more space from the bottom edge */
   padding: 10px 40px;
   font-size: 1.2rem;

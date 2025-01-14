@@ -228,11 +228,13 @@
               </div>
             </div>
           </div>
-          <a href="#" id="outside-readmore" class="btn btn-soft-yellow rounded-pill"
-            style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer;"
-            onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
-            onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
-            More</a>
+          <div style="text-align: left;">
+            <a href="#" id="outside-readmore" class="btn btn-soft-yellow rounded-pill"
+              style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0; text-align: left; align-self: flex-start;"
+              onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
+              onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
+              More</a>
+          </div>
         </div>
 
         <!-- ตกแต่งภายในคอนโด -->
@@ -273,12 +275,13 @@
               </div>
             </div>
           </div>
-
-          <a href="#" id="inside-readmore" class="btn btn-soft-yellow rounded-pill"
-            style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0;"
-            onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
-            onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
-            More</a>
+          <div style="text-align: left;">
+            <a href="#" id="inside-readmore" class="btn btn-soft-yellow rounded-pill"
+              style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0; text-align: left; align-self: flex-start;"
+              onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
+              onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
+              More</a>
+          </div>
         </div>
       </div>
     </div>
@@ -786,12 +789,13 @@ img {
 .slide-overlay {
   position: absolute;
   top: 30%; /* ให้ข้อความอยู่ด้านบน */
-  left: 13%; /* จัดให้ข้อความชิดซ้าย */
-  width: 100%; /* ให้แผ่น overlay ครอบคลุมทั้งภาพ */
+  left: 11%; /* Adjust left to 0 to align to the left */
+  width: 60%; /* Adjust width to ensure text wraps */
   padding: 0px; /* เพิ่ม padding เพื่อไม่ให้ข้อความชิดขอบ */
   text-align: left;
   color: white;
   border-radius: 10px;
+  word-wrap: break-word; /* Ensure text wraps */
 }
 
 .slide-overlay h3 {
@@ -811,14 +815,17 @@ img {
   font-size: 1.2rem;
   font-weight: bold;
   color: white;
-  background-color: #333;
-  border: none;
+  background-color: transparent; /* Remove background color */
+  border: 2px solid white; /* Add white border */
   border-radius: 50px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for color */
 }
 
 .shop-now-btn:hover {
-  background-color: #555;
+  background-color: white; /* Change background color on hover */
+  color: #333; /* Change text color on hover */
 }
+
+
 
 </style>
