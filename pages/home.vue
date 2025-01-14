@@ -2,7 +2,11 @@
   <div class="page-container">
     <HeaderComponent class="header-section" />
     <div class="banner bg-overlay bg-overlay-400 bg-dark"
+<<<<<<< HEAD
       style="background-image:url('/banner/servicebn.png'); height: 60vh; background-position: bottom;">
+=======
+      :style="{ backgroundImage: 'url(' + bannerService + ')', height: '50vh', backgroundPosition: 'bottom' }">
+>>>>>>> f8cf6f5 (เพิ่ม banner)
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center banner-text">
           <h1 class="text-white banner-title">รับออกแบบตกแต่งภายในบ้าน</h1>
@@ -62,32 +66,40 @@ export default {
   mounted() {
     window.scrollTo(0, 0); // Ensure the page scrolls to the top on reload
   },
-  data() {
-    return {
-      serviceCategories: [],
-      services: [],
-    };
-  },
   async asyncData({ $axios }) {
     const serviceCategoryId = 113; // กำหนดค่า service_category_id
 
     try {
-      const response = await $axios.get('/service', {
+      // ดึงข้อมูล services จาก API
+      const serviceResponse = await $axios.get('/service', {
         params: { service_category_id: serviceCategoryId },
       });
 
-      const filteredServices = response.data.service.filter(service => service.service_category_id === serviceCategoryId);
+      // ดึงข้อมูลเว็บไซต์เพื่อรับข้อมูล banneraboutus
+      const websiteResponse = await $axios.get('/website'); // ปรับ URL ให้ตรงกับ API ของคุณ
+      const websiteData = websiteResponse.data;
+      const bannerService = websiteData.bannerservice || null; // ดึงข้อมูล banneraboutus
+
+      // กรอง services ตาม service_category_id
+      const filteredServices = serviceResponse.data.service.filter(
+        (service) => service.service_category_id === serviceCategoryId
+      );
 
       return {
         services: Array.isArray(filteredServices) ? filteredServices : [],
+        bannerService, // ส่ง bannerAboutUs กลับไปด้วย
       };
     } catch (error) {
-      console.error('Error fetching services:', error);
+      console.error('Error fetching data:', error);
       return {
         services: [],
+        bannerService: null, // ส่ง null ถ้าหากเกิดข้อผิดพลาด
       };
     }
-  }
+  },
+
+
+
 }
 </script>
 
