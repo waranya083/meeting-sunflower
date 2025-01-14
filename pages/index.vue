@@ -4,21 +4,23 @@
     <!-- Simplified banner content -->
     <section class="section-spacing carousel-section">
       <carousel :per-page="1" :navigate-to="0" :mouse-drag="true">
-        <slide v-for="(slide, index) in slides" :key="index">
-          <div class="slide-content">
-            <img :src="require(`@/static/${slide.image}`)" :alt="slide.title" class="slide-image">
-            <div class="slide-overlay">
-              <h3>Sunflower House</h3>
-              <span>
-                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam.
-              </span>
-              <button @click="handleButtonClick(slide.title)" class="shop-now-btn">Shop Now</button>
+        <div v-if="slides && slides.length > 0">
+          <slide v-for="(slide, index) in slides" :key="index">
+            <div class="slide-content">
+              <img :src="slide.image" :alt="slide.title" class="slide-image">
+              <div v-if="banners && banners.length > 0">
+                <div class="slide-overlay" v-for="(banner, bannerIndex) in banners" :key="bannerIndex">
+                  <h3>{{ banner.title }}</h3>
+                  <span>{{ banner.detail }}</span>
+                  <button @click="handleButtonClick(slide.title)" class="shop-now-btn">Shop Now</button>
+                </div>
+              </div>
             </div>
-          </div>
-        </slide>
+          </slide>
+        </div>
       </carousel>
     </section>
+
 
     <!-- End of simplified banner content -->
     <section class="section-spacing">
@@ -226,13 +228,11 @@
               </div>
             </div>
           </div>
-          <div style="text-align: left;">
-            <a href="#" id="outside-readmore" class="btn btn-soft-yellow rounded-pill"
-              style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0; text-align: left; align-self: flex-start;"
-              onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
-              onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
-              More</a>
-          </div>
+          <a href="#" id="outside-readmore" class="btn btn-soft-yellow rounded-pill"
+            style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer;"
+            onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
+            onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
+            More</a>
         </div>
 
         <!-- ตกแต่งภายในคอนโด -->
@@ -273,13 +273,12 @@
               </div>
             </div>
           </div>
-          <div style="text-align: left;">
-            <a href="#" id="inside-readmore" class="btn btn-soft-yellow rounded-pill"
-              style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0; text-align: left; align-self: flex-start; justify-self: flex-start;"
-              onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
-              onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
-              More</a>
-          </div>
+
+          <a href="#" id="inside-readmore" class="btn btn-soft-yellow rounded-pill"
+            style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0;"
+            onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
+            onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
+            More</a>
         </div>
       </div>
     </div>
@@ -304,7 +303,7 @@
 
   <section class="section-spacing">
     <div class="container-fluid">
-      <div class="d-flex justify-content-start align-items-center " style="margin-top: -70px;">
+      <div class="d-flex justify-content-start align-items-center " style="margin-top: -90px;">
         <div class="text-left p-3 about-content">
           <div style="display: flex; align-items: center; margin-bottom: 10px;">
             <div
@@ -322,24 +321,32 @@
     </div>
   </section>
 
-  <!-- <section class="wrapper bg-light wrapper-border">
-  <div class="container py-14 py-md-16">
-    <p class="text-center mb-8">Trusted by over 2K+ clients across the world</p>
-    <div class="swiper-container clients mb-0" data-margin="30" data-dots="false" data-loop="true" data-autoplay="true" data-autoplaytime="1" data-drag="false" data-speed="5000" data-items-xxl="7" data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-xs="2">
-      <div class="swiper">
-        <!-- <div class="swiper-wrapper ticker">
-          <div class="swiper-slide px-5"><img src="@/static/clients/kwoon.png" alt="" /></div>
-          <div class="swiper-slide px-5"><img src="@/static/clients/lomos.png" alt="" /></div>
-          <div class="swiper-slide px-5"><img src="@/static/clients/malory.png" alt="" /></div>
-          <div class="swiper-slide px-5"><img src="@/static/clients/morello.png" alt="" /></div>
-          <div class="swiper-slide px-5"><img src="@/static/clients/slowave.png" alt="" /></div>
-        </div> -->
-  <!--/.swiper-wrapper -->
-  <!-- </div>
+  <section class="wrapper bg-light wrapper-border section-spacing" style="margin-top: 50px;">
+    <div class="container py-14 py-md-16" style="max-width: 1200px; margin: 0 auto;">
+      <div class="swiper-container clients mb-0" data-margin="0" data-dots="false" data-loop="true" data-autoplay="true"
+        data-autoplaytime="0" data-speed="10000" data-space-between="0" data-items-xxl="8" data-items-xl="7"
+        data-items-lg="6" data-items-md="5" data-items-xs="2">
+        <div class="swiper">
+          <div class="swiper-wrapper ticker">
+            <!-- รูปภาพต่างๆ -->
+            <div class="swiper-slide" style="padding: 0;">
+              <img src="@/static/Component.png" alt=""
+                style="width: auto; height: 58px; object-fit: contain; background-color: transparent;" />
+            </div>
+            <div class="swiper-slide" style="padding: 0;">
+              <img src="@/static/Component.png" alt=""
+                style="width: auto; height: 58px; object-fit: contain; background-color: transparent;" />
+            </div>
+          </div>
+          <!--/.swiper-wrapper -->
+        </div>
+        <!-- /.swiper -->
+      </div>
+      <!-- /.swiper-container -->
     </div>
-  </div>
-</section> -->
-
+    <!-- /.container -->
+  </section>
+  <!-- /section -->
 
   <section class="section-spacing">
     <div>
@@ -401,16 +408,6 @@ export default {
     Carousel,
     Slide
   },
-  data() {
-    return {
-      currentDesign: 'house',
-      slides: [
-        { title: 'Living Room', image: 'banner.png' },
-        { title: 'Bedroom', image: 'banner.png' },
-        { title: 'Kitchen', image: 'banner.png' }
-      ]
-    };
-  },
   methods: {
     toggleDesign(option) {
       this.currentDesign = option;
@@ -424,6 +421,7 @@ export default {
     const serviceCategoryId2 = 114; // กำหนดค่า service_category_id2
 
     try {
+      // Request for services
       const response1 = await $axios.get('/service', {
         params: { service_category_id: serviceCategoryId1 },
       });
@@ -437,18 +435,33 @@ export default {
 
       const combinedServices = [...filteredServices1, ...filteredServices2];
 
+      // Request for banners
+      const bannersResponse = await $axios.get('/bannerindex'); // Assuming '/banners' is your API endpoint for fetching banners
+
+      const slides = bannersResponse.data.map(banner => ({
+        image: banner.img_website,
+      }));
+
       return {
         services: Array.isArray(combinedServices) ? combinedServices : [],
+        banners: Array.isArray(bannersResponse.data) ? bannersResponse.data : [],
+        slides: slides,
       };
     } catch (error) {
-      console.error('Error fetching services:', error);
+      console.error('Error fetching data:', error);
       return {
         services: [],
+        banners: [],
+        slides: [],
       };
     }
-  }
-};
-
+  },
+  data() {
+    return {
+      currentDesign: 'house',
+    };
+  },
+}
 </script>
 
 
@@ -475,7 +488,10 @@ button {
   /* Ensure the same font is used throughout the website */
 }
 
-
+.section-spacing {
+  margin: 20px 0;
+  /* กำหนดระยะห่างที่ต้องการ */
+}
 
 .header-section {
   position: absolute;
@@ -585,7 +601,14 @@ h2 {
   transform: scale(1.05);
 }
 
-
+/* Added styles for yellow dot */
+.yellow-dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(249, 204, 56);
+  border-radius: 50%;
+  margin-right: 5px;
+}
 
 /* Styles for new section */
 .grid-item {
@@ -731,7 +754,12 @@ h2 {
   height: 300px;
 }
 
-
+.container-fluid {
+  padding-top: 10px;
+  /* Reduce top padding */
+  padding-bottom: 10px;
+  /* Reduce bottom padding */
+}
 
 img {
   width: 100%;
@@ -757,57 +785,40 @@ img {
 
 .slide-overlay {
   position: absolute;
-  top: 50%;
-  left: -65%;
-  transform: translate(-50%, -50%);
+  top: 30%; /* ให้ข้อความอยู่ด้านบน */
+  left: 13%; /* จัดให้ข้อความชิดซ้าย */
+  width: 100%; /* ให้แผ่น overlay ครอบคลุมทั้งภาพ */
+  padding: 0px; /* เพิ่ม padding เพื่อไม่ให้ข้อความชิดขอบ */
   text-align: left;
-  /* Align text to the left */
   color: white;
   border-radius: 10px;
 }
 
 .slide-overlay h3 {
   font-size: 2.5rem;
-  /* ขนาดตัวอักษรของหัวข้อ */
   font-weight: bold;
   margin-bottom: 10px;
-
 }
 
 .slide-overlay span {
   font-size: 1.2rem;
-  /* ขนาดตัวอักษรของข้อความ */
   margin-bottom: 30px;
   display: block;
-  max-width: 700px;
-  /* Adjust the width to fit the text */
-  white-space: normal;
-  /* Allow text to wrap */
-  overflow: hidden;
-  /* Hide overflow */
-  text-overflow: ellipsis;
-  /* Add ellipsis for overflow text */
 }
 
 .shop-now-btn {
   padding: 10px 20px;
   font-size: 1.2rem;
-  /* ขนาดตัวอักษรของปุ่ม */
   font-weight: bold;
   color: white;
-  background-color: transparent;
-  /* No background color */
-  border: 2px solid white;
-  /* White border */
+  background-color: #333;
+  border: none;
   border-radius: 50px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  /* Add transition for color */
+  transition: background-color 0.3s ease;
 }
 
 .shop-now-btn:hover {
-  background-color: white;
-  /* White background on hover */
-  color: #333;
-  /* Text color on hover */
+  background-color: #555;
 }
+
 </style>

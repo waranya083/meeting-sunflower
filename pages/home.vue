@@ -2,7 +2,7 @@
   <div class="page-container">
     <HeaderComponent class="header-section" />
     <div class="banner bg-overlay bg-overlay-400 bg-dark"
-      style="background-image:url('/banner/servicebn.png'); height: 60vh; background-position: bottom;">
+      :style="{ backgroundImage: 'url(' + bannerService + ')', height: '50vh', backgroundPosition: 'bottom' }">
       <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="text-center banner-text">
           <h1 class="text-white banner-title">รับออกแบบตกแต่งภายในบ้าน</h1>
@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-center" style="margin-top: 30px; margin-bottom: 60px;">
+    <div class="d-flex justify-content-center">
       <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
     </div>
     <FooterComponent class="footer-section" /> <!-- Ensure this is correctly placed -->
@@ -62,32 +62,40 @@ export default {
   mounted() {
     window.scrollTo(0, 0); // Ensure the page scrolls to the top on reload
   },
-  data() {
-    return {
-      serviceCategories: [],
-      services: [],
-    };
-  },
   async asyncData({ $axios }) {
     const serviceCategoryId = 113; // กำหนดค่า service_category_id
 
     try {
-      const response = await $axios.get('/service', {
+      // ดึงข้อมูล services จาก API
+      const serviceResponse = await $axios.get('/service', {
         params: { service_category_id: serviceCategoryId },
       });
 
-      const filteredServices = response.data.service.filter(service => service.service_category_id === serviceCategoryId);
+      // ดึงข้อมูลเว็บไซต์เพื่อรับข้อมูล banneraboutus
+      const websiteResponse = await $axios.get('/website'); // ปรับ URL ให้ตรงกับ API ของคุณ
+      const websiteData = websiteResponse.data;
+      const bannerService = websiteData.bannerservice || null; // ดึงข้อมูล banneraboutus
+
+      // กรอง services ตาม service_category_id
+      const filteredServices = serviceResponse.data.service.filter(
+        (service) => service.service_category_id === serviceCategoryId
+      );
 
       return {
         services: Array.isArray(filteredServices) ? filteredServices : [],
+        bannerService, // ส่ง bannerAboutUs กลับไปด้วย
       };
     } catch (error) {
-      console.error('Error fetching services:', error);
+      console.error('Error fetching data:', error);
       return {
         services: [],
+        bannerService: null, // ส่ง null ถ้าหากเกิดข้อผิดพลาด
       };
     }
-  }
+  },
+
+
+
 }
 </script>
 
@@ -158,7 +166,7 @@ button {
 .content-container {
   width: 100%;
   flex: 1;
-  margin-top: 80vh;
+  margin-top: 70vh;
   /* Reduce the margin-top to move content closer to the banner */
 }
 
@@ -187,12 +195,6 @@ button {
   align-self: flex-start;
 }
 
-.about-image img {
-  width: 100%;
-  height: auto;
-  max-width: 300px; /* Set a maximum width for the image */
-}
-
 .about-section {
   display: flex;
   justify-content: start;
@@ -206,7 +208,6 @@ button {
   margin-left: 150px;
   padding-right: 30px;
   margin-top: 30px;
-  text-align: left; /* Align text to the left */
 }
 
 .about-text {
@@ -219,6 +220,8 @@ button {
 }
 
 .work-btn {
+  margin-top: 20px;
+  margin-bottom: 10%;
   /* Increase margin-bottom to create more space from the bottom edge */
   padding: 10px 40px;
   font-size: 1.2rem;
@@ -283,75 +286,5 @@ button {
 .breadcrumb-item:last-child::after {
   content: "";
   /* ไม่มีลูกศรในรายการสุดท้าย */
-}
-
-@media (min-width: 769px) {
-  .about-image img {
-    max-width: none; /* Remove the maximum width for larger screens */
-  }
-}
-
-@media (max-width: 768px) {
-  .banner {
-    height: 40vh;
-  }
-
-  .banner-title {
-    font-size: 1.2rem;
-  }
-
-  .about-section {
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-
-  .about-content {
-    max-width: 100%;
-    margin-left: 0;
-    padding-right: 0;
-    text-align: left; /* Align text to the left */
-  }
-
-  .about-image {
-    width: 100%;
-    height: auto;
-    margin-top: 20px;
-  }
-
-  .about-image img {
-    max-width: 200px; /* Adjust the maximum width for smaller screens */
-  }
-
-  .work-btn {
-    width: 80%;
-    padding: 10px 20px;
-  }
-}
-
-@media (max-width: 576px) {
-  .banner {
-    height: 30vh;
-  }
-
-  .banner-title {
-    font-size: 1rem;
-  }
-
-  .breadcrumb-link {
-    font-size: 1rem;
-  }
-
-  .about-text {
-    font-size: 1rem;
-  }
-
-  .about-image img {
-    max-width: 150px; /* Adjust the maximum width for even smaller screens */
-  }
-
-  .work-btn {
-    width: 100%;
-    padding: 10px 10px;
-  }
 }
 </style>
