@@ -13,6 +13,8 @@
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.25.3",
     "nuxt": "^2.18.1",
+    "swiper": "^11.2.1",
+    "swiper-src": "github:nolimits4web/swiper#master",
     "vue": "^2.7.10",
     "vue-carousel": "^0.18.0",
     "vue-server-renderer": "^2.7.10",

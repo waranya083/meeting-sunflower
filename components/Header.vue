@@ -104,7 +104,7 @@ export default {
 .nav .logo {
   display: flex;
   align-items: center;
-  margin-left: 100px;
+  margin-left: 90px;
 }
 
 .nav .logo img {
