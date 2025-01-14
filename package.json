@@ -14,10 +14,7 @@
     "core-js": "^3.25.3",
     "nuxt": "^2.18.1",
     "swiper": "^11.2.1",
-<<<<<<< HEAD
     "swiper-src": "github:nolimits4web/swiper#master",
-=======
->>>>>>> f8cf6f5 (เพิ่ม banner)
     "vue": "^2.7.10",
     "vue-carousel": "^0.18.0",
     "vue-server-renderer": "^2.7.10",

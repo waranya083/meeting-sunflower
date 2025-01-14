@@ -70,10 +70,10 @@ export default async () => {
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     },
-
-    // Global CSS: https://go.nuxtjs.dev/config-css
-    css: [
-    ],
+  // Global CSS: https://go.nuxtjs.dev/config-css
+  css: [
+    'swiper/swiper-bundle.css'
+  ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
@@ -95,7 +95,6 @@ export default async () => {
     axios: {
       baseURL: 'http://127.0.0.1:8000/api', // URL API ของ Laravel
     },
-
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
       extend(config, ctx) {
