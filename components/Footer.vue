@@ -4,7 +4,8 @@
       <div class="footer-section get-in-touch">
         <h3>Get in Touch</h3>
         <p>
-          บริษัท มินิเวนเจอร์ จำกัด (สำนักงานหลัก) เลขที่ 187/18 หมู่ 4 ต.บางพลีใหญ่
+          บริษัท มินิเวนเจอร์ จำกัด (สำนักงานหลัก) <br>
+          เลขที่ 187/18 หมู่ 4 ต.บางพลีใหญ่ <br>
           อ.บางพลี จ.สมุทรปราการ <br>
           10540 ประเทศไทย <br><br>
           โทร: 064-459-9997
@@ -13,11 +14,21 @@
       <div class="footer-section learn-more">
         <h3>Learn More</h3>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Service</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Contact us</a></li>
+          <li><nuxt-link to="/">Home</nuxt-link></li>
+          <li><nuxt-link to="/about">About us</nuxt-link></li>
+          <li class="dropdown-service">
+            <a href="javascript:void(0)" class="dropbtn">Service
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+              </svg>
+            </a>
+            <div class="dropdown-content">
+              <nuxt-link to="/home" class="dropdown-link">Home</nuxt-link>
+              <nuxt-link to="/condo" class="dropdown-link">Condo</nuxt-link>
+            </div>
+          </li>
+          <li><nuxt-link to="/portfolio">Portfolio</nuxt-link></li>
+          <li><nuxt-link to="/contact">Contact us</nuxt-link></li>
         </ul>
       </div>
       <div class="footer-section email">
@@ -42,7 +53,6 @@ export default {
   name: 'FooterComponent'
 }
 </script>
-
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
@@ -76,16 +86,19 @@ footer {
 }
 
 .footer-section.get-in-touch {
-  margin-right: 10px; /* ปรับค่า margin-right เพื่อขยับไปทางขวา */
+  margin-right: 20px;
+   /* ปรับค่า margin-right เพื่อขยับไปทางขวา */
 }
 
 .footer-section.learn-more {
-  margin-right: 50px; /* ปรับค่า margin-right เพื่อขยับไปทางขวา */
-  margin-left: 200px; /* เพิ่ม margin-left เพื่อขยับไปทางขวา */
+  margin-right: 150px; /* ปรับค่า margin-right เพื่อขยับไปทางขวา */
+  margin-left: 250px;
 }
 
 .footer-section.email {
-  margin-left: 160px; /* เพิ่ม margin-left เพื่อขยับไปทางขวา */
+  margin-right: -80px;
+  margin-left: 0px;
+
 }
 
 .footer-section.email a {
@@ -145,6 +158,58 @@ footer {
 
 .social-icons {
   color: #fff;
+}
+
+
+.dropdown-service {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-service .dropbtn {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem; /* Ensure font size is the same as other menu items */
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-service .dropbtn svg {
+  margin-left: 5px; /* Add margin to the left of the SVG icon */
+}
+
+.dropdown-service .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #444; /* Change background color */
+  min-width: 100px; /* Set minimum width */
+  z-index: 1;
+
+}
+
+.dropdown-service .dropdown-link {
+  color: #ffffff; /* Change text color */
+  text-decoration: none;
+  display: block;
+  padding: 8px 10px; /* Adjust padding to make the box smaller */
+}
+
+.dropdown-service:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-service .dropdown-link:hover {
+  background-color: transparent;
+  border-radius: none; /* Adjust border radius */
+}
+.dropdown-service .dropdown-link.nuxt-link-exact-active {
+  background-color: inherit; /* Remove hover and active effect */
+  color: #ffffff; /* Ensure text color remains the same */
+}
+
+.nuxt-link-exact-active {
+  background-color: inherit !important; /* Ensure no background color change */
 }
 
 @media (max-width: 768px) {
