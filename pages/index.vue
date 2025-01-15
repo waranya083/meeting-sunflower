@@ -306,7 +306,7 @@
 
   <section class="section-spacing">
     <div class="container-fluid">
-      <div class="d-flex justify-content-start align-items-center " style="margin-top: -90px;">
+      <div class="d-flex justify-content-start align-items-center "style="margin-top: -80px;">
         <div class="text-left p-3 about-content">
           <div style="display: flex; align-items: center; margin-bottom: 10px;">
             <div
@@ -324,22 +324,25 @@
     </div>
   </section>
 
-  <section class="wrapper bg-light wrapper-border section-spacing" style="margin-top: 50px;">
-    <div class="container py-14 py-md-16" style="max-width: 1200px; margin: 0 auto;">
-      <div class="swiper-container clients mb-0" data-margin="0" data-dots="false" data-loop="true" data-autoplay="true"
-        data-autoplaytime="0" data-speed="10000" data-space-between="0" data-items-xxl="8" data-items-xl="7"
-        data-items-lg="6" data-items-md="5" data-items-xs="2">
+
+  <!-- Moved section -->
+  <section class="wrapper bg-light wrapper-border" style="margin-top: -330px;">
+    <div class="container py-14 py-md-16">
+      <div class="swiper-container clients mb-0" data-margin="30" data-dots="false" data-loop="true"
+        data-autoplay="true" data-autoplaytime="1" data-drag="false" data-speed="5000" data-items-xxl="7"
+        data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-xs="2">
         <div class="swiper">
           <div class="swiper-wrapper ticker">
-            <!-- รูปภาพต่างๆ -->
-            <div class="swiper-slide" style="padding: 0;">
-              <img src="@/static/Component.png" alt=""
-                style="width: auto; height: 58px; object-fit: contain; background-color: transparent;" />
-            </div>
-            <div class="swiper-slide" style="padding: 0;">
-              <img src="@/static/Component.png" alt=""
-                style="width: auto; height: 58px; object-fit: contain; background-color: transparent;" />
-            </div>
+            <div class="swiper-slide px-5"><img src="@/static/clients/kwoon.png" alt="" /></div>
+            <div class="swiper-slide px-5"><img src="@/static/clients/lomos.png" alt="" /></div>
+            <div class="swiper-slide px-5"><img src="@/static/clients/malory.png" alt="" /></div>
+            <div class="swiper-slide px-5"><img src="@/static/clients/morello.png" alt="" /></div>
+            <div class="swiper-slide px-5"><img src="@/static/clients/slowave.png" alt="" /></div>
+            <div class="swiper-slide px-5"><img src="@/static/clients/kwoon.png" alt="" /></div>
+            <div class="swiper-slide px-5"><img src="@/static/clients/lomos.png" alt="" /></div>
+            <div class="swiper-slide px-5"><img src="@/static/clients/malory.png" alt="" /></div>
+            <div class="swiper-slide px-5"><img src="@/static/clients/morello.png" alt="" /></div>
+            <div class="swiper-slide px-5"><img src="@/static/clients/slowave.png" alt="" /></div>
           </div>
           <!--/.swiper-wrapper -->
         </div>
@@ -349,11 +352,11 @@
     </div>
     <!-- /.container -->
   </section>
-  <!-- /section -->
+  <!-- End of moved section -->
 
   <section class="section-spacing">
     <div>
-      <div class="d-flex justify-content-center align-items-center" style="display: flex; margin-top: 50px;">
+      <div class="d-flex justify-content-center align-items-center" style="display: flex; margin-top: -30px;">
         <div class="text-center p-3" :style="{
           width: '1200px',
           height: '450px',
@@ -788,14 +791,19 @@ img {
 
 .slide-overlay {
   position: absolute;
-  top: 30%; /* ให้ข้อความอยู่ด้านบน */
-  left: 11%; /* Adjust left to 0 to align to the left */
-  width: 60%; /* Adjust width to ensure text wraps */
-  padding: 0px; /* เพิ่ม padding เพื่อไม่ให้ข้อความชิดขอบ */
+  top: 30%;
+  /* ให้ข้อความอยู่ด้านบน */
+  left: 11%;
+  /* Adjust left to 0 to align to the left */
+  width: 60%;
+  /* Adjust width to ensure text wraps */
+  padding: 0px;
+  /* เพิ่ม padding เพื่อไม่ให้ข้อความชิดขอบ */
   text-align: left;
   color: white;
   border-radius: 10px;
-  word-wrap: break-word; /* Ensure text wraps */
+  word-wrap: break-word;
+  /* Ensure text wraps */
 }
 
 .slide-overlay h3 {
@@ -815,17 +823,51 @@ img {
   font-size: 1.2rem;
   font-weight: bold;
   color: white;
-  background-color: transparent; /* Remove background color */
-  border: 2px solid white; /* Add white border */
+  background-color: transparent;
+  /* Remove background color */
+  border: 2px solid white;
+  /* Add white border */
   border-radius: 50px;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for color */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Add transition for color */
 }
 
 .shop-now-btn:hover {
-  background-color: white; /* Change background color on hover */
-  color: #333; /* Change text color on hover */
+  background-color: white;
+  /* Change background color on hover */
+  color: #333;
+  /* Change text color on hover */
 }
 
+/* Add this CSS to make the images slide continuously in a loop */
+.swiper-container {
+  overflow: hidden;
+  max-width: 1200px;
+  margin: auto;
+}
 
+.swiper-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: ticker 20s linear infinite;
+}
 
+.swiper-slide {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.ticker {
+  display: flex;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
 </style>
