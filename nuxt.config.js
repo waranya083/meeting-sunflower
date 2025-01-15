@@ -2,19 +2,25 @@ import axios from 'axios';
 
 export default async () => {
   let websiteTitle = 'meeting-sunflower'; // ค่าเริ่มต้น
+  let faviconUrl = '/favicon.ico'; // ค่าเริ่มต้น
 
   try {
     // ดึงข้อมูลจาก API
     const response = await axios.get('http://127.0.0.1:8000/api/website');
-    if (response.data && response.data.title) {
-      websiteTitle = response.data.title; // ใช้ title จาก API
+    if (response.data) {
+      if (response.data.title) {
+        websiteTitle = response.data.title; // ใช้ title จาก API
+      }
+      if (response.data.favicon) {
+        faviconUrl = response.data.favicon; // ใช้ favicon จาก API
+      }
     }
   } catch (error) {
-    console.error('Error fetching website title:', error);
+    console.error('Error fetching website data:', error);
   }
 
   return {
-    // Global page headers: https://go.nuxtjs.dev/config-head
+    // Global page headers
     head: {
       title: websiteTitle, // ตั้งค่า title จาก API
       htmlAttrs: {
@@ -27,28 +33,27 @@ export default async () => {
         { name: 'format-detection', content: 'telephone=no' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        { rel: 'icon', type: 'image/x-icon', href: faviconUrl } // ใช้ favicon ที่ดึงมาจาก API
       ]
     },
 
-    // Global CSS: https://go.nuxtjs.dev/config-css
+    // Global CSS
     css: [
     ],
 
-    // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+    // Plugins to run before rendering page
     plugins: [
     ],
 
-    // Auto import components: https://go.nuxtjs.dev/config-components
+    // Auto import components
     components: true,
 
-    // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+    // Modules for dev and build
     buildModules: [
-      // https://go.nuxtjs.dev/tailwindcss
       '@nuxtjs/tailwindcss',
     ],
 
-    // Modules: https://go.nuxtjs.dev/config-modules
+    // Modules
     modules: [
       '@nuxtjs/axios'
     ],
@@ -56,7 +61,7 @@ export default async () => {
       baseURL: 'http://127.0.0.1:8000/api', // URL API ของ Laravel
     },
 
-    // Build Configuration: https://go.nuxtjs.dev/config-build
+    // Build Configuration
     build: {
       extend(config, ctx) {
         config.module.rules.push({

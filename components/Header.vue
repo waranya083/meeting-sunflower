@@ -7,20 +7,30 @@
     </div>
     <div class="nav">
       <div class="logo">
-        <img src="@/static/logo.png" alt="Sunflower House Logo">
+        <div v-if="websiteData && websiteData.logo">
+          <img :src="websiteData.logo" alt="Website Logo" />
+        </div>
       </div>
       <nav class="flex gap-x-1 menu" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
-        <nuxt-link to="/" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="true" aria-controls="home-tab">Home</nuxt-link>
-        <nuxt-link to="/about" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false" aria-controls="about-tab">About Us</nuxt-link>
+        <nuxt-link to="/" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="true"
+          aria-controls="home-tab">Home</nuxt-link>
+        <nuxt-link to="/about" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false"
+          aria-controls="about-tab">About Us</nuxt-link>
         <div class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn menu-item" :class="{ 'active-tab': isDropdownOpen || $route.path === '/home' || $route.path === '/condo' }" @click="toggleDropdown" role="tab" aria-selected="false" aria-controls="service-tab">Service</a>
+          <a href="javascript:void(0)" class="dropbtn menu-item"
+            :class="{ 'active-tab': isDropdownOpen || $route.path === '/home' || $route.path === '/condo' }"
+            @click="toggleDropdown" role="tab" aria-selected="false" aria-controls="service-tab">Service</a>
           <div class="dropdown-content" :class="{ 'dropdown-open': isDropdownOpen }">
-            <nuxt-link to="/home" exact-active-class="active-tab" class="menu-item"><i class="fas fa-home"></i> รับออกแบบตกแต่งภายใน บ้าน</nuxt-link>
-            <nuxt-link to="/condo" exact-active-class="active-tab" class="menu-item"><i class="fas fa-building"></i> รับออกแบบตกแต่งภายใน คอนโด</nuxt-link>
+            <nuxt-link to="/home" exact-active-class="active-tab" class="menu-item"><i class="fas fa-home"></i>
+              รับออกแบบตกแต่งภายใน บ้าน</nuxt-link>
+            <nuxt-link to="/condo" exact-active-class="active-tab" class="menu-item"><i class="fas fa-building"></i>
+              รับออกแบบตกแต่งภายใน คอนโด</nuxt-link>
           </div>
         </div>
-        <nuxt-link to="/portfolio" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false" aria-controls="portfolio-tab">Portfolio</nuxt-link>
-        <nuxt-link to="/contact" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false" aria-controls="contact-tab">Contact Us</nuxt-link>
+        <nuxt-link to="/portfolio" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false"
+          aria-controls="portfolio-tab">Portfolio</nuxt-link>
+        <nuxt-link to="/contact" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false"
+          aria-controls="contact-tab">Contact Us</nuxt-link>
         <div class="social-icons">
           <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-line"></i></a>
@@ -41,8 +51,18 @@ export default {
   data() {
     return {
       isMenuOpen: false,
-      isDropdownOpen: false
+      isDropdownOpen: false,
+      websiteData: {},
     };
+  },
+  async mounted() {
+    try {
+      const websiteResponse = await this.$axios.get('/website');
+      this.websiteData = websiteResponse.data;
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   },
   methods: {
     toggleMenu() {
@@ -124,7 +144,8 @@ export default {
 }
 
 .menu a {
-  margin-left: 0; /* Remove margin to make nav items closer */
+  margin-left: 0;
+  /* Remove margin to make nav items closer */
 }
 
 .nav .menu a {
@@ -132,7 +153,8 @@ export default {
   color: #333;
   font-size: 1.1rem;
   display: inline-block;
-  padding: 10px 10px; /* Adjust padding to ensure tabs are close together */
+  padding: 10px 10px;
+  /* Adjust padding to ensure tabs are close together */
   text-align: center;
 }
 
@@ -171,7 +193,8 @@ export default {
   min-width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  border-radius: 10px; /* Add border-radius to make corners rounded */
+  border-radius: 10px;
+  /* Add border-radius to make corners rounded */
 }
 
 .dropdown-content.dropdown-open {
@@ -201,7 +224,8 @@ export default {
 }
 
 .social-icons a {
-  margin-left: 0; /* Remove margin to make social icons closer */
+  margin-left: 0;
+  /* Remove margin to make social icons closer */
   color: #333;
   font-size: 18px;
 }
@@ -328,7 +352,8 @@ export default {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    border-radius: 10px; /* Add border-radius to make corners rounded */
+    border-radius: 10px;
+    /* Add border-radius to make corners rounded */
   }
 
   .dropdown-content nuxt-link {

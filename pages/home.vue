@@ -72,7 +72,7 @@ export default {
       });
 
       // ดึงข้อมูลเว็บไซต์เพื่อรับข้อมูล banneraboutus
-      const websiteResponse = await $axios.get('/website'); // ปรับ URL ให้ตรงกับ API ของคุณ
+      const websiteResponse = await $axios.get('/website'); // ปรับ URL ให้ตรงกับ API ของคุณผ
       const websiteData = websiteResponse.data;
       const bannerService = websiteData.bannerservice || null; // ดึงข้อมูล banneraboutus
 

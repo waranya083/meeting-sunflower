@@ -4,10 +4,13 @@
     <!-- Simplified banner content -->
     <section class="section-spacing carousel-section">
       <carousel :per-page="1" :navigate-to="0" :mouse-drag="true">
+        <!-- ตรวจสอบว่า slides มีข้อมูลหรือไม่ -->
         <div v-if="slides && slides.length > 0">
           <slide v-for="(slide, index) in slides" :key="index">
             <div class="slide-content">
               <img :src="slide.image" :alt="slide.title" class="slide-image">
+
+              <!-- ตรวจสอบว่า banners มีข้อมูลหรือไม่ -->
               <div v-if="banners && banners.length > 0">
                 <div class="slide-overlay" v-for="(banner, bannerIndex) in banners" :key="bannerIndex">
                   <h3>{{ banner.title }}</h3>
@@ -20,6 +23,7 @@
         </div>
       </carousel>
     </section>
+
 
 
     <!-- End of simplified banner content -->
@@ -306,7 +310,7 @@
 
   <section class="section-spacing">
     <div class="container-fluid">
-      <div class="d-flex justify-content-start align-items-center "style="margin-top: -80px;">
+      <div class="d-flex justify-content-start align-items-center " style="margin-top: -80px;">
         <div class="text-left p-3 about-content">
           <div style="display: flex; align-items: center; margin-bottom: 10px;">
             <div
