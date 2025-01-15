@@ -261,7 +261,7 @@ h1 {
   transition: background-color 0.3s ease;
   position: relative;
   /* เพื่อให้สามารถวางลูกศรได้ */
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
 }
 
