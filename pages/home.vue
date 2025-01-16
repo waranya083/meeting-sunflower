@@ -42,6 +42,7 @@
         </div>
       </div>
     </div>
+    <MessegesComponent />
     <div class="d-flex justify-content-center" style="margin-top: 30px; margin-bottom: 60px;">
       <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
     </div>
@@ -52,12 +53,16 @@
 <script>
 import HeaderComponent from '~/components/Header.vue';
 import FooterComponent from '~/components/Footer.vue';
+import MessegesComponent from '~/components/Messeges.vue';
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 export default {
   name: 'home',
   components: {
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MessegesComponent
   },
   mounted() {
     window.scrollTo(0, 0); // Ensure the page scrolls to the top on reload

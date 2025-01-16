@@ -45,18 +45,24 @@
       </div>
       <FooterComponent class="footer-section" /> <!-- Ensure this is correctly placed -->
     </div>
+    <MessegesComponent />
+    <FooterComponent class="footer-section" />
   </div>
 </template>
 
 <script>
 import HeaderComponent from '~/components/Header.vue';
 import FooterComponent from '~/components/Footer.vue';
+import MessegesComponent from '~/components/Messeges.vue';
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 export default {
   name: 'condo',
   components: {
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MessegesComponent
   },
   mounted() {
     window.scrollTo(0, 0); // Ensure the page scrolls to the top on reload

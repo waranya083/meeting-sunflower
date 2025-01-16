@@ -18,6 +18,7 @@
     <div class="content-container">
 
     </div>
+    <MessegesComponent />
     <FooterComponent class="footer-section" />
   </div>
 </template>
@@ -25,12 +26,16 @@
 <script>
 import HeaderComponent from '~/components/Header.vue';
 import FooterComponent from '~/components/Footer.vue';
+import MessegesComponent from '~/components/Messeges.vue';
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 export default {
   name: 'contact',
   components: {
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MessegesComponent
   }
 }
 </script>
