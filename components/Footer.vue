@@ -84,18 +84,30 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
+html, body {
+
+  display: flex;
+  flex-direction: column;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 footer {
   background-color: #333;
   color: #fff;
   padding: 40px 10%;
   text-align: left;
   width: 100%;
-  /* Set width to 100% */
   font-family: 'Athiti', sans-serif;
   box-sizing: border-box;
-  /* Ensure padding is included in the width */
   position: relative;
   bottom: 0;
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 .footer-content {
@@ -104,10 +116,8 @@ footer {
   align-items: flex-start;
   flex-wrap: wrap;
   max-width: 1200px;
-  /* Set max-width to 1200px */
   margin: auto;
   margin-bottom: 40px;
-  /* Center the content */
 }
 
 .footer-section {
@@ -118,19 +128,16 @@ footer {
 
 .footer-section.get-in-touch {
   margin-right: 20px;
-  /* ปรับค่า margin-right เพื่อขยับไปทางขวา */
 }
 
 .footer-section.learn-more {
   margin-right: 150px;
-  /* ปรับค่า margin-right เพื่อขยับไปทางขวา */
   margin-left: 250px;
 }
 
 .footer-section.email {
   margin-right: -80px;
   margin-left: 0px;
-
 }
 
 .footer-section.email a {
@@ -165,13 +172,10 @@ footer {
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
-  /* Ensure items stay on the same row */
   margin-top: 20px;
   text-align: left;
   max-width: 1200px;
-  /* Set max-width to 1200px */
   margin: auto;
-  /* Center the content */
 }
 
 .footer-bottom p {
@@ -182,23 +186,18 @@ footer {
 .footer-bottom .social-icons {
   display: flex;
   justify-content: flex-end;
-  /* Align icons to the right */
   gap: 15px;
-  /* Space between icons */
   margin-right: 10px;
-  /* Add margin to move icons further to the right */
 }
 
 .footer-bottom .social-icons a {
   color: #ffffff;
   font-size: 16px;
-  /* Reduce font size */
 }
 
 .social-icons {
   color: #fff;
 }
-
 
 .dropdown-service {
   position: relative;
@@ -210,34 +209,27 @@ footer {
   color: white;
   text-decoration: none;
   font-size: 1rem;
-  /* Ensure font size is the same as other menu items */
   display: flex;
   align-items: center;
 }
 
 .dropdown-service .dropbtn svg {
   margin-left: 5px;
-  /* Add margin to the left of the SVG icon */
 }
 
 .dropdown-service .dropdown-content {
   display: none;
   position: absolute;
   background-color: #444;
-  /* Change background color */
   min-width: 100px;
-  /* Set minimum width */
   z-index: 1;
-
 }
 
 .dropdown-service .dropdown-link {
   color: #ffffff;
-  /* Change text color */
   text-decoration: none;
   display: block;
   padding: 8px 10px;
-  /* Adjust padding to make the box smaller */
 }
 
 .dropdown-service:hover .dropdown-content {
@@ -247,32 +239,26 @@ footer {
 .dropdown-service .dropdown-link:hover {
   background-color: transparent;
   border-radius: none;
-  /* Adjust border radius */
 }
 
 .dropdown-service .dropdown-link.nuxt-link-exact-active {
   background-color: inherit;
-  /* Remove hover and active effect */
   color: #ffffff;
-  /* Ensure text color remains the same */
 }
 
 .nuxt-link-exact-active {
   background-color: inherit !important;
-  /* Ensure no background color change */
 }
 
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
     align-items: flex-start;
-    /* Align items to the left */
   }
 
   .footer-section {
     margin-bottom: 20px;
     text-align: left;
-    /* Align text to the left */
   }
 
   .footer-section.learn-more {
@@ -287,9 +273,7 @@ footer {
   .footer-bottom {
     flex-direction: row;
     align-items: center;
-    /* Align items to the center */
     text-align: left;
-    /* Align text to the left */
   }
 
   .footer-bottom p {
@@ -299,12 +283,9 @@ footer {
 
   .footer-bottom .social-icons {
     justify-content: flex-end;
-    /* Align icons to the right */
     margin-right: 0;
     font-size: 14px;
-    /* Further reduce font size */
-    gap: 0px;
-    /* Reduce space between icons */
+    gap: 10px;
   }
 }
 
@@ -312,13 +293,11 @@ footer {
   .footer-content {
     flex-direction: column;
     align-items: flex-start;
-    /* Align items to the left */
   }
 
   .footer-section {
     margin-bottom: 15px;
     text-align: left;
-    /* Align text to the left */
   }
 
   .footer-section.learn-more {
@@ -333,9 +312,7 @@ footer {
   .footer-bottom {
     flex-direction: row;
     align-items: center;
-    /* Align items to the center */
     text-align: left;
-    /* Align text to the left */
   }
 
   .footer-bottom p {
@@ -345,10 +322,8 @@ footer {
 
   .footer-bottom .social-icons {
     justify-content: flex-end;
-    /* Align icons to the right */
     margin-right: 0;
     font-size: 14px;
-    /* Further reduce font size */
   }
 }
 </style>
