@@ -3,7 +3,7 @@
     <HeaderComponent class="header-section" />
     <!-- Simplified banner content -->
     <section class="section-spacing carousel-section">
-      <carousel :per-page="1" :navigate-to="0" :mouse-drag="true">
+      <carousel :per-page="1" :navigate-to="0" :mouse-drag="true" :navigationEnabled="true" :paginationEnabled="true">
         <!-- ตรวจสอบว่า slides มีข้อมูลหรือไม่ -->
         <div v-if="slides && slides.length > 0">
           <slide v-for="(slide, index) in slides" :key="index">
@@ -23,7 +23,6 @@
         </div>
       </carousel>
     </section>
-
 
 
     <!-- End of simplified banner content -->
@@ -455,6 +454,7 @@ export default {
 
       const slides = bannersResponse.data.map(banner => ({
         image: banner.img_website,
+        title: banner.title // Add title to each slide
       }));
 
       return {
@@ -877,6 +877,67 @@ img {
 
   100% {
     transform: translateX(-100%);
+  }
+}
+
+.carousel-section .VueCarousel-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-section .VueCarousel-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-section .VueCarousel-dot--active {
+  background-color: #333;
+}
+
+@media (max-width: 768px) {
+  .slide-overlay {
+    top: 25%;
+    left: 5%;
+    width: 80%;
+  }
+
+  .slide-overlay h3 {
+    font-size: 1.2rem;
+  }
+
+  .slide-overlay span {
+    font-size: 0.8rem;
+  }
+
+  .shop-now-btn {
+    font-size: 0.8rem;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-overlay {
+    top: 15%;
+    left: 5%;
+    width: 90%;
+  }
+
+  .slide-overlay h3 {
+    font-size: 1.5rem;
+  }
+
+  .slide-overlay span {
+    font-size: 1rem;
+  }
+
+  .shop-now-btn {
+    font-size: 1rem;
+    padding: 8px 16px;
   }
 }
 </style>

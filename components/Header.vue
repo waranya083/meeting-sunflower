@@ -195,6 +195,8 @@ export default {
   z-index: 1;
   border-radius: 10px;
   /* Add border-radius to make corners rounded */
+  top: 100%; /* Adjust the top position to move the dropdown down */
+  margin-top: 5px; /* Add margin to create space between the button and the dropdown */
 }
 
 .dropdown-content.dropdown-open {

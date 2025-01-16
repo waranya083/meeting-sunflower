@@ -106,6 +106,7 @@ footer {
   max-width: 1200px;
   /* Set max-width to 1200px */
   margin: auto;
+  margin-bottom: 40px;
   /* Center the content */
 }
 
