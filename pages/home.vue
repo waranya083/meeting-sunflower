@@ -9,7 +9,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
               <li class="breadcrumb-item"><a href="/" class="text-white breadcrumb-link">Home</a></li>
-              <li class="breadcrumb-item active text-white" aria-current="page"><a href="/service"
+              <li class="breadcrumb-item active text-white" aria-current="page"><a 
                   class="text-white breadcrumb-link">Service</a></li>
             </ol>
           </nav>
@@ -280,15 +280,17 @@ button {
 }
 
 .breadcrumb-item::after {
-  content: ">";
-  /* ลูกศรสามเหลี่ยม */
-  color: white;
-  margin-left: 5px;
-  font-size: large;
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>') no-repeat center;
+  margin-left: 10px;
+  position: relative;
+  top: 2px; /* Move the triangle down slightly */
 }
 
 .breadcrumb-item:last-child::after {
-  content: "";
-  /* ไม่มีลูกศรในรายการสุดท้าย */
+  display: none;
 }
 </style>
