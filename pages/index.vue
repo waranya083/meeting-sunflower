@@ -391,7 +391,7 @@
     </div>
   </section>
 
-
+  <MessegesComponent />
   <FooterComponent class="footer-section" />
   </div>
 </template>
@@ -400,6 +400,10 @@
 
 import HeaderComponent from '~/components/Header.vue';
 import FooterComponent from '~/components/Footer.vue';
+import MessegesComponent from '~/components/Messeges.vue';
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/js/all.js';
+
 
 let Carousel = null;
 let Slide = null;
@@ -415,6 +419,7 @@ export default {
   components: {
     HeaderComponent,
     FooterComponent,
+    MessegesComponent,
     Carousel,
     Slide
   },
