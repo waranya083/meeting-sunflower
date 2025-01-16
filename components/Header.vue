@@ -21,10 +21,14 @@
             :class="{ 'active-tab': isDropdownOpen || $route.path === '/home' || $route.path === '/condo' }"
             @click="toggleDropdown" role="tab" aria-selected="false" aria-controls="service-tab">Service</a>
           <div class="dropdown-content" :class="{ 'dropdown-open': isDropdownOpen }">
-            <nuxt-link to="/home" exact-active-class="active-tab" class="menu-item"><i class="fas fa-home"></i>
-              รับออกแบบตกแต่งภายใน บ้าน</nuxt-link>
-            <nuxt-link to="/condo" exact-active-class="active-tab" class="menu-item"><i class="fas fa-building"></i>
-              รับออกแบบตกแต่งภายใน คอนโด</nuxt-link>
+            <nuxt-link to="/home" exact-active-class="active-tab" >
+              <img src="@/static/home.png" alt="Home" class="icon">
+              <span class="text">รับออกแบบตกแต่งภายใน บ้าน</span>
+            </nuxt-link>
+            <nuxt-link to="/condo" exact-active-class="active-tab" >
+              <img src="@/static/condo.png" alt="Condo" class="icon">
+              <span class="text">รับออกแบบตกแต่งภายใน คอนโด</span>
+            </nuxt-link>
           </div>
         </div>
         <nuxt-link to="/portfolio" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false"
@@ -93,7 +97,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1002;
+  z-index: 1004;
   background-color: rgba(255, 255, 255, 0.9);
   text-align: center;
   padding: 10px 0;
@@ -160,9 +164,12 @@ export default {
 
 .menu-item {
   background-color: transparent;
-  border: 1px solid transparent;
+  border: none;
   border-radius: 30px;
-  padding: 8px 16px;
+  padding: 5px 10px;
+  /* Adjust padding to make tabs smaller */
+  font-size: 0.8rem;
+  /* Adjust font size */
   transition: background-color 0.3s, border-color 0.3s;
 }
 
@@ -195,8 +202,10 @@ export default {
   z-index: 1;
   border-radius: 10px;
   /* Add border-radius to make corners rounded */
-  top: 100%; /* Adjust the top position to move the dropdown down */
-  margin-top: 5px; /* Add margin to create space between the button and the dropdown */
+  top: 100%;
+  /* Adjust the top position to move the dropdown down */
+  margin-top: 5px;
+  /* Add margin to create space between the button and the dropdown */
 }
 
 .dropdown-content.dropdown-open {
@@ -209,6 +218,7 @@ export default {
   text-decoration: none;
   display: flex;
   align-items: center;
+  /* Ensure the image and text are aligned on the same line */
 }
 
 .dropdown-content a i {
@@ -216,7 +226,9 @@ export default {
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: transparent;
+  border-radius: 10px;
+
 }
 
 .social-icons {
@@ -273,11 +285,7 @@ export default {
   }
 
   .dropdown-content a {
-    color: #fff;
-  }
-
-  .dropdown-content a:hover {
-    background-color: #444;
+    color: transparent;
   }
 
   .social-icons {
@@ -400,5 +408,20 @@ export default {
   .header .promo button {
     padding: 3px 6px;
   }
+}
+
+.icon {
+  width: 1.2em;
+  height: 1.3em;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+  /* Ensure the icon is vertically aligned with the text */
+}
+
+.text {
+  display: inline-block;
+  vertical-align: middle;
+  /* Ensure the text is vertically aligned with the icon */
 }
 </style>
