@@ -127,7 +127,7 @@ export default {
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  background: #F44336;
+  background: #F7B951;
   margin-bottom: 12px;
   margin-right: 17px;
   padding: 0;
@@ -145,7 +145,7 @@ export default {
 }
 
 button.kc_fab_main_btn {
-  background-color: #F44336;
+  background-color: #F7B951;
   width: 60px;
   height: 60px;
   border-radius: 100%;
@@ -156,7 +156,7 @@ button.kc_fab_main_btn {
   border: none;
   outline: none;
   color: #FFF;
-  font-size: 36px;
+  font-size: 30px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   transition: 0.3s;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
