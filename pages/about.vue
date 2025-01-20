@@ -9,7 +9,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
               <li class="breadcrumb-item"><a href="/" class="text-white breadcrumb-link">Home</a></li>
-              <li class="breadcrumb-item active text-white" aria-current="page"><a 
+              <li class="breadcrumb-item active text-white" aria-current="page"><a
                   class="text-white breadcrumb-link">About Us</a></li>
             </ol>
           </nav>
@@ -22,7 +22,7 @@
         <div class="container-fluid">
           <div class="d-flex justify-content-start align-items-center about-section">
             <div class="text-left p-3 about-content">
-              <div style="display: flex; align-items: center; margin-bottom: 10px;">
+              <div style="display: flex; align-items: center; ">
                 <div
                   style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 10px;">
                 </div>
@@ -70,7 +70,8 @@
                 <img src="@/static/picture.png" alt="Image 1" class="img-fluid rounded-circle"
                   data-v-inspector="pages/about.vue:62:44">
                 <div class="image-caption" data-v-inspector="pages/about.vue:63:19">
-                  <p data-v-inspector="pages/about.vue:64:19" style="font-size: 1.2rem; font-weight: 600;">Jackie Sanders</p>
+                  <p data-v-inspector="pages/about.vue:64:19" style="font-size: 1.2rem; font-weight: 600;">Jackie
+                    Sanders</p>
                 </div>
                 <p data-v-inspector="pages/about.vue:66:19">CEO</p>
               </div>
@@ -78,7 +79,8 @@
                 <img src="@/static/picture.png" alt="Image 2" class="img-fluid rounded-circle"
                   data-v-inspector="pages/about.vue:68:44">
                 <div class="image-caption" data-v-inspector="pages/about.vue:69:19">
-                  <p data-v-inspector="pages/about.vue:70:19"style="font-size: 1.2rem;font-weight: 600;">Cory Zamora</p>
+                  <p data-v-inspector="pages/about.vue:70:19" style="font-size: 1.2rem;font-weight: 600;">Cory Zamora
+                  </p>
                 </div>
                 <p data-v-inspector="pages/about.vue:72:19">Marketing Specialist</p>
               </div>
@@ -107,9 +109,11 @@
             <div class="relative size-40">
               <svg class="size-half rotate-180" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                 <!-- Background Circle (Gauge) -->
-                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-orange-200 dark:text-orange-200" stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-orange-200 dark:text-orange-200"
+                  stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
                 <!-- Gauge Progress -->
-                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-orange-600 dark:text-orange-500" stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-orange-600 dark:text-orange-500"
+                  stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
               </svg>
               <!-- Value Text -->
               <div class="absolute top-10 start-1/2 transform -translate-x-1/2 text-center" style="width: 150px;">
@@ -124,9 +128,11 @@
             <div class="relative size-40">
               <svg class="size-full rotate-180" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                 <!-- Background Circle (Gauge) -->
-                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-green-200 dark:text-green-200" stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-green-200 dark:text-green-200"
+                  stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
                 <!-- Gauge Progress -->
-                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-green-600 dark:text-green-500" stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-green-600 dark:text-green-500"
+                  stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
               </svg>
               <!-- Value Text -->
               <div class="absolute top-10 start-1/2 transform -translate-x-1/2 text-center" style="width: 150px;">
@@ -141,9 +147,11 @@
             <div class="relative size-40">
               <svg class="size-full rotate-180" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                 <!-- Background Circle (Gauge) -->
-                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-blue-200 dark:text-blue-200" stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-blue-200 dark:text-blue-200"
+                  stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
                 <!-- Gauge Progress -->
-                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-blue-600 dark:text-blue-500" stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-blue-600 dark:text-blue-500"
+                  stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
               </svg>
               <!-- Value Text -->
               <div class="absolute top-10 start-1/2 transform -translate-x-1/2 text-center" style="width: 150px;">
@@ -158,9 +166,11 @@
             <div class="relative size-40">
               <svg class="size-full rotate-180" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                 <!-- Background Circle (Gauge) -->
-                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-red-200 dark:text-red-200" stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-red-200 dark:text-red-200"
+                  stroke-width="2" stroke-dasharray="50 100" stroke-linecap="round"></circle>
                 <!-- Gauge Progress -->
-                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-red-600 dark:text-red-500" stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
+                <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-red-600 dark:text-red-500"
+                  stroke-width="2" stroke-dasharray="25 100" stroke-linecap="round"></circle>
               </svg>
               <!-- Value Text -->
               <div class="absolute top-10 start-1/2 transform -translate-x-1/2 text-center" style="width: 150px;">
@@ -326,7 +336,7 @@ button {
   margin-top: auto;
   bottom: 0;
   width: 100%;
-  padding: 20px;
+
   color: white;
 }
 
@@ -334,8 +344,6 @@ button {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  /* Adjusted margin-top to move the section up */
-  /* Move the "About us" section down slightly */
 }
 
 
@@ -387,16 +395,14 @@ button {
 }
 
 .section-spacing {
-  padding: 60px 0;
+  padding: 40px 0;
   width: 100%;
 }
 
 .about-section {
   border-radius: 8px;
-  padding: 20px;
+
 }
-
-
 
 .about-text {
   color: #414042;
@@ -413,24 +419,25 @@ button {
 .mission-images {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 20px;
   flex: 1;
   max-width: 50%;
 }
 
 .circle-image {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Center align the images and captions */
+  justify-content: center;
+  /* Center the images vertically */
+
 }
 
 .circle-image img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 50%;
   /* Ensure the image is circular */
@@ -454,40 +461,23 @@ button {
 .mission-section {
   display: flex;
   flex-wrap: wrap;
-  /* Move the "Our Mission" section down slightly */
   background-color: #F5F5F5;
-  /* Change background color */
   width: 100vw;
-  /* Full viewport width */
   justify-content: space-between;
   position: relative;
-  /* Ensure it stays within the container */
   left: 50%;
-  /* Adjust positioning */
   transform: translateX(-50%);
-  /* Center the section */
 }
 
 .full-width-section {
   width: 100vw;
-  /* Full viewport width */
   background-color: #F5F5F5;
-  /* Background color */
   position: relative;
-  /* Ensure it stays within the container */
   left: 50%;
-  /* Adjust positioning */
   transform: translateX(-50%);
-  /* Center the section */
 }
 
 
-.yellow-dot {
-  width: 10px;
-  height: 10px;
-  background-color: yellow;
-  border-radius: 50%;
-}
 
 .about-heading {
   font-weight: bold;
@@ -526,7 +516,8 @@ button {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>') no-repeat center;
   margin-left: 10px;
   position: relative;
-  top: 2px; /* Move the triangle down slightly */
+  top: 2px;
+  /* Move the triangle down slightly */
 }
 
 .breadcrumb-item:last-child::after {
@@ -557,4 +548,189 @@ h1 {
   margin: 20px;
   text-align: center;
 }
+
+/* xl Desktop */
+@media (min-width: 1200px) {
+  .fs-14 {
+    font-size: 2.2rem;
+  }
+
+  .about-text {
+    font-size: 1.8rem;
+  }
+
+  .progressbar {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* lg tablet horizon */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .about-section {
+    margin-bottom: -100px;
+  }
+
+  .fs-14 {
+    font-size: 2.1rem !important;
+    /* Increase font size for medium screens and add !important */
+  }
+
+  .about-text {
+    font-size: 1.8rem;
+  }
+
+  .about-section {
+    margin-top: 0px;
+  }
+
+  .mission-section {
+    flex-direction: column;
+    align-items: center;
+    /* Center the mission section */
+  }
+
+  .mission-images {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    /* Prevent wrapping to the next line */
+    order: 2;
+    width: 100%;
+    margin-top: 20px;
+    gap: 20%;
+    /* Add spacing between the circle images */
+  }
+
+  .mission-content {
+    order: 1;
+    width: 100%;
+    padding: 40px;
+    margin-right: -10px;
+    text-align: left;
+    /* Keep the text alignment to the left */
+  }
+
+  .progressbar-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-content: center;
+    margin-left: 20%;
+  }
+
+  .progressbar {
+    width: 250px !important;
+    /* Increase the width */
+    height: 250px !important;
+    /* Increase the height */
+    text-align: center;
+  }
+}
+
+/* md tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .fs-14 {
+    font-size: 1.8rem;
+  }
+
+  .about-text {
+    font-size: 1.6rem;
+  }
+
+  .progressbar {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* sm phone */
+@media (max-width: 768px) {
+  .fs-14 {
+    font-size: 2rem;
+    /* Increase font size for small screens */
+  }
+
+  .about-image img {
+    max-width: 80%;
+  }
+
+  .mission-section {
+    flex-direction: column;
+    align-items: center;
+    /* Center the mission section */
+  }
+
+  .mission-images {
+    flex-direction: column;
+    align-items: center;
+    order: 2;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .mission-content {
+    order: 1;
+    width: 100%;
+    padding: 40px;
+    margin-right: -10px;
+    text-align: left;
+    /* Keep the text alignment to the left */
+  }
+
+  .circle-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .circle-image img {
+    width: 150px;
+    /* Adjust the width */
+    height: 150px;
+    /* Adjust the height */
+  }
+
+  .progressbar {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* xs phone */
+@media (max-width: 575px) {
+  .fs-14 {
+    font-size: 2rem;
+    /* Increase font size for extra small screens */
+  }
+
+  .mission-section {
+    flex-direction: column;
+    align-items: center;
+    /* Center the mission section */
+  }
+
+  .mission-images {
+    order: 2;
+  }
+
+  .mission-content {
+    order: 1;
+    text-align: left;
+    /* Keep the text alignment to the left */
+  }
+
+  .circle-image img {
+    width: 150px;
+    /* Adjust the width */
+    height: 150px;
+    /* Adjust the height */
+  }
+
+  .progressbar {
+    width: 80px;
+    height: 80px;
+  }
+}
+
 </style>

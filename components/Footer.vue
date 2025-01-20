@@ -96,7 +96,6 @@ export default {
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 html, body {
-
   display: flex;
   flex-direction: column;
 }
@@ -305,7 +304,7 @@ footer {
   }
 
   .footer-section {
-    margin-bottom: 15px;
+    
     text-align: left;
   }
 
@@ -333,6 +332,107 @@ footer {
     justify-content: flex-end;
     margin-right: 0;
     font-size: 14px;
+  }
+}
+
+/* xl Desktop */
+@media (min-width: 1200px) {
+  .footer-section h3 {
+    font-size: 1.4rem;
+  }
+
+  .footer-section ul li a {
+    font-size: 1.1rem;
+  }
+
+  .footer-bottom p {
+    font-size: 1.1rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 18px;
+  }
+}
+
+/* lg tablet horizon */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .footer-section {
+    text-align: left !important; /* Align all footer sections to the left */
+    margin-left: 0 !important; /* Remove any left margin */
+    margin-right: 50px !important; /* Remove any right margin */
+  }
+
+  .footer-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer-section ul li a {
+    font-size: 1rem;
+  }
+
+  .footer-bottom p {
+    font-size: 1rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 16px;
+  }
+}
+
+/* md tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-section ul li a {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 15px;
+  }
+}
+
+/* sm phone */
+@media (max-width: 768px) {
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-section ul li a {
+    font-size: 0.8rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 14px;
+  }
+}
+
+/* xs phone */
+@media (max-width: 575px) {
+  .footer-section h3 {
+    font-size: 1rem;
+  }
+
+  .footer-section ul li a {
+    font-size: 0.7rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.7rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 13px;
   }
 }
 </style>
