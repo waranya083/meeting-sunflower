@@ -152,7 +152,6 @@ footer {
 
 .footer-section.email {
   margin-right: -80px;
-  margin-left: 0px;
 }
 
 .footer-section.email a {
@@ -161,7 +160,6 @@ footer {
 }
 
 .footer-section h3 {
-  margin-bottom: 10px;
   font-size: 1.2rem;
   color: #fff;
 }
@@ -170,9 +168,9 @@ footer {
   list-style: none;
 }
 
-.footer-section ul li {
+/* .footer-section ul li {
   margin-bottom: 5px;
-}
+} */
 
 .footer-section ul li a {
   color: #fff;
@@ -268,42 +266,43 @@ footer {
   background-color: inherit !important;
 }
 
-@media (max-width: 768px) {
-
-}
-
-@media (max-width: 480px) {
-
-}
-
 /* xl Desktop */
-@media (min-width: 1200px) {
-
-}
+@media (min-width: 1200px) {}
 
 /* lg tablet horizon */
 @media (min-width: 992px) and (max-width: 1199px) {
-  .footer-section {
-    text-align: left !important;
-    /* Align all footer sections to the left */
-    margin-left: 0 !important;
-    /* Remove any left margin */
-    margin-right: 50px !important;
-    /* Remove any right margin */
+
+  .footer-content {
+    justify-content: space-between;
+    padding: 0px 20px;
   }
 
+  .footer-section {
+    text-align: left !important;
+    margin-right: 55px !important;
+  }
 
+  .footer-section.learn-more {
+    margin-left: 55px !important;
+  }
+
+  .footer-section.email {
+    margin-right: 10px !important;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #fff;
+    max-width: 96%; /* Adjust border-top width */
+    padding-top: 2%;
+  }
 }
 
 /* md tablet */
-@media (min-width: 768px) and (max-width: 991px) {
-
-}
+@media (min-width: 768px) and (max-width: 991px) {}
 
 /* sm phone */
+@media (max-width: 768px) {}
 
 /* xs phone */
-@media (max-width: 575px) {
-
-}
+@media (max-width: 575px) {}
 </style>
