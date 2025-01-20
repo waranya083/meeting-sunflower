@@ -46,8 +46,8 @@
       <div class="social-icons">
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-line"></i></a>
-        <a href="#"><i class="fas fa-phone"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a :href="'tel:' + websiteData.phone1"><i class="fas fa-phone"></i></a>
+        <a :href="'mailto:' + websiteData.email1"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </footer>
@@ -72,9 +72,16 @@ export default {
     }
   },
   async mounted() {
+    const cachedData = localStorage.getItem('websiteData');
+    if (cachedData) {
+      this.websiteData = JSON.parse(cachedData);
+      return;
+    }
+
     try {
       const websiteResponse = await this.$axios.get('/website');
       this.websiteData = websiteResponse.data;
+      localStorage.setItem('websiteData', JSON.stringify(this.websiteData));
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -95,7 +102,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
-html, body {
+html,
+body {
   display: flex;
   flex-direction: column;
 }
@@ -125,6 +133,7 @@ footer {
   max-width: 1200px;
   margin: auto;
   margin-bottom: 40px;
+  padding-top: 2%;
 }
 
 .footer-section {
@@ -181,6 +190,7 @@ footer {
   text-align: left;
   max-width: 1200px;
   margin: auto;
+  padding-top: 1%;
 }
 
 .footer-bottom p {
@@ -304,7 +314,7 @@ footer {
   }
 
   .footer-section {
-    
+
     text-align: left;
   }
 
@@ -357,9 +367,12 @@ footer {
 /* lg tablet horizon */
 @media (min-width: 992px) and (max-width: 1199px) {
   .footer-section {
-    text-align: left !important; /* Align all footer sections to the left */
-    margin-left: 0 !important; /* Remove any left margin */
-    margin-right: 50px !important; /* Remove any right margin */
+    text-align: left !important;
+    /* Align all footer sections to the left */
+    margin-left: 0 !important;
+    /* Remove any left margin */
+    margin-right: 50px !important;
+    /* Remove any right margin */
   }
 
   .footer-section h3 {

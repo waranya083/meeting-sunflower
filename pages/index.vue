@@ -36,11 +36,9 @@
               </div>
               <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">About Us</h2>
             </div>
-            <p class="mb-3 about-text">
-              Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
-              dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl
-              consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui.
-            </p>
+            <div v-if="websiteData && websiteData.short_about_us">
+              <p class="mb-3 about-text">{{ websiteData.short_about_us.replace(/<\/?p>/g, '') }}</p>
+            </div>
             <a href="#" class="btn btn-primary rounded-pill about-btn">Read More</a>
           </div>
         </div>
@@ -431,46 +429,56 @@ export default {
     }
   },
   async asyncData({ $axios }) {
-    const serviceCategoryId1 = 113; // กำหนดค่า service_category_id1
-    const serviceCategoryId2 = 114; // กำหนดค่า service_category_id2
+  const serviceCategoryId1 = 113; // กำหนดค่า service_category_id1
+  const serviceCategoryId2 = 114; // กำหนดค่า service_category_id2
 
-    try {
-      // Request for services
-      const response1 = await $axios.get('/service', {
-        params: { service_category_id: serviceCategoryId1 },
-      });
+  try {
+    // Request for services
+    const response1 = await $axios.get('/service', {
+      params: { service_category_id: serviceCategoryId1 },
+    });
 
-      const response2 = await $axios.get('/service', {
-        params: { service_category_id: serviceCategoryId2 },
-      });
+    const response2 = await $axios.get('/service', {
+      params: { service_category_id: serviceCategoryId2 },
+    });
 
-      const filteredServices1 = response1.data.service.filter(service => service.service_category_id === serviceCategoryId1);
-      const filteredServices2 = response2.data.service.filter(service => service.service_category_id === serviceCategoryId2);
+    const filteredServices1 = response1.data.service.filter(
+      (service) => service.service_category_id === serviceCategoryId1
+    );
+    const filteredServices2 = response2.data.service.filter(
+      (service) => service.service_category_id === serviceCategoryId2
+    );
 
-      const combinedServices = [...filteredServices1, ...filteredServices2];
+    const combinedServices = [...filteredServices1, ...filteredServices2];
 
-      // Request for banners
-      const bannersResponse = await $axios.get('/bannerindex'); // Assuming '/banners' is your API endpoint for fetching banners
+    // Request for banners
+    const bannersResponse = await $axios.get('/bannerindex'); // Assuming '/banners' is your API endpoint for fetching banners
 
-      const slides = bannersResponse.data.map(banner => ({
-        image: banner.img_website,
-        title: banner.title // Add title to each slide
-      }));
+    const slides = bannersResponse.data.map((banner) => ({
+      image: banner.img_website,
+      title: banner.title, // Add title to each slide
+    }));
 
-      return {
-        services: Array.isArray(combinedServices) ? combinedServices : [],
-        banners: Array.isArray(bannersResponse.data) ? bannersResponse.data : [],
-        slides: slides,
-      };
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      return {
-        services: [],
-        banners: [],
-        slides: [],
-      };
-    }
-  },
+    // Request for website data
+    const websiteResponse = await $axios.get('/website'); // ปรับ URL ให้ตรงกับ API ของคุณ
+    const websiteData = websiteResponse.data;
+
+    return {
+      services: Array.isArray(combinedServices) ? combinedServices : [],
+      banners: Array.isArray(bannersResponse.data) ? bannersResponse.data : [],
+      slides: slides,
+      websiteData: websiteData || {}, // เก็บข้อมูล websiteData เพิ่มเติม
+    };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return {
+      services: [],
+      banners: [],
+      slides: [],
+      websiteData: {}, // กรณีเกิด error คืนค่า object ว่าง
+    };
+  }
+},
   data() {
     return {
       currentDesign: 'house',
