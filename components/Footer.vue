@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer @click="closeDropdown">
     <div class="footer-content">
       <div class="footer-section get-in-touch">
         <h3>Get in Touch</h3>
@@ -16,15 +16,16 @@
         <ul>
           <li><nuxt-link to="/">Home</nuxt-link></li>
           <li><nuxt-link to="/about">About us</nuxt-link></li>
-          <li class="dropdown-service">
-            <a href="javascript:void(0)" class="dropbtn">Service
+          <li class="dropdown-service" @click.stop>
+            <a href="javascript:void(0)" class="dropbtn" @click="toggleDropdown">
+              Service
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
                 class="bi bi-chevron-down" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
                   d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
               </svg>
             </a>
-            <div class="dropdown-content">
+            <div class="dropdown-content" :class="{ 'dropdown-open': isDropdownOpen }">
               <nuxt-link to="/home" class="dropdown-link">Home</nuxt-link>
               <nuxt-link to="/condo" class="dropdown-link">Condo</nuxt-link>
             </div>
@@ -58,6 +59,7 @@ export default {
   data() {
     return {
       websiteData: {},
+      isDropdownOpen: false,
     };
   },
   computed: {
@@ -77,6 +79,15 @@ export default {
       console.error('Error fetching data:', error);
     }
   },
+  methods: {
+    toggleDropdown(event) {
+      event.preventDefault();
+      this.isDropdownOpen = !this.isDropdownOpen;
+    },
+    closeDropdown() {
+      this.isDropdownOpen = false;
+    }
+  }
 }
 </script>
 
@@ -99,14 +110,11 @@ html, body {
 footer {
   background-color: #333;
   color: #fff;
-  padding: 40px 10%;
   text-align: left;
   width: 100%;
   font-family: 'Athiti', sans-serif;
   box-sizing: border-box;
   position: relative;
-  bottom: 0;
-  flex-shrink: 0;
   margin-top: auto;
 }
 
@@ -127,7 +135,7 @@ footer {
 }
 
 .footer-section.get-in-touch {
-  margin-right: 20px;
+  margin-right: 0px;
 }
 
 .footer-section.learn-more {
@@ -167,12 +175,10 @@ footer {
 
 .footer-bottom {
   border-top: 1px solid #fff;
-  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
-  margin-top: 20px;
   text-align: left;
   max-width: 1200px;
   margin: auto;
@@ -225,6 +231,10 @@ footer {
   z-index: 1;
 }
 
+.dropdown-service .dropdown-content.dropdown-open {
+  display: block;
+}
+
 .dropdown-service .dropdown-link {
   color: #ffffff;
   text-decoration: none;
@@ -257,7 +267,6 @@ footer {
   }
 
   .footer-section {
-    margin-bottom: 20px;
     text-align: left;
   }
 

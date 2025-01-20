@@ -9,7 +9,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
               <li class="breadcrumb-item"><a href="/" class="text-white breadcrumb-link">Home</a></li>
-              <li class="breadcrumb-item active text-white" aria-current="page"><a 
+              <li class="breadcrumb-item active text-white" aria-current="page"><a
                   class="text-white breadcrumb-link">Service</a></li>
             </ol>
           </nav>
@@ -43,7 +43,6 @@
       <div class="d-flex justify-content-center" style="margin-top: 30px; margin-bottom: 60px;">
         <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
       </div>
-      <FooterComponent class="footer-section" /> <!-- Ensure this is correctly placed -->
     </div>
     <MessegesComponent />
     <FooterComponent class="footer-section" />
