@@ -160,7 +160,6 @@ footer {
 
 .footer-section ul {
   list-style: none;
-  padding: 0;
 }
 
 .footer-section ul li {
@@ -174,6 +173,7 @@ footer {
 
 .footer-bottom {
   border-top: 1px solid #fff;
+  padding: 10px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -258,7 +258,27 @@ footer {
 .nuxt-link-exact-active {
   background-color: inherit !important;
 }
+/* xl Desktop */
+@media (min-width: 1200px) {
 
+}
+
+/* lg tablet horizon */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .footer-section {
+    text-align: left !important; /* Align all footer sections to the left */
+    margin-left: 0 !important; /* Remove any left margin */
+    margin-right: 50px !important; /* Remove any right margin */
+  }
+  
+}
+
+/* md tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* sm phone */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
@@ -269,6 +289,12 @@ footer {
     text-align: left;
   }
 
+  .footer-section.learn-more,
+  .footer-section.get-in-touch,
+  .footer-section.email {
+    font-size: 1rem; /* Ensure consistent font size */
+  }
+
   .footer-section.learn-more {
     margin-left: 0;
     margin-right: 0;
@@ -276,6 +302,7 @@ footer {
 
   .footer-section.email {
     margin-left: 0;
+    margin-right: 0;
   }
 
   .footer-bottom {
@@ -297,142 +324,10 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer-section {
-    
-    text-align: left;
-  }
-
-  .footer-section.learn-more {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .footer-section.email {
-    margin-left: 0;
-  }
-
-  .footer-bottom {
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-  }
-
-  .footer-bottom p {
-    margin-bottom: 0;
-    flex: 1;
-  }
-
-  .footer-bottom .social-icons {
-    justify-content: flex-end;
-    margin-right: 0;
-    font-size: 14px;
-  }
-}
-
-/* xl Desktop */
-@media (min-width: 1200px) {
-  .footer-section h3 {
-    font-size: 1.4rem;
-  }
-
-  .footer-section ul li a {
-    font-size: 1.1rem;
-  }
-
-  .footer-bottom p {
-    font-size: 1.1rem;
-  }
-
-  .footer-bottom .social-icons a {
-    font-size: 18px;
-  }
-}
-
-/* lg tablet horizon */
-@media (min-width: 992px) and (max-width: 1199px) {
-  .footer-section {
-    text-align: left !important; /* Align all footer sections to the left */
-    margin-left: 0 !important; /* Remove any left margin */
-    margin-right: 50px !important; /* Remove any right margin */
-  }
-
-  .footer-section h3 {
-    font-size: 1.3rem;
-  }
-
-  .footer-section ul li a {
-    font-size: 1rem;
-  }
-
-  .footer-bottom p {
-    font-size: 1rem;
-  }
-
-  .footer-bottom .social-icons a {
-    font-size: 16px;
-  }
-}
-
-/* md tablet */
-@media (min-width: 768px) and (max-width: 991px) {
-  .footer-section h3 {
-    font-size: 1.2rem;
-  }
-
-  .footer-section ul li a {
-    font-size: 0.9rem;
-  }
-
-  .footer-bottom p {
-    font-size: 0.9rem;
-  }
-
-  .footer-bottom .social-icons a {
-    font-size: 15px;
-  }
-}
-
-/* sm phone */
-@media (max-width: 768px) {
-  .footer-section h3 {
-    font-size: 1.1rem;
-  }
-
-  .footer-section ul li a {
-    font-size: 0.8rem;
-  }
-
-  .footer-bottom p {
-    font-size: 0.8rem;
-  }
-
-  .footer-bottom .social-icons a {
-    font-size: 14px;
-  }
-}
-
 /* xs phone */
 @media (max-width: 575px) {
-  .footer-section h3 {
-    font-size: 1rem;
-  }
-
-  .footer-section ul li a {
-    font-size: 0.7rem;
-  }
-
-  .footer-bottom p {
-    font-size: 0.7rem;
-  }
-
-  .footer-bottom .social-icons a {
-    font-size: 13px;
+  .footer-section {
+    margin-top: 20px;
   }
 }
 </style>
