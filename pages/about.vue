@@ -406,7 +406,7 @@ button {
 
 .about-text {
   color: #414042;
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
 }
 
 .mission-content {
