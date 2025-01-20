@@ -132,8 +132,7 @@ footer {
   flex-wrap: wrap;
   max-width: 1200px;
   margin: auto;
-  margin-bottom: 40px;
-  padding-top: 2%;
+  margin-bottom: 20px;
 }
 
 .footer-section {
@@ -270,105 +269,16 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 
-  .footer-section {
-    text-align: left;
-  }
-
-  .footer-section.learn-more,
-  .footer-section.get-in-touch,
-  .footer-section.email {
-    font-size: 1rem; /* Ensure consistent font size */
-  }
-
-  .footer-section.learn-more {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .footer-section.email {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .footer-bottom {
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-  }
-
-  .footer-bottom p {
-    margin-bottom: 0;
-    flex: 1;
-  }
-
-  .footer-bottom .social-icons {
-    justify-content: flex-end;
-    margin-right: 0;
-    font-size: 14px;
-    gap: 10px;
-  }
 }
 
 @media (max-width: 480px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 
-  .footer-section {
-
-    text-align: left;
-  }
-
-  .footer-section.learn-more {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .footer-section.email {
-    margin-left: 0;
-  }
-
-  .footer-bottom {
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-  }
-
-  .footer-bottom p {
-    margin-bottom: 0;
-    flex: 1;
-  }
-
-  .footer-bottom .social-icons {
-    justify-content: flex-end;
-    margin-right: 0;
-    font-size: 14px;
-  }
 }
 
 /* xl Desktop */
 @media (min-width: 1200px) {
-  .footer-section h3 {
-    font-size: 1.4rem;
-  }
 
-  .footer-section ul li a {
-    font-size: 1.1rem;
-  }
-
-  .footer-bottom p {
-    font-size: 1.1rem;
-  }
-
-  .footer-bottom .social-icons a {
-    font-size: 18px;
-  }
 }
 
 /* lg tablet horizon */
@@ -382,65 +292,18 @@ footer {
     /* Remove any right margin */
   }
 
-  .footer-section h3 {
-    font-size: 1.3rem;
-  }
 
-  .footer-section ul li a {
-    font-size: 1rem;
-  }
-
-  .footer-bottom p {
-    font-size: 1rem;
-  }
-
-  .footer-bottom .social-icons a {
-    font-size: 16px;
-  }
 }
 
 /* md tablet */
 @media (min-width: 768px) and (max-width: 991px) {
-  .footer-section h3 {
-    font-size: 1.2rem;
-  }
 
-  .footer-section ul li a {
-    font-size: 0.9rem;
-  }
-
-  .footer-bottom p {
-    font-size: 0.9rem;
-  }
-
-  .footer-bottom .social-icons a {
-    font-size: 15px;
-  }
 }
 
 /* sm phone */
-@media (max-width: 768px) {
-  .footer-section h3 {
-    font-size: 1.1rem;
-  }
-
-  .footer-section ul li a {
-    font-size: 0.8rem;
-  }
-
-  .footer-bottom p {
-    font-size: 0.8rem;
-  }
-
-  .footer-bottom .social-icons a {
-    font-size: 14px;
-  }
-}
 
 /* xs phone */
 @media (max-width: 575px) {
-  .footer-section {
-    margin-top: 20px;
-  }
+
 }
 </style>
