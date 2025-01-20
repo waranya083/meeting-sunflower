@@ -28,11 +28,9 @@
                 </div>
                 <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">About us</h2>
               </div>
-              <p class="mb-3 about-text">
-                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl
-                consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui.
-              </p>
+              <div v-if="websiteData && websiteData.short_about_us">
+                <p class="mb-3 about-text">{{ websiteData.short_about_us.replace(/<\/?p>/g, '') }}</p>
+              </div>
               <div class="about-image">
                 <img src="@/static/picture.png" alt="About Us Image" class="img-fluid rounded">
                 <img src="@/static/picture.png" alt="About Us Image" class="img-fluid rounded">
@@ -228,6 +226,7 @@ export default {
 
       return {
         bannerAboutUs, // ส่ง bannerAboutUs กลับไปด้วย
+        websiteData: websiteData || {}, // เก็บข้อมูล websiteData เพิ่มเติม
       };
     } catch (error) {
       console.error('Error fetching data:', error.message || error);
@@ -235,6 +234,7 @@ export default {
       // กรณีเกิดข้อผิดพลาด ส่งค่า default กลับไป
       return {
         bannerAboutUs: null, // ส่ง null ถ้าหากเกิดข้อผิดพลาด
+        websiteData: {}, // กรณีเกิด error คืนค่า object ว่าง
       };
     }
   }
@@ -732,5 +732,4 @@ h1 {
     height: 80px;
   }
 }
-
 </style>

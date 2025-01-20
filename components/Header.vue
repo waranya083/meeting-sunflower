@@ -21,11 +21,11 @@
             :class="{ 'active-tab': isDropdownOpen || $route.path === '/home' || $route.path === '/condo' }"
             @click="toggleDropdown" role="tab" aria-selected="false" aria-controls="service-tab">Service</a>
           <div class="dropdown-content" :class="{ 'dropdown-open': isDropdownOpen }">
-            <nuxt-link to="/home" exact-active-class="active-tab" >
+            <nuxt-link to="/home" exact-active-class="active-tab">
               <img src="@/static/home.png" alt="Home" class="icon">
               <span class="text">รับออกแบบตกแต่งภายใน บ้าน</span>
             </nuxt-link>
-            <nuxt-link to="/condo" exact-active-class="active-tab" >
+            <nuxt-link to="/condo" exact-active-class="active-tab">
               <img src="@/static/condo.png" alt="Condo" class="icon">
               <span class="text">รับออกแบบตกแต่งภายใน คอนโด</span>
             </nuxt-link>
@@ -38,8 +38,8 @@
         <div class="social-icons">
           <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-line"></i></a>
-          <a href="#"><i class="fas fa-phone"></i></a>
-          <a href="#"><i class="fas fa-envelope"></i></a>
+          <a :href="'tel:' + websiteData.phone1"><i class="fas fa-phone"></i></a>
+          <a :href="'mailto:' + websiteData.email1"><i class="fas fa-envelope"></i></a>
         </div>
       </nav>
       <div class="hamburger" @click="toggleMenu">
@@ -60,10 +60,22 @@ export default {
     };
   },
   async mounted() {
+    // ตรวจสอบว่ามีข้อมูลใน localStorage หรือไม่
+    const cachedData = localStorage.getItem('websiteData');
+    if (cachedData) {
+      // ถ้ามีข้อมูลใน localStorage ให้ใช้ข้อมูลนั้นก่อน
+      this.websiteData = JSON.parse(cachedData);
+      console.log('Loaded data from cache');
+    }
+
     try {
+      // ดึงข้อมูลจาก API
       const websiteResponse = await this.$axios.get('/website');
       this.websiteData = websiteResponse.data;
 
+      // เก็บข้อมูลที่ดึงมาใน localStorage
+      localStorage.setItem('websiteData', JSON.stringify(this.websiteData));
+      console.log('Fetched data from API and updated cache');
     } catch (error) {
       console.error('Error fetching data:', error);
     }

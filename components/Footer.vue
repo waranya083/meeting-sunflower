@@ -46,8 +46,8 @@
       <div class="social-icons">
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-line"></i></a>
-        <a href="#"><i class="fas fa-phone"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a :href="'tel:' + websiteData.phone1"><i class="fas fa-phone"></i></a>
+        <a :href="'mailto:' + websiteData.email1"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </footer>
@@ -72,9 +72,16 @@ export default {
     }
   },
   async mounted() {
+    const cachedData = localStorage.getItem('websiteData');
+    if (cachedData) {
+      this.websiteData = JSON.parse(cachedData);
+      return;
+    }
+
     try {
       const websiteResponse = await this.$axios.get('/website');
       this.websiteData = websiteResponse.data;
+      localStorage.setItem('websiteData', JSON.stringify(this.websiteData));
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -95,7 +102,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
-html, body {
+html,
+body {
   display: flex;
   flex-direction: column;
 }
@@ -125,6 +133,7 @@ footer {
   max-width: 1200px;
   margin: auto;
   margin-bottom: 40px;
+  padding-top: 2%;
 }
 
 .footer-section {
@@ -181,6 +190,7 @@ footer {
   text-align: left;
   max-width: 1200px;
   margin: auto;
+  padding-top: 1%;
 }
 
 .footer-bottom p {
@@ -258,27 +268,7 @@ footer {
 .nuxt-link-exact-active {
   background-color: inherit !important;
 }
-/* xl Desktop */
-@media (min-width: 1200px) {
 
-}
-
-/* lg tablet horizon */
-@media (min-width: 992px) and (max-width: 1199px) {
-  .footer-section {
-    text-align: left !important; /* Align all footer sections to the left */
-    margin-left: 0 !important; /* Remove any left margin */
-    margin-right: 50px !important; /* Remove any right margin */
-  }
-  
-}
-
-/* md tablet */
-@media (min-width: 768px) and (max-width: 991px) {
-
-}
-
-/* sm phone */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
@@ -321,6 +311,129 @@ footer {
     margin-right: 0;
     font-size: 14px;
     gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-section {
+
+    text-align: left;
+  }
+
+  .footer-section.learn-more {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .footer-section.email {
+    margin-left: 0;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .footer-bottom p {
+    margin-bottom: 0;
+    flex: 1;
+  }
+
+  .footer-bottom .social-icons {
+    justify-content: flex-end;
+    margin-right: 0;
+    font-size: 14px;
+  }
+}
+
+/* xl Desktop */
+@media (min-width: 1200px) {
+  .footer-section h3 {
+    font-size: 1.4rem;
+  }
+
+  .footer-section ul li a {
+    font-size: 1.1rem;
+  }
+
+  .footer-bottom p {
+    font-size: 1.1rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 18px;
+  }
+}
+
+/* lg tablet horizon */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .footer-section {
+    text-align: left !important;
+    /* Align all footer sections to the left */
+    margin-left: 0 !important;
+    /* Remove any left margin */
+    margin-right: 50px !important;
+    /* Remove any right margin */
+  }
+
+  .footer-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer-section ul li a {
+    font-size: 1rem;
+  }
+
+  .footer-bottom p {
+    font-size: 1rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 16px;
+  }
+}
+
+/* md tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-section ul li a {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 15px;
+  }
+}
+
+/* sm phone */
+@media (max-width: 768px) {
+  .footer-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .footer-section ul li a {
+    font-size: 0.8rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 14px;
   }
 }
 
