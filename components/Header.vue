@@ -113,8 +113,15 @@ export default {
   background-color: #fff;
   text-align: center;
   font-family: 'Athiti', sans-serif;
-  z-index: 1000;
+  z-index: 1009;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.promo {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .header .promo {
@@ -284,7 +291,7 @@ export default {
   width: 50%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
-  z-index: 1002;
+  z-index: 1009;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -334,6 +341,7 @@ export default {
     padding: 6px;
     width: 100vw;
   }
+
   .nav {
     flex-direction: row;
   }
@@ -419,17 +427,87 @@ export default {
 }
 
 /* xl Desktop */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+
+}
 
 /* lg tablet horizon */
-@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .nav .menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    margin-top: 20px;
+    margin-right: -100px;
+    font-size: 2.5rem; /* Increase font size */
+    padding: 30px; /* Increase padding */
+    width: 100px; /* Set width */
+    height: 100px; /* Set height */
+  }
+
+  .nav .menu.menu-open {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: #333;
+    align-items: flex-end;
+  }
+
+  .nav .logo img {
+    height: 60%;
+    width: 60%;
+    margin-left: -130px;
+    margin-top: 20px;
+  }
+
+  .header .promo {
+    font-size: 1.7rem;
+    padding: 8px;
+  }
+
+  .header .promo button {
+    padding: 8px 16px;
+  }
+  
+}
 
 /* md tablet */
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+  .nav .menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav .menu.menu-open {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: #333;
+    align-items: flex-end;
+  }
+
+  .nav .menu a {
+    color: #fff;
+  }
+  .nav .logo img {
+    height: 60%;
+    width: 60%;
+    margin-left: -130px;
+    margin-top: 20px;
+  }
+}
 
 /* sm phone */
 @media (max-width: 768px) {
-
 
   .nav {
     flex-direction: row;
@@ -495,4 +573,6 @@ export default {
     padding: 4px 8px;
   }
 }
+
+
 </style>

@@ -13,7 +13,6 @@
                   class="text-white breadcrumb-link">About Us</a></li>
             </ol>
           </nav>
-
         </div>
       </div>
     </div>
@@ -267,7 +266,7 @@ button {
 
 .footer-section {
   position: relative;
-  z-index: 3;
+  z-index: 1008;
   background: transparent;
   /* ตั้งให้โปร่งใส */
   margin-top: auto;
@@ -330,20 +329,19 @@ button {
 .footer-section {
   position: relative;
   /* Changed from absolute */
-  z-index: 3;
+  z-index: 1;
   background: #333;
   /* Set background color */
   margin-top: auto;
   bottom: 0;
   width: 100%;
-
   color: white;
 }
 
 .about-section {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 
@@ -353,21 +351,13 @@ button {
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
-  /* Allow horizontal scrolling */
   overflow-y: hidden;
-  /* Prevent vertical scrolling */
   -webkit-overflow-scrolling: touch;
-  /* Enable smooth scrolling on touch devices */
   scrollbar-width: none;
-  /* Hide scrollbar in Firefox */
   -ms-overflow-style: none;
-  /* Hide scrollbar in IE and Edge */
   white-space: nowrap;
-  /* Ensure images are in a single line */
   cursor: pointer;
-  /* Change cursor to pointer */
   scroll-behavior: smooth;
-  /* Add smooth scrolling behavior */
 }
 
 .about-image img {
@@ -395,7 +385,7 @@ button {
 }
 
 .section-spacing {
-  padding: 40px 0;
+  padding: 30px 0;
   width: 100%;
 }
 
@@ -432,7 +422,6 @@ button {
   align-items: center;
   justify-content: center;
   /* Center the images vertically */
-
 }
 
 .circle-image img {
@@ -477,8 +466,6 @@ button {
   transform: translateX(-50%);
 }
 
-
-
 .about-heading {
   font-weight: bold;
   color: #333;
@@ -492,8 +479,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  margin: 0;
   background: transparent;
 }
 
@@ -517,7 +502,6 @@ button {
   margin-left: 10px;
   position: relative;
   top: 2px;
-  /* Move the triangle down slightly */
 }
 
 .breadcrumb-item:last-child::after {
@@ -556,7 +540,7 @@ h1 {
   }
 
   .about-text {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .progressbar {
@@ -577,11 +561,12 @@ h1 {
   }
 
   .about-text {
-    font-size: 1.8rem;
+    font-size: 1.6rem !important;
   }
 
   .about-section {
-    margin-top: 0px;
+    margin-top: -20px;
+    margin-bottom: -150px;
   }
 
   .mission-section {
@@ -617,15 +602,23 @@ h1 {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     justify-content: center;
-    margin-left: 20%;
+    margin-left: 10%;
   }
 
   .progressbar {
-    width: 250px !important;
+    width: 300px !important;
     /* Increase the width */
-    height: 250px !important;
+    height: 0px !important;
     /* Increase the height */
     text-align: center;
+  }
+  .relative {
+    width: 250px;
+    height: 250px;
+  }
+  .text-center {
+    font-size: 1.5rem;
+    margin-top: 10px;
   }
 }
 
@@ -643,8 +636,41 @@ h1 {
     width: 120px;
     height: 120px;
   }
-}
+  .mission-section {
+    flex-direction: column;
+    padding: 0px 30px;
+  }
+  .circle-image img {
+    flex-direction: row;
+    width: 150px;
+    height: 150px;
+  }
+  .circle-image {
+    align-items: center;
+    margin-left: 0px;
+  }
+  .mission-images {
+    flex-direction: row;
+    align-items: center;
+    order: 2;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 200px;
+  }
+  .about-text {
+    font-size: 1.3rem !important;
+  }
+  .about-section {
+    margin-top: -40px;
+    margin-bottom: -150px;
+  }
+  .relative {
+    margin-left: 0px;
+    width: 250px;
+    height: 250px;
+  }
 
+}
 /* sm phone */
 @media (max-width: 768px) {
   .fs-14 {
@@ -659,7 +685,7 @@ h1 {
   .mission-section {
     flex-direction: column;
     align-items: center;
-    /* Center the mission section */
+    margin-left: 20px;
   }
 
   .mission-images {
@@ -673,7 +699,7 @@ h1 {
   .mission-content {
     order: 1;
     width: 100%;
-    padding: 40px;
+    padding: 20px;
     margin-right: -10px;
     text-align: left;
     /* Keep the text alignment to the left */
@@ -726,10 +752,30 @@ h1 {
     height: 150px;
     /* Adjust the height */
   }
-
   .progressbar {
     width: 80px;
     height: 80px;
+  }
+  .text-white {
+   font-size: 1rem;
+  }
+  .breadcrumb-item::after {
+    width: 12px;
+    height: 12px;
+  }
+  .about-text {
+  font-size: 1.2rem !important;
+  }
+  .about-section {
+    margin-top: 50px;
+  }
+  .mission-section {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .Company-content {
+    margin-top: -10px;
+    margin-left: -10px;
   }
 }
 </style>
