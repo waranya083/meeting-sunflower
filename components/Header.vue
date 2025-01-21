@@ -11,7 +11,7 @@
           <img :src="websiteData.logo" alt="Website Logo" />
         </div>
       </div>
-      <nav class="flex gap-x-1 menu" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
+      <nav :class="['flex', 'gap-x-1', 'menu']" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
         <nuxt-link to="/" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="true"
           aria-controls="home-tab">Home</nuxt-link>
         <nuxt-link to="/about" exact-active-class="active-tab" class="menu-item" role="tab" aria-selected="false"
@@ -44,6 +44,19 @@
       </nav>
       <div class="hamburger" @click="toggleMenu">
         <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+      </div>
+    </div>
+    <div v-if="isMenuOpen" class="half-screen-menu">
+      <div class="close-btn" @click="toggleMenu">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="menu-content">
+        <nuxt-link to="/" class="menu-item" @click="toggleMenu">Home</nuxt-link>
+        <nuxt-link to="/about" class="menu-item" @click="toggleMenu">About Us</nuxt-link>
+        <nuxt-link to="/home" class="menu-item" @click="toggleMenu">Home</nuxt-link>
+        <nuxt-link to="/condo" class="menu-item" @click="toggleMenu">Condo</nuxt-link>
+        <nuxt-link to="/portfolio" class="menu-item" @click="toggleMenu">Portfolio</nuxt-link>
+        <nuxt-link to="/contact" class="menu-item" @click="toggleMenu">Contact Us</nuxt-link>
       </div>
     </div>
   </div>
@@ -261,79 +274,72 @@ export default {
   cursor: pointer;
   font-size: 24px;
   margin-left: auto;
+  margin-right: -70px;
 }
 
-@media (max-width: 768px) {
-  .nav {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+.half-screen-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-  .nav .logo {
-    margin-left: 0;
-  }
+.half-screen-menu .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
 
-  .nav .menu {
-    flex-direction: column;
-    gap: 10px;
-    display: none;
-    padding: 10px;
-    width: 100%;
-  }
+.half-screen-menu .menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .nav .menu.menu-open {
-    display: flex;
-    transition: all 0.3s ease;
-  }
+.half-screen-menu .menu-item {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 10px 0;
+  text-decoration: none;
+}
 
-  .nav .menu a {
-    color: #fff;
-  }
+.icon {
+  width: 1.2em;
+  height: 1.3em;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+  /* Ensure the icon is vertically aligned with the text */
+}
 
-  .dropdown-content {
-    position: relative;
-    background-color: #333;
-  }
-
-  .dropdown-content a {
-    color: transparent;
-  }
-
-  .social-icons {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 10px;
-  }
-
-  .social-icons a {
-    color: #fff;
-  }
-
-  .hamburger {
-    display: block;
-    margin-left: auto;
-  }
-
-  .header .promo {
-    font-size: 0.9rem;
-    padding: 4px;
-  }
-
-  .header .promo button {
-    padding: 4px 8px;
-  }
+.text {
+  display: inline-block;
+  vertical-align: middle;
+  /* Ensure the text is vertically aligned with the icon */
 }
 
 @media (max-width: 480px) {
+  .header .promo {
+    font-size: 0.5rem;
+    padding: 6px;
+    width: 100vw;
+  }
   .nav {
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
   }
 
   .nav .logo {
-    margin-left: 0;
+    margin-left: -80px !important;
   }
 
   .nav .menu {
@@ -356,6 +362,7 @@ export default {
     position: relative;
     display: inline-block;
   }
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -405,20 +412,87 @@ export default {
   .header .promo button {
     padding: 3px 6px;
   }
+
+  .nav .logo img {
+    height: 40px;
+  }
 }
 
-.icon {
-  width: 1.2em;
-  height: 1.3em;
-  display: inline-block;
-  margin-right: 10px;
-  vertical-align: middle;
-  /* Ensure the icon is vertically aligned with the text */
-}
+/* xl Desktop */
+@media (min-width: 1200px) {}
 
-.text {
-  display: inline-block;
-  vertical-align: middle;
-  /* Ensure the text is vertically aligned with the icon */
+/* lg tablet horizon */
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+/* md tablet */
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* sm phone */
+@media (max-width: 768px) {
+
+
+  .nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav .logo {
+    margin-left: 0px;
+  }
+
+  .nav .menu {
+    flex-direction: column;
+    gap: 10px;
+    display: none;
+    padding: 10px;
+    width: 100%;
+    background-color: #333;
+    /* Add background color */
+    align-items: flex-end;
+    /* Align items to the right */
+  }
+
+  .nav .menu.menu-open {
+    display: flex;
+    transition: all 0.3s ease;
+  }
+
+  .nav .menu a {
+    color: #fff;
+  }
+
+  .dropdown-content {
+    position: relative;
+    background-color: #333;
+  }
+
+  .dropdown-content a {
+    color: transparent;
+  }
+
+  .social-icons {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    color: #fff;
+  }
+
+  .hamburger {
+    display: block;
+    margin-left: auto;
+  }
+
+  .header .promo {
+    font-size: 0.9rem;
+    padding: 4px;
+  }
+
+  .header .promo button {
+    padding: 4px 8px;
+  }
 }
 </style>
