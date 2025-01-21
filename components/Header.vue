@@ -356,17 +356,6 @@ export default {
     position: relative;
     display: inline-block;
   }
-
-  .dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    font-family: 'Athiti', sans-serif;
-  }
-
   .dropdown-content {
     display: none;
     position: absolute;
@@ -391,10 +380,6 @@ export default {
 
   .dropdown:hover .dropdown-content {
     display: block;
-  }
-
-  .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
   }
 
   .social-icons {

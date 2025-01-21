@@ -267,42 +267,135 @@ footer {
 }
 
 /* xl Desktop */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+
+}
 
 /* lg tablet horizon */
 @media (min-width: 992px) and (max-width: 1199px) {
-
   .footer-content {
-    justify-content: space-between;
-    padding: 0px 20px;
+    flex-direction: row;
   }
-
-  .footer-section {
-    text-align: left !important;
-    margin-right: 55px !important;
-  }
-
   .footer-section.learn-more {
-    margin-left: 55px !important;
+    margin: 0 auto;
   }
 
   .footer-section.email {
-    margin-right: 10px !important;
+    margin-right: -220px !important;
+    margin-left: -80px !important;
   }
 
-  .footer-bottom {
-    border-top: 1px solid #fff;
-    max-width: 96%; /* Adjust border-top width */
-    padding-top: 2%;
-  }
 }
 
 /* md tablet */
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-section {
+    margin-right: 0px !important;
+  }
+
+  .footer-section.learn-more {
+    margin-left: 0px !important;
+    margin-top: 10px;
+  }
+
+  .footer-section.email {
+    margin-right: 0px !important;
+    margin-top: 10px;
+  }
+
+  .footer-bottom {
+    padding-top: 2%;
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 16px;
+  }
+
+  .footer-bottom p {
+    margin-right: 20px;
+  }
+}
 
 /* sm phone */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-section {
+    margin-right: 80px !important;
+  }
+
+  .footer-section.learn-more {
+    margin-left: 0px !important;
+    margin-top: 10px;
+  }
+
+  .footer-section.email {
+    margin-right: 80px !important;
+    margin-top: 10px;
+  }
+
+  .footer-bottom {
+    padding-top: 2%;
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 16px;
+  }
+
+  .footer-bottom p {
+    margin-right: 20px;
+  }
+}
 
 /* xs phone */
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin-right: 120px !important;
+  }
+
+  .footer-section.learn-more {
+    margin-right: 120px !important;
+    margin-top: 10px;
+  }
+
+  .footer-section.email {
+    margin-right: 120px !important;
+    margin-top: 10px;
+  }
+
+  .footer-bottom {
+    padding-top: 2%;
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-bottom .social-icons a {
+    font-size: 16px;
+  }
+
+  .footer-bottom p {
+    margin-right: 40px;
+  }
+}
 </style>
