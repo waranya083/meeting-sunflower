@@ -527,7 +527,14 @@ button {
 
 .footer-section {
   position: relative;
-  z-index: 3;
+  z-index: 1;
+  background: #333;
+  /* Ensure the background is not transparent */
+  margin-top: auto;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  color: white;
 }
 
 .banner {

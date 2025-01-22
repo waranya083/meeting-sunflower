@@ -122,13 +122,11 @@ footer {
   font-family: 'Athiti', sans-serif;
   box-sizing: border-box;
   position: relative;
-  margin-top: auto;
+
 }
 
 .footer-content {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   flex-wrap: wrap;
   max-width: 1200px;
   margin: auto;
@@ -136,22 +134,25 @@ footer {
 }
 
 .footer-section {
-  flex: 1;
+  flex: 2;
   min-width: 250px;
   text-align: left;
 }
 
 .footer-section.get-in-touch {
   margin-right: 0px;
+
 }
 
 .footer-section.learn-more {
   margin-right: 150px;
   margin-left: 250px;
+
 }
 
 .footer-section.email {
   margin-right: -80px;
+  margin-top: 0;
 }
 
 .footer-section.email a {
@@ -168,9 +169,9 @@ footer {
   list-style: none;
 }
 
-/* .footer-section ul li {
+.footer-section ul li {
   margin-bottom: 5px;
-} */
+}
 
 .footer-section ul li a {
   color: #fff;
@@ -267,15 +268,14 @@ footer {
 }
 
 /* xl Desktop */
-@media (min-width: 1200px) {
-
-}
+@media (min-width: 1200px) {}
 
 /* lg tablet horizon */
 @media (min-width: 992px) and (max-width: 1199px) {
   .footer-content {
     flex-direction: row;
   }
+
   .footer-section.learn-more {
     margin: 0 auto;
   }
@@ -396,6 +396,13 @@ footer {
 
   .footer-bottom p {
     margin-right: 40px;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+
   }
 }
 </style>
