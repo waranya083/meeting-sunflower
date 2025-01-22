@@ -128,7 +128,7 @@ button {
 
 .footer-section {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   background: #333;
   /* Ensure the background is not transparent */
   margin-top: auto;
@@ -204,7 +204,6 @@ button {
   line-height: 1.2;
   margin-top: 20px;
   margin-bottom: 10px;
-
   /* Reduce margin-bottom to make text closer to button */
 }
 
@@ -236,7 +235,8 @@ button {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>') no-repeat center;
   margin-left: 10px;
   position: relative;
-  top: 2px; /* Move the triangle down slightly */
+  top: 2px;
+  /* Move the triangle down slightly */
 }
 
 .breadcrumb-item:last-child::after {
@@ -288,5 +288,150 @@ h1 {
   /* ขนาดลูกศร */
   color: white;
   /* สีลูกศร */
+}
+
+
+/* xl Desktop */
+@media (min-width: 1200px) {}
+
+/* lg tablet horizon */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .content-container {
+    margin-top: 110vh;
+
+  }
+
+  .about-section {
+    margin-top: -55%;
+
+  }
+
+  .about-content {
+    max-width: 60%;
+    margin-left: 40px;
+  }
+
+  .about-text {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* Reduce margin-bottom to make text closer to button */
+  }
+
+  .text-white {
+    font-size: 2rem;
+  }
+
+}
+
+/* md tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-container {
+    margin-top: 107vh;
+  }
+
+  .about-section {
+    margin-top: -55%;
+  }
+
+  .about-content {
+    max-width: 60%;
+    margin-left: 30px;
+  }
+
+  .about-text {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* Reduce margin-bottom to make text closer to button */
+  }
+
+  .text-white {
+    font-size: 1.8rem;
+  }
+
+  /* .work-btn
+  {
+    margin-top: 100px;
+  } */
+}
+
+/* sm phone */
+@media (max-width: 768px) {
+  .content-container {
+    margin-top: 100vh;
+  }
+
+  .about-section {
+    margin-top: -40%;
+  }
+
+  .about-content {
+    max-width: 60%;
+    margin-left: 30px;
+  }
+
+  .about-text {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* Reduce margin-bottom to make text closer to button */
+  }
+
+  .text-white {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    margin-top: 80vh;
+  }
+
+  .about-section {
+    margin-top: -35%;
+    margin-bottom: 15%;
+    flex-direction: column;
+    /* Stack content vertically */
+  }
+
+  .about-content {
+    max-width: 100%;
+    margin-left: 20px;
+    margin-bottom: -20px;
+  }
+
+  .about-text {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* Reduce margin-bottom to make text closer to button */
+  }
+
+  .text-white {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
+  .work-btn {
+    /* Increase margin-bottom to create more space from the bottom edge */
+    padding: 10px 40px;
+    font-size: 0.9rem;
+    left: 35%;
+    transform: translateX(-50%);
+  }
+
+  .about-image {
+    order: -1;
+    /* Move image above text */
+    margin-top: 30px;
+    margin-bottom: 0px;
+    width: 100%;
+    margin-left: 5%;
+    height: 200px;
+  }
+  .fs-14 {
+    font-size: 1.2rem;
+  }
 }
 </style>
