@@ -9,7 +9,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
               <li class="breadcrumb-item"><a href="/" class="text-white breadcrumb-link">Home</a></li>
-              <li class="breadcrumb-item active text-white" aria-current="page"><a 
+              <li class="breadcrumb-item active text-white" aria-current="page"><a
                   class="text-white breadcrumb-link">Service</a></li>
             </ol>
           </nav>
@@ -292,5 +292,147 @@ button {
 
 .breadcrumb-item:last-child::after {
   display: none;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .content-container {
+    margin-top: 110vh;
+
+  }
+
+  .about-section {
+    margin-top: -55%;
+
+  }
+
+  .about-content {
+    max-width: 60%;
+    margin-left: 40px;
+  }
+
+  .about-text {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* Reduce margin-bottom to make text closer to button */
+  }
+
+  .text-white {
+    font-size: 2rem;
+  }
+
+}
+
+/* md tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-container {
+    margin-top: 107vh;
+  }
+
+  .about-section {
+    margin-top: -55%;
+  }
+
+  .about-content {
+    max-width: 60%;
+    margin-left: 30px;
+  }
+
+  .about-text {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* Reduce margin-bottom to make text closer to button */
+  }
+
+  .text-white {
+    font-size: 1.8rem;
+  }
+
+  /* .work-btn
+  {
+    margin-top: 100px;
+  } */
+}
+
+/* sm phone */
+@media (max-width: 768px) {
+  .content-container {
+    margin-top: 100vh;
+  }
+
+  .about-section {
+    margin-top: -40%;
+  }
+
+  .about-content {
+    max-width: 60%;
+    margin-left: 30px;
+  }
+
+  .about-text {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* Reduce margin-bottom to make text closer to button */
+  }
+
+  .text-white {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    margin-top: 80vh;
+  }
+
+  .about-section {
+    margin-top: -35%;
+    margin-bottom: 15%;
+    flex-direction: column;
+    /* Stack content vertically */
+  }
+
+  .about-content {
+    max-width: 100%;
+    margin-left: 10px;
+    margin-bottom: -20px;
+  }
+
+  .about-text {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* Reduce margin-bottom to make text closer to button */
+  }
+
+  .text-white {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
+  .work-btn {
+    /* Increase margin-bottom to create more space from the bottom edge */
+    padding: 10px 40px;
+    font-size: 0.9rem;
+    left: 35%;
+    transform: translateX(-50%);
+  }
+
+  .about-image {
+  order: -1;
+  /* Move image above text */
+  margin-top: 30px;
+  margin-bottom: 0px;
+  width: calc(100vw - 20px); /* Adjust width to account for the left margin */
+  margin-left: 20px; /* Add left margin */
+  margin-right: 0;
+  height: auto; /* Change to auto to ensure it fits within the screen height */
+  max-height: 200px; /* Set a maximum height */
+}
+
+  .fs-14 {
+    font-size: 1.2rem;
+  }
 }
 </style>

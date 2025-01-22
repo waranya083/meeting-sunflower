@@ -175,13 +175,14 @@ button {
   align-items: center;
 }
 
-
 .about-image {
-  width: 100%;
+  width: 100vw;
   height: 300px;
   /* Ensure a fixed height */
   object-fit: cover;
   align-self: flex-start;
+  overflow: hidden;
+  /* Ensure the image does not overflow */
 }
 
 .about-section {
@@ -397,7 +398,7 @@ h1 {
 
   .about-content {
     max-width: 100%;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-bottom: -20px;
   }
 
@@ -422,14 +423,17 @@ h1 {
   }
 
   .about-image {
-    order: -1;
-    /* Move image above text */
-    margin-top: 30px;
-    margin-bottom: 0px;
-    width: 100%;
-    margin-left: 5%;
-    height: 200px;
-  }
+  order: -1;
+  /* Move image above text */
+  margin-top: 30px;
+  margin-bottom: 0px;
+  width: calc(100vw - 20px); /* Adjust width to account for the left margin */
+  margin-left: 20px; /* Add left margin */
+  margin-right: 0;
+  height: auto; /* Change to auto to ensure it fits within the screen height */
+  max-height: 200px; /* Set a maximum height */
+}
+
   .fs-14 {
     font-size: 1.2rem;
   }

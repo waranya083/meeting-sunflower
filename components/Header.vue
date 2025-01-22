@@ -109,6 +109,11 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
+
+/* Ensure the body does not cause horizontal scrolling */
+body {
+  overflow-x: hidden;
+}
 .header {
   background-color: #fff;
   text-align: center;
@@ -337,7 +342,7 @@ export default {
 
 @media (max-width: 480px) {
   .header .promo {
-    font-size: 0.5rem;
+    font-size: 1rem;
     padding: 6px;
     width: 100vw;
   }
@@ -427,9 +432,7 @@ export default {
 }
 
 /* xl Desktop */
-@media (min-width: 1200px) {
-
-}
+@media (min-width: 1200px) {}
 
 /* lg tablet horizon */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -441,10 +444,14 @@ export default {
     display: block;
     margin-top: 20px;
     margin-right: -100px;
-    font-size: 2.5rem; /* Increase font size */
-    padding: 30px; /* Increase padding */
-    width: 100px; /* Set width */
-    height: 100px; /* Set height */
+    font-size: 2.5rem;
+    /* Increase font size */
+    padding: 30px;
+    /* Increase padding */
+    width: 100px;
+    /* Set width */
+    height: 100px;
+    /* Set height */
   }
 
   .nav .menu.menu-open {
@@ -464,15 +471,39 @@ export default {
     margin-top: 20px;
   }
 
-  .header .promo {
-    font-size: 1.7rem;
-    padding: 8px;
+  .promo {
+    width: 100vw;
+    /* Ensure it fits within the viewport width */
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the element's total width and height */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
   }
 
-  .header .promo button {
-    padding: 8px 16px;
+  .header .promo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure it fits within the viewport width */
+  max-width: 100%; /* Prevent it from exceeding the viewport width */
+  z-index: 1004;
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: 10px 0;
+  font-size: 1.5rem;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+  .promo button {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
   }
-  
 }
 
 /* md tablet */
@@ -498,11 +529,47 @@ export default {
   .nav .menu a {
     color: #fff;
   }
+
   .nav .logo img {
     height: 60%;
     width: 60%;
     margin-left: -130px;
     margin-top: 20px;
+  }
+
+  .promo {
+    width: 100vw;
+    /* Ensure it fits within the viewport width */
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the element's total width and height */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+  }
+
+  .header .promo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* Ensure it fits within the viewport width */
+    z-index: 1004;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the element's total width and height */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+  }
+
+  .promo button {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
   }
 }
 
@@ -516,7 +583,7 @@ export default {
   }
 
   .nav .logo {
-    margin-left: 0px;
+    margin-left: 60px;
   }
 
   .nav .menu {
@@ -564,15 +631,77 @@ export default {
     margin-left: auto;
   }
 
-  .header .promo {
-    font-size: 0.9rem;
-    padding: 4px;
+  .promo {
+    width: 100vw;
+    /* Ensure it fits within the viewport width */
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the element's total width and height */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
   }
 
-  .header .promo button {
-    padding: 4px 8px;
+  .header .promo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* Ensure it fits within the viewport width */
+    z-index: 1004;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.3rem;
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the element's total width and height */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+  }
+
+  .promo button {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
   }
 }
 
+/* xs phone */
+@media (max-width: 575px) {
+  .promo {
+    width: 100vw;
+    /* Ensure it fits within the viewport width */
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the element's total width and height */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+  }
 
+  .header .promo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* Ensure it fits within the viewport width */
+    z-index: 1004;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.8rem;
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the element's total width and height */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+  }
+
+  .promo button {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+  }
+}
 </style>
