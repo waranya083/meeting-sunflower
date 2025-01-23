@@ -292,14 +292,10 @@ h1 {
 }
 
 
-/* xl Desktop */
-@media (min-width: 1200px) {}
-
-/* lg tablet horizon */
 @media (min-width: 992px) and (max-width: 1199px) {
   .content-container {
     margin-top: 110vh;
-
+    margin-bottom: -40%;
   }
 
   .about-section {
@@ -323,12 +319,18 @@ h1 {
     font-size: 2rem;
   }
 
+  .work-btn {
+    left: 45%;
+    transform: translateX(-50%);
+  }
+
 }
 
 /* md tablet */
 @media (min-width: 768px) and (max-width: 991px) {
   .content-container {
     margin-top: 107vh;
+    margin-bottom: -50%;
   }
 
   .about-section {
@@ -350,17 +352,13 @@ h1 {
   .text-white {
     font-size: 1.8rem;
   }
-
-  /* .work-btn
-  {
-    margin-top: 100px;
-  } */
 }
 
 /* sm phone */
 @media (max-width: 768px) {
   .content-container {
     margin-top: 100vh;
+    margin-bottom: -40%;
   }
 
   .about-section {
@@ -382,11 +380,16 @@ h1 {
   .text-white {
     font-size: 1.8rem;
   }
+  .work-btn {
+    left: 40%;
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 480px) {
   .content-container {
     margin-top: 80vh;
+    margin-bottom: -25% !important;
   }
 
   .about-section {
