@@ -237,4 +237,80 @@ button.kc_fab_main_btn {
 button:hover .fab-title {
   opacity: 1;
 }
+
+
+/* xl Desktop */
+@media (min-width: 1200px) {
+}
+/* lg tablet horizon */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .kc_fab_wrapper {
+    width: 70px;
+    height: 280px;
+  }
+  .sub_fab_btns_wrapper button {
+    width: 65px;
+    height: 65px;
+  }
+  button.kc_fab_main_btn {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+/* md tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .kc_fab_wrapper {
+    width: 60px;
+    height: 260px;
+  }
+  .sub_fab_btns_wrapper button {
+    width: 60px;
+    height: 60px;
+  }
+  button.kc_fab_main_btn {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* sm phone */
+@media (max-width: 768px) {
+  .kc_fab_wrapper {
+    width: 50px;
+    height: 220px;
+  }
+  .sub_fab_btns_wrapper button {
+    width: 50px;
+    height: 50px;
+  }
+  button.kc_fab_main_btn {
+    width: 50px;
+    height: 50px;
+  }
+  .fab-title {
+    left: -80px; /* Adjust position for smaller screens */
+    width: 70px; /* Adjust width for smaller screens */
+  }
+}
+
+/* xs phone */
+@media (max-width: 576px) {
+  .kc_fab_wrapper {
+    width: 40px;
+    height: 200px;
+  }
+  .sub_fab_btns_wrapper button {
+    width: 60px;
+    height: 60px;
+  }
+  button.kc_fab_main_btn {
+    width: 60px;
+    height: 60px;
+  }
+  .fab-title {
+    left: -70px; /* Adjust position for smaller screens */
+    width: 60px; /* Adjust width for smaller screens */
+  }
+}
 </style>

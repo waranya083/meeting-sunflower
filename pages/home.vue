@@ -293,6 +293,8 @@ button {
 .breadcrumb-item:last-child::after {
   display: none;
 }
+
+/* xl Desktop */
 @media (min-width: 992px) and (max-width: 1199px) {
   .content-container {
     margin-top: 110vh;
@@ -313,7 +315,6 @@ button {
     font-size: 1.5rem;
     margin-top: 20px;
     margin-bottom: 10px;
-    /* Reduce margin-bottom to make text closer to button */
   }
 
   .text-white {
@@ -323,8 +324,8 @@ button {
   .work-btn {
     left: 45%;
     transform: translateX(-50%);
+
   }
-  
 }
 
 /* md tablet */

@@ -23,8 +23,6 @@
         </div>
       </carousel>
     </section>
-
-
     <!-- End of simplified banner content -->
     <section class="section-spacing">
       <div class="container-fluid">
@@ -93,10 +91,8 @@
         </div>
       </div>
     </section>
-
-
     <!-- New section -->
-    <section class="section-spacing" ">
+    <section class="section-spacing">
       <div class=" d-flex justify-content-start align-items-center"
       style="display: flex; padding: 0; margin-top: -150px;">
       <div class="text-left p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto;">
@@ -307,7 +303,7 @@
 
   <section class="section-spacing">
     <div class="container-fluid">
-      <div class="d-flex justify-content-start align-items-center " style="margin-top: -80px;">
+      <div class="d-flex justify-content-start align-items-center" style="margin-top: -80px;">
         <div class="text-left p-3 about-content">
           <div style="display: flex; align-items: center; margin-bottom: 10px;">
             <div
@@ -376,7 +372,7 @@
           <div class="about-us" style="font-family: 'Athiti', sans-serif; text-align: center;">
             <h2 class="widget-title text-center" style="font-size: 1.5rem; font-weight: 150px;">Get in Touch</h2>
             <p class="widget-title text-center mb-0" style="font-size: 1.1rem;">
-              Have any questions? Reach out to us from our contact <br>
+              Have any questions? Reach out to us from our contact
               form and we will get back to you shortly.
             </p>
             <a href="#" class="cta-button"
@@ -819,12 +815,12 @@ img {
   /* ให้ข้อความอยู่ด้านบน */
   left: 11%;
   /* Adjust left to 0 to align to the left */
-  width: 60%;
+  width: 50%;
   /* Adjust width to ensure text wraps */
   padding: 0px;
   /* เพิ่ม padding เพื่อไม่ให้ข้อความชิดขอบ */
   text-align: left;
-  color: white;
+  color: #444;
   border-radius: 10px;
   word-wrap: break-word;
   /* Ensure text wraps */
@@ -843,13 +839,13 @@ img {
 }
 
 .shop-now-btn {
-  padding: 10px 20px;
-  font-size: 1.2rem;
+  padding: 10px 15px;
+  font-size: 1.1rem;
   font-weight: bold;
-  color: white;
+  color: #444;
   background-color: transparent;
   /* Remove background color */
-  border: 2px solid white;
+  border: 2px solid #444;
   /* Add white border */
   border-radius: 50px;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -857,9 +853,9 @@ img {
 }
 
 .shop-now-btn:hover {
-  background-color: white;
+  background-color: #444;
   /* Change background color on hover */
-  color: #333;
+  color: white;
   /* Change text color on hover */
 }
 
@@ -913,6 +909,111 @@ img {
 .carousel-section .VueCarousel-dot--active {
   background-color: #333;
 }
+/* lg tablet horizon */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .carousel-section .slide-image {
+    height: 800px !important; /* Adjust the height as needed */
+    object-fit: cover;
+  }
+
+  .slide-overlay {
+    top: 35%;
+    left: 5%;
+    width: 70%;
+  }
+
+  .slide-overlay h3 {
+    font-size: 2rem;
+  }
+
+  .slide-overlay span {
+    font-size: 1.5rem;
+  }
+
+  .shop-now-btn {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+  }
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .section-spacing {
+    margin-left: 0px 0;
+    padding: 10px 0;
+  }
+  .section-spacing .d-flex {
+    margin-top: 0; /* Adjust margin as needed */
+  }
+
+  /* contact us */
+  .section-spacing .text-center.p-3 {
+    width: 100%;
+    height: 100% !important;
+    font-size: 0.9rem;
+    padding: 20px !important;
+    margin-left: 50px !important;
+    margin-right: 50px !important;
+  }
+
+  .section-spacing .about-us h2 {
+    font-size: 2rem !important; /* Adjust font size */
+  }
+
+  .section-spacing .about-us p {
+    margin-top: 15px;
+    font-size: 1.5rem !important;
+  }
+
+  .section-spacing .cta-button {
+    padding: 8px 10px !important; /* Adjust padding */
+    font-size: 1rem; /* Adjust font size */
+    margin-top: 15px; /* Adjust margin */
+  }
+  /* our partners */
+  .wrapper {
+    margin-top: -220px !important; /* Adjust margin as needed */
+  }
+  .swiper-slide {
+    padding: 0 5px; /* Adjust padding for swiper slides */
+  }
+
+  .swiper-slide img {
+    width: 90%; /* Ensure images fit within the swiper slides */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .Our-Partners .about-content {
+    margin-top: -90% !important;
+  }
+
+  /* about us */
+  .section-spacing .about-section {
+  flex-direction: column;
+  }
+
+  .section-spacing .about-content {
+  width: 100%;
+  padding: 50px;
+  margin-top: -2%; /* Adjust margin */
+  }
+
+  .section-spacing .about-content h2 {
+  font-size: 1.5rem; /* Adjust font size */
+  }
+
+  .section-spacing .about-content p {
+  font-size: 1.4rem; /* Adjust font size */
+  }
+  .section-spacing .about-btn {
+  margin-top: 10px; /* Adjust margin */
+  padding: 10px 25px; /* Adjust padding */
+  font-size: 1.2rem; /* Adjust font size */
+  }
+  }
+
+/* md tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+ }
 
 @media (max-width: 768px) {
   .slide-overlay {
@@ -936,23 +1037,105 @@ img {
 }
 
 @media (max-width: 480px) {
+  .carousel-section .slide-image {
+    height: 500px !important; /* Adjust the height as needed */
+    object-fit: cover;
+  }
+
   .slide-overlay {
-    top: 15%;
+    top: 30%;
     left: 5%;
     width: 90%;
   }
 
   .slide-overlay h3 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .slide-overlay span {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .shop-now-btn {
-    font-size: 1rem;
-    padding: 8px 16px;
+    margin-top: -30px;
+    font-size: 0.7rem;
+    padding: 8px 12px;
   }
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .section-spacing {
+    margin-left: 30px 0;
+    padding: 10px 0;
+  }
+  .section-spacing .d-flex {
+    margin-top: 0; /* Adjust margin as needed */
+  }
+
+  /* contact us */
+  .section-spacing .text-center.p-3 {
+    width: 100%;
+    height: 50% !important;
+    font-size: 1rem;
+    padding: 20px !important;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+
+  .section-spacing .about-us h2 {
+    font-size: 1.2rem !important; /* Adjust font size */
+  }
+
+  .section-spacing .about-us p {
+    margin-top: 15px;
+    font-size: 0.8rem !important; /* Adjust font size */
+  }
+
+  .section-spacing .cta-button {
+    padding: 8px 10px !important; /* Adjust padding */
+    font-size: 1rem; /* Adjust font size */
+    margin-top: 15px; /* Adjust margin */
+  }
+  /* our partners */
+  .wrapper {
+    margin-top: -220px !important; /* Adjust margin as needed */
+  }
+  .swiper-slide {
+    padding: 0 5px; /* Adjust padding for swiper slides */
+  }
+
+  .swiper-slide img {
+    width: 90%; /* Ensure images fit within the swiper slides */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .Our-Partners .about-content {
+    margin-top: -90% !important;
+  }
+
+  /* about us */
+  .section-spacing .about-section {
+  flex-direction: column; /* Stack items vertically */
+  margin-bottom: 20px; /* Adjust margin */
+}
+
+.section-spacing .about-content {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 100px; /* Adjust margin */
+}
+
+.section-spacing .about-content h2 {
+  font-size: 1.2rem; /* Adjust font size */
+}
+
+.section-spacing .about-content p {
+  font-size: 1.1rem; /* Adjust font size */
+}
+.section-spacing .about-btn {
+  margin-top: 10px; /* Adjust margin */
+  padding: 10px 10px; /* Adjust padding */
+  font-size: 0.8rem; /* Adjust font size */
+}
+
 }
 </style>
