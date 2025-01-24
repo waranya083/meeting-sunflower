@@ -344,7 +344,6 @@ button {
   margin-top: 40px;
 }
 
-
 .about-image {
   flex: 1;
   padding: 20px;
@@ -433,13 +432,15 @@ button {
 }
 
 .image-caption {
-  margin-top: 5px;
-  color: #666;
-  font-size: 14px;
+  color: #414042;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  width: 300px; /* Adjust the width as needed */
+  text-align: center; /* Center the text */
 }
 
 .image-caption p {
-  color: black;
+  color: #414042;
 }
 
 .container-fluid .mission-section {
@@ -552,21 +553,17 @@ h1 {
 /* lg tablet horizon */
 @media (min-width: 992px) and (max-width: 1199px) {
   .about-section {
-    margin-bottom: -100px;
+    margin-top: 10vh !important;
+    margin-bottom: -25vh !important;
   }
 
   .fs-14 {
-    font-size: 2.1rem !important;
+    font-size: 1.6rem !important;
     /* Increase font size for medium screens and add !important */
   }
 
   .about-text {
-    font-size: 1.6rem !important;
-  }
-
-  .about-section {
-    margin-top: -20px;
-    margin-bottom: -150px;
+    font-size: 1.4rem !important;
   }
 
   .mission-section {
@@ -591,7 +588,7 @@ h1 {
   .mission-content {
     order: 1;
     width: 100%;
-    padding: 40px;
+    padding: 60px;
     margin-right: -10px;
     text-align: left;
     /* Keep the text alignment to the left */
@@ -620,30 +617,29 @@ h1 {
     font-size: 1.5rem;
     margin-top: 10px;
   }
+  .Company-content {
+    padding: 50px;
+  }
 }
 
 /* md tablet */
 @media (min-width: 768px) and (max-width: 991px) {
   .fs-14 {
-    font-size: 1.8rem;
+    font-size: 1.4rem !important;
   }
-
-  .about-text {
-    font-size: 1.6rem;
-  }
-
   .progressbar {
-    width: 120px;
-    height: 120px;
+    width: 100px ;
+    height: 100px ;
   }
   .mission-section {
     flex-direction: column;
-    padding: 0px 30px;
+
   }
   .circle-image img {
     flex-direction: row;
     width: 150px;
     height: 150px;
+    gap: 20px;
   }
   .circle-image {
     align-items: center;
@@ -658,34 +654,81 @@ h1 {
     margin-left: 200px;
   }
   .about-text {
-    font-size: 1.3rem !important;
+    font-size: 1.2rem !important;
   }
   .about-section {
     margin-top: -40px;
-    margin-bottom: -150px;
+    margin-bottom: -120px !important;
+    padding: 20px !important;
   }
   .relative {
     margin-left: 0px;
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
   }
 
 }
 /* sm phone */
 @media (max-width: 768px) {
   .fs-14 {
-    font-size: 2rem;
-    /* Increase font size for small screens */
-  }
-
-  .about-image img {
-    max-width: 80%;
+    font-size: 1.2rem !important;
   }
 
   .mission-section {
     flex-direction: column;
-    align-items: center;
     margin-left: 20px;
+  }
+  .mission-images {
+    flex-direction: column;
+    align-items: center;
+    order: 2;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 80px;
+  }
+  .circle-image img {
+    flex-direction: row;
+    width: 200px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .circle-image {
+    align-items: center;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .image-caption ,p{
+    font-size: 1rem;
+    margin-top: 0px;
+  }
+
+  .about-text {
+    font-size: 1.1rem !important;
+  }
+
+  .about-section {
+    margin-top: 60px;
+    margin-bottom: -120px;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .about-image img {
+    max-width: 90%;
+    height: auto;
+  }
+  .relative {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* xs phone */
+@media (max-width: 575px) {
+  .fs-14 {
+    font-size: 1.2rem !important;
   }
 
   .mission-images {
@@ -694,88 +737,44 @@ h1 {
     order: 2;
     width: 100%;
     margin-top: 20px;
+    margin-left: 60px;
   }
-
-  .mission-content {
-    order: 1;
-    width: 100%;
-    padding: 20px;
-    margin-right: -10px;
-    text-align: left;
-    /* Keep the text alignment to the left */
+  .circle-image img {
+    flex-direction: row;
+    width: 200px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 50%;
   }
-
   .circle-image {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .circle-image img {
-    width: 150px;
-    /* Adjust the width */
-    height: 150px;
-    /* Adjust the height */
-  }
-
-  .progressbar {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-/* xs phone */
-@media (max-width: 575px) {
-  .fs-14 {
-    font-size: 2rem;
-    /* Increase font size for extra small screens */
-  }
-
-  .mission-section {
-    flex-direction: column;
     align-items: center;
-    /* Center the mission section */
-  }
-
-  .mission-images {
-    order: 2;
-  }
-
-  .mission-content {
-    order: 1;
-    text-align: left;
-    /* Keep the text alignment to the left */
-  }
-
-  .circle-image img {
-    width: 150px;
-    /* Adjust the width */
-    height: 150px;
-    /* Adjust the height */
-  }
-  .progressbar {
-    width: 80px;
-    height: 80px;
-  }
-  .text-white {
-   font-size: 1rem;
-  }
-  .breadcrumb-item::after {
-    width: 12px;
-    height: 12px;
-  }
-  .about-text {
-  font-size: 1.2rem !important;
-  }
-  .about-section {
-    margin-top: 50px;
-  }
-  .mission-section {
     margin-left: 0px;
-    margin-right: 0px;
+    margin-bottom: 20px;
+    width: 100%;
   }
-  .Company-content {
-    margin-top: -10px;
+  .image-caption ,p{
+    font-size: 1rem;
+    margin-top: 0px;
+  }
+
+  .about-text {
+    font-size: 1.1rem !important;
+  }
+
+  .about-section {
+    margin-top: 40px;
+    margin-bottom: -140px !important;
     margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .about-image img {
+    max-width: 90%;
+    height: auto;
+  }
+  .relative {
+    width: 150px;
+    height: 150px;
   }
 }
 </style>
