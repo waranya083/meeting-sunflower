@@ -53,8 +53,13 @@
       <div class="menu-content">
         <nuxt-link to="/" class="menu-item" @click="toggleMenu">Home</nuxt-link>
         <nuxt-link to="/about" class="menu-item" @click="toggleMenu">About Us</nuxt-link>
-        <nuxt-link to="/home" class="menu-item" @click="toggleMenu">Home</nuxt-link>
-        <nuxt-link to="/condo" class="menu-item" @click="toggleMenu">Condo</nuxt-link>
+        <div class="menu-item dropdown" @click="toggleDropdown">
+          Service
+          <div class="dropdown-content" v-if="dropdownOpen">
+            <nuxt-link to="/home" class="menu-item" @click="toggleMenu">Home</nuxt-link>
+            <nuxt-link to="/condo" class="menu-item" @click="toggleMenu">Condo</nuxt-link>
+          </div>
+        </div>
         <nuxt-link to="/portfolio" class="menu-item" @click="toggleMenu">Portfolio</nuxt-link>
         <nuxt-link to="/contact" class="menu-item" @click="toggleMenu">Contact Us</nuxt-link>
       </div>
@@ -114,6 +119,7 @@ export default {
 body {
   overflow-x: hidden;
 }
+
 .header {
   background-color: #fff;
   text-align: center;
@@ -295,8 +301,8 @@ body {
   right: 0;
   width: 50%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 1009;
+  background-color: #333;
+  z-index: 2000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -305,9 +311,9 @@ body {
 
 .half-screen-menu .close-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
+  top: 100px;
+  right: 40px;
+  font-size: 46px;
   cursor: pointer;
   color: #fff;
 }
@@ -323,6 +329,12 @@ body {
   font-size: 1.2rem;
   margin: 10px 0;
   text-decoration: none;
+}
+.menu-content .menu-item:focus,
+.menu-content .menu-item:active {
+  background: none !important;
+  box-shadow: none !important;
+  color: rgb(255, 213, 0); /* Change to desired color on click */
 }
 
 .icon {
@@ -481,19 +493,23 @@ body {
   }
 
   .header .promo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%; /* Ensure it fits within the viewport width */
-  max-width: 100%; /* Prevent it from exceeding the viewport width */
-  z-index: 1004;
-  background-color: rgba(255, 255, 255, 0.9);
-  text-align: center;
-  padding: 10px 0;
-  font-size: 1.5rem;
-  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Ensure it fits within the viewport width */
+    max-width: 100%;
+    /* Prevent it from exceeding the viewport width */
+    z-index: 1004;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+    /* Ensure padding and border are included in the element's total width and height */
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+  }
 
 
   .promo button {
