@@ -43,46 +43,60 @@
       </div>
     </section>
     <!-- New section -->
-    <section class="section-spacing">
+    <section class="section-spacing custom-padding">
       <div class="container-fluid">
-        <div class="d-flex justify-content-start align-items-center"
+        <div class="d-flex justify-content-start align-items-center section-adjustment"
           style="min-height: 90vh; padding: 0; margin-top: -300px;">
           <div class="text-left p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto; padding-bottom: 120px;">
             <div style="display: flex; align-items: center; margin-bottom: 10px;">
               <div
                 style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px;">
               </div>
-              <h2 class="text-bold mb-2 about-heading">Imagine Interior</h2>
+              <h2 class="text-bold mb-2 about-heading">Sunflower House Interior</h2>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/Imagine Interior/Modern.png" alt="Modern" class="zoom-effect"
-                    style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">Modern</p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+            <div class="image-grid">
+              <carousel v-if="isMobile" :per-page="1" :mouse-drag="true" :paginationEnabled="true">
+                <slide v-for="(image, index) in mobileImages" :key="index">
+                  <div class="grid-item" style="position: relative;">
+                    <img :src="image.src" :alt="image.alt" class="zoom-effect"
+                      style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">{{ image.alt }}
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </slide>
+              </carousel>
+              <div v-else style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                  <div class="grid-item" style="position: relative;">
+                    <img src="@/static/Imagine Interior/Modern.png" alt="Modern" class="zoom-effect"
+                      style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">Modern</p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="grid-item" style="position: relative;">
+                    <img src="@/static/Imagine Interior/Modern Classic.png" alt="Modern Classic" class="zoom-effect"
+                      style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">Modern Classic
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
                 </div>
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/Imagine Interior/Modern Classic.png" alt="Modern Classic" class="zoom-effect"
-                    style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">Modern Classic
-                  </p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
-                </div>
-              </div>
-              <div style="display: grid; gap: 20px;">
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/Imagine Interior/Modern Luxury.png" alt="Modern Luxury" class="zoom-effect"
-                    style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">Modern Luxury</p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="grid-item" style="position: relative;">
-                  <img src="@/static/Imagine Interior/Moji & Minimal.png" alt="Moji & Minimal" class="zoom-effect"
-                    style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">Moji & Minimal
-                  </p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                <div style="display: grid; gap: 20px;">
+                  <div class="grid-item" style="position: relative;">
+                    <img src="@/static/Imagine Interior/Modern Luxury.png" alt="Modern Luxury" class="zoom-effect"
+                      style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">Modern Luxury
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <div class="grid-item" style="position: relative;">
+                    <img src="@/static/Imagine Interior/Moji & Minimal.png" alt="Moji & Minimal" class="zoom-effect"
+                      style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">Moji & Minimal
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -92,300 +106,320 @@
       </div>
     </section>
     <!-- New section -->
-    <section class="section-spacing">
-      <div class=" d-flex justify-content-start align-items-center"
-      style="display: flex; padding: 0; margin-top: -150px;">
-      <div class="text-left p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto;">
-        <div style="display: flex; align-items: center; margin-bottom: 10px;">
-          <div
-            style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px;">
-          </div>
-          <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">6 Steps to Service</h2>
-        </div>
-        <p class="mb-3" style="font-size: 1.2rem; line-height: 1.2; margin-top: 0; margin-bottom: 30px;">
-          Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam.
-        </p>
-      </div>
-  </div>
-  <div class="grid-container"
-    style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; max-width: 1200px; margin: auto;">
-    <!-- Consultation -->
-    <div class="grid-item-container" style="text-align: center;">
-      <div class="grid-item"
-        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
-        <img src="@/static/step/conversation.png" alt="conversation" class="zoom-effect-step"
-          style="width: 60px; height: 60px; object-fit: cover;">
-      </div>
-      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Consultation</h3>
-    </div>
-    <!-- Estimate Price -->
-    <div class="grid-item-container" style="text-align: center;">
-      <div class="grid-item"
-        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
-        <img src="@/static/step/Estimate.png" alt="Estimate Price" class="zoom-effect-step"
-          style="width: 60px; height: 60px; object-fit: cover;">
-      </div>
-      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Estimate Price</h3>
-    </div>
-    <!-- Drafting 3D -->
-    <div class="grid-item-container" style="text-align: center;">
-      <div class="grid-item"
-        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
-        <img src="@/static/step/Drafting.png" alt="Drafting" class="zoom-effect-step"
-          style="width: 60px; height: 60px; object-fit: cover;">
-      </div>
-      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Drafting 3D</h3>
-    </div>
-    <!-- Built-in Installation -->
-    <div class="grid-item-container" style="text-align: center;">
-      <div class="grid-item"
-        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
-        <img src="@/static/step/Built-in.png" alt="Built-in" class="zoom-effect-step"
-          style="width: 60px; height: 60px; object-fit: cover;">
-      </div>
-      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Built-in installation</h3>
-    </div>
-    <!-- Project Delivery -->
-    <div class="grid-item-container" style="text-align: center;">
-      <div class="grid-item"
-        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
-        <img src="@/static/step/Project.png" alt="Project" class="zoom-effect-step"
-          style="width: 60px; height: 60px; object-fit: cover;">
-      </div>
-      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Project delivery</h3>
-    </div>
-    <!-- Warranty -->
-    <div class="grid-item-container" style="text-align: center;">
-      <div class="grid-item"
-        style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
-        <img src="@/static/step/warranty.png" alt="Warranty" class="zoom-effect-step"
-          style="width: 60px; height: 60px; object-fit: cover;">
-      </div>
-      <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">1 year warranty</h3>
-    </div>
-  </div>
-  </section>
-  <!-- End of new section -->
-  <section wapper class="design-section">
-    <div class="d-flex justify-content-center align-items-center"
-      style="min-height: 60vh; padding: 0; margin-top: 50px;">
-      <div class="text-center p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto;">
-        <div style="display: flex; align-items: center; margin-bottom: 20px;">
-          <div
-            style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px;">
-          </div>
-          <h2 id="design-option1" class="text-uppercase mb-2"
-            :class="{ 'text-muted': currentDesign !== 'house', 'text-bold': currentDesign === 'house' }"
-            style="font-size: 1.3rem; cursor: pointer;" @click="toggleDesign('house')">
-            รับออกแบบตกแต่งภายในบ้าน
-          </h2>
-          <span style="margin: 0 5px; ">/</span>
-          <h3 id="design-option2" class="text-uppercase mb-2"
-            :class="{ 'text-muted': currentDesign !== 'condo', 'text-bold': currentDesign === 'condo' }"
-            style="font-size: 1.3rem; cursor: pointer;" @click="toggleDesign('condo')">
-            รับออกแบบตกแต่งภายในคอนโด
-          </h3>
-        </div>
-        <!-- ตกแต่งภายในบ้าน -->
-        <div v-if="currentDesign === 'house'">
-          <div v-if="services && services.length">
-            <!-- กรองเฉพาะ service ที่มี service_category_id === 113 -->
-            <div id="outside-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-              <!-- 2 รูปแรก (แนวตั้ง) -->
-              <div style="display: grid; gap: 20px;">
-                <div class="grid-item" style="position: relative;"
-                  v-for="(service, index) in services.filter(service => service.service_category_id === 113).slice(0, 2)"
-                  :key="index">
-                  <div v-if="service.image && service.image.length">
-                    <img :src="service.image[0]" :alt="service.title" class="zoom-effect-left"
-                      style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
-                  </div>
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    {{ service.title }}
-                  </p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
-                </div>
-              </div>
-
-              <!-- 2 รูปหลัง (แนวนอน) -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div class="grid-item" style="position: relative;"
-                  v-for="(service, index) in services.filter(service => service.service_category_id === 113).slice(2, 4)"
-                  :key="index">
-                  <div v-if="service.image && service.image.length">
-                    <img :src="service.image[0]" :alt="service.title" class="zoom-effect-pop"
-                      style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
-                  </div>
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    {{ service.title }}
-                  </p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div style="text-align: left;">
-            <a href="#" id="outside-readmore" class="btn btn-soft-yellow rounded-pill"
-              style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0; text-align: left; align-self: flex-start;"
-              onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
-              onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
-              More</a>
-          </div>
-        </div>
-
-        <!-- ตกแต่งภายในคอนโด -->
-        <div v-if="currentDesign === 'condo'">
-          <div v-if="services && services.length">
-            <!-- กรองเฉพาะ service ที่มี service_category_id === 114 -->
-            <div id="inside-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-              <!-- 2 รูปแรก (แนวตั้ง) -->
-              <div style="display: grid; gap: 20px;">
-                <div class="grid-item" style="position: relative;"
-                  v-for="(service, index) in services.filter(service => service.service_category_id === 114).slice(0, 2)"
-                  :key="index">
-                  <div v-if="service.image && service.image.length">
-                    <img :src="service.image[0]" :alt="service.title" class="zoom-effect-left"
-                      style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
-                  </div>
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    {{ service.title }}
-                  </p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
-                </div>
-              </div>
-
-              <!-- 2 รูปหลัง (แนวนอน) -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div class="grid-item" style="position: relative;"
-                  v-for="(service, index) in services.filter(service => service.service_category_id === 114).slice(2, 4)"
-                  :key="index">
-                  <div v-if="service.image && service.image.length">
-                    <img :src="service.image[0]" :alt="service.title" class="zoom-effect-right"
-                      style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
-                  </div>
-                  <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
-                    {{ service.title }}
-                  </p>
-                  <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div style="text-align: left;">
-            <a href="#" id="inside-readmore" class="btn btn-soft-yellow rounded-pill"
-              style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0; text-align: left; align-self: flex-start;"
-              onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
-              onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
-              More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="video-showcase">
-    <div class="d-flex justify-content-center align-items-center"
-      style="min-height: 80vh; padding: 0; margin-top: 50px;">
-      <div class="text-center p-3"
-        style="width: 100%; max-width: 1200px; font-size: 1.1rem; margin: auto; border-radius: 30px; overflow: hidden;">
-
-        <!-- วิดีโอ -->
-        <video autoplay controls preload="auto"
-          style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 20px;">
-          <source src="@/static/video/room-video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section-spacing">
-    <div class="container-fluid">
-      <div class="d-flex justify-content-start align-items-center" style="margin-top: -80px;">
-        <div class="text-left p-3 about-content">
+    <section class="section-spacing custom-padding steps-section">
+      <div class="d-flex justify-content-start align-items-center steps-container"
+        style="display: flex; padding: 0; margin-top: -150px;">
+        <div class="text-left p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto;">
           <div style="display: flex; align-items: center; margin-bottom: 10px;">
             <div
               style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px;">
             </div>
-            <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">Our Partners</h2>
+            <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">6 Steps to Service</h2>
           </div>
-          <p class="mb-3 about-text">
+          <p class="mb-3" style="font-size: 1.2rem; line-height: 1.2; margin-top: 0; margin-bottom: 30px;">
             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl
-            consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui.
+            dapibus ac facilisis in, egestas eget quam.
           </p>
         </div>
       </div>
-    </div>
-  </section>
 
-
-  <!-- Moved section -->
-  <section class="wrapper bg-light wrapper-border" style="margin-top: -330px;">
-    <div class="container py-14 py-md-16">
-      <div class="swiper-container clients mb-0" data-margin="30" data-dots="false" data-loop="true"
-        data-autoplay="true" data-autoplaytime="1" data-drag="false" data-speed="5000" data-items-xxl="7"
-        data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-xs="2">
-        <div class="swiper">
-          <div class="swiper-wrapper ticker">
-            <div class="swiper-slide px-5"><img src="@/static/clients/kwoon.png" alt="" /></div>
-            <div class="swiper-slide px-5"><img src="@/static/clients/lomos.png" alt="" /></div>
-            <div class="swiper-slide px-5"><img src="@/static/clients/malory.png" alt="" /></div>
-            <div class="swiper-slide px-5"><img src="@/static/clients/morello.png" alt="" /></div>
-            <div class="swiper-slide px-5"><img src="@/static/clients/slowave.png" alt="" /></div>
-            <div class="swiper-slide px-5"><img src="@/static/clients/kwoon.png" alt="" /></div>
-            <div class="swiper-slide px-5"><img src="@/static/clients/lomos.png" alt="" /></div>
-            <div class="swiper-slide px-5"><img src="@/static/clients/malory.png" alt="" /></div>
-            <div class="swiper-slide px-5"><img src="@/static/clients/morello.png" alt="" /></div>
-            <div class="swiper-slide px-5"><img src="@/static/clients/slowave.png" alt="" /></div>
+      <div class="grid-container"
+        style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; max-width: 1200px; margin: auto;">
+        <!-- Consultation -->
+        <div class="grid-item-container" style="text-align: center;">
+          <div class="grid-item"
+            style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+            <img src="@/static/step/conversation.png" alt="conversation" class="zoom-effect-step"
+              style="width: 60px; height: 60px; object-fit: cover;">
           </div>
-          <!--/.swiper-wrapper -->
+          <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Consultation</h3>
         </div>
-        <!-- /.swiper -->
+        <!-- Estimate Price -->
+        <div class="grid-item-container" style="text-align: center;">
+          <div class="grid-item"
+            style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+            <img src="@/static/step/Estimate.png" alt="Estimate Price" class="zoom-effect-step"
+              style="width: 60px; height: 60px; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Estimate Price</h3>
+        </div>
+        <!-- Drafting 3D -->
+        <div class="grid-item-container" style="text-align: center;">
+          <div class="grid-item"
+            style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+            <img src="@/static/step/Drafting.png" alt="Drafting" class="zoom-effect-step"
+              style="width: 60px; height: 60px; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Drafting 3D</h3>
+        </div>
+        <!-- Built-in Installation -->
+        <div class="grid-item-container" style="text-align: center;">
+          <div class="grid-item"
+            style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+            <img src="@/static/step/Built-in.png" alt="Built-in" class="zoom-effect-step"
+              style="width: 60px; height: 60px; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Built-in installation</h3>
+        </div>
+        <!-- Project Delivery -->
+        <div class="grid-item-container" style="text-align: center;">
+          <div class="grid-item"
+            style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+            <img src="@/static/step/Project.png" alt="Project" class="zoom-effect-step"
+              style="width: 60px; height: 60px; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">Project delivery</h3>
+        </div>
+        <!-- Warranty -->
+        <div class="grid-item-container" style="text-align: center;">
+          <div class="grid-item"
+            style="background-color: #ededed; width: 120px; height: 120px; padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">
+            <img src="@/static/step/warranty.png" alt="Warranty" class="zoom-effect-step"
+              style="width: 60px; height: 60px; object-fit: cover;">
+          </div>
+          <h3 style="font-size: 0.9rem; font-weight: normal; color: black; margin-top: 10px;">1 year warranty</h3>
+        </div>
       </div>
-      <!-- /.swiper-container -->
-    </div>
-    <!-- /.container -->
-  </section>
-  <!-- End of moved section -->
+    </section>
+    <!-- End of new section -->
+    <section wapper class="design-section custom-padding">
+      <div class="d-flex justify-content-center align-items-center"
+        style="min-height: 60vh; padding: 0; margin-top: 50px;">
+        <div class="text-center p-3" style="max-width: 1200px; font-size: 1.1rem; margin: auto;">
+          <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <div
+              style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px;">
+            </div>
+            <h2 id="design-option1" class="text-uppercase mb-2"
+              :class="{ 'text-muted': currentDesign !== 'house', 'text-bold': currentDesign === 'house' }"
+              style="font-size: 1.3rem; cursor: pointer;" @click="toggleDesign('house')">
+              รับออกแบบตกแต่งภายในบ้าน
+            </h2>
+            <span style="margin: 0 5px; ">/</span>
+            <h3 id="design-option2" class="text-uppercase mb-2"
+              :class="{ 'text-muted': currentDesign !== 'condo', 'text-bold': currentDesign === 'condo' }"
+              style="font-size: 1.3rem; cursor: pointer;" @click="toggleDesign('condo')">
+              รับออกแบบตกแต่งภายในคอนโด
+            </h3>
+          </div>
+          <!-- ตกแต่งภายในบ้าน -->
+          <div v-if="currentDesign === 'house'">
+            <div v-if="services && services.length">
+              <carousel v-if="isMobile" :per-page="1" :mouse-drag="true" :paginationEnabled="true">
+                <slide v-for="(service, index) in services.filter(service => service.service_category_id === 113)"
+                  :key="index">
+                  <div class="grid-item" style="position: relative;">
+                    <img :src="service.image[0]" :alt="service.title" class="zoom-effect"
+                      style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">{{
+                      service.title }}</p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </slide>
+              </carousel>
+              <div v-else id="outside-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <!-- 2 รูปแรก (แนวตั้ง) -->
+                <div style="display: grid; gap: 20px;">
+                  <div class="grid-item" style="position: relative;"
+                    v-for="(service, index) in services.filter(service => service.service_category_id === 113).slice(0, 2)"
+                    :key="index">
+                    <div v-if="service.image && service.image.length">
+                      <img :src="service.image[0]" :alt="service.title" class="zoom-effect-left"
+                        style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
+                      {{ service.title }}
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
 
-  <section class="section-spacing">
-    <div>
-      <div class="d-flex justify-content-center align-items-center" style="display: flex; margin-top: -30px;">
-        <div class="text-center p-3" :style="{
-          width: '1200px',
-          height: '450px',
-          fontSize: '1.1rem',
-          margin: 'auto',
-          marginBottom: '50px',
-          backgroundImage: `url(${require('@/static/contact.png')})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          borderRadius: '10px',
-          color: '#333',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }">
-          <div class="about-us" style="font-family: 'Athiti', sans-serif; text-align: center;">
-            <h2 class="widget-title text-center" style="font-size: 1.5rem; font-weight: 150px;">Get in Touch</h2>
-            <p class="widget-title text-center mb-0" style="font-size: 1.1rem;">
-              Have any questions? Reach out to us from our contact
-              form and we will get back to you shortly.
+                <!-- 2 รูปหลัง (แนวนอน) -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                  <div class="grid-item" style="position: relative;"
+                    v-for="(service, index) in services.filter(service => service.service_category_id === 113).slice(2, 4)"
+                    :key="index">
+                    <div v-if="service.image && service.image.length">
+                      <img :src="service.image[0]" :alt="service.title" class="zoom-effect-pop"
+                        style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
+                      {{ service.title }}
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: left;">
+              <a href="#" id="outside-readmore" class="btn btn-soft-yellow rounded-pill"
+                style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0; text-align: left; align-self: flex-start;"
+                onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
+                onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
+                More</a>
+            </div>
+          </div>
+
+          <!-- ตกแต่งภายในคอนโด -->
+          <div v-if="currentDesign === 'condo'">
+            <div v-if="services && services.length">
+              <carousel v-if="isMobile" :per-page="1" :mouse-drag="true" :paginationEnabled="true">
+                <slide v-for="(service, index) in services.filter(service => service.service_category_id === 114)"
+                  :key="index">
+                  <div class="grid-item" style="position: relative;">
+                    <img :src="service.image[0]" :alt="service.title" class="zoom-effect"
+                      style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">{{
+                      service.title }}</p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </slide>
+              </carousel>
+              <div v-else id="inside-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <!-- 2 รูปแรก (แนวตั้ง) -->
+                <div style="display: grid; gap: 20px;">
+                  <div class="grid-item" style="position: relative;"
+                    v-for="(service, index) in services.filter(service => service.service_category_id === 114).slice(0, 2)"
+                    :key="index">
+                    <div v-if="service.image && service.image.length">
+                      <img :src="service.image[0]" :alt="service.title" class="zoom-effect-left"
+                        style="width: 100%; height: 210px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
+                      {{ service.title }}
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+
+                <!-- 2 รูปหลัง (แนวนอน) -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                  <div class="grid-item" style="position: relative;"
+                    v-for="(service, index) in services.filter(service => service.service_category_id === 114).slice(2, 4)"
+                    :key="index">
+                    <div v-if="service.image && service.image.length">
+                      <img :src="service.image[0]" :alt="service.title" class="zoom-effect-right"
+                        style="width: 100%; height: 450px; object-fit: cover; border-radius: 10px;">
+                    </div>
+                    <p style="font-size: 1rem; position: absolute; top: 10px; left: 10px; color: white;">
+                      {{ service.title }}
+                    </p>
+                    <a href="#" class="arrow-icon"><i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="text-align: left;">
+              <a href="#" id="inside-readmore" class="btn btn-soft-yellow rounded-pill"
+                style="background-color: #ececec; border: none; color: #333; padding: 10px 20px; font-size: 1rem; font-family: 'Athiti', sans-serif; margin-top: 20px; text-decoration: none; border-radius: 50px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; display: inline-block; text-align: left; cursor: pointer; margin-left: 0; text-align: left; align-self: flex-start;"
+                onmouseover="this.style.backgroundColor='#333'; this.style.color='white'; this.style.transform='scale(1.05)';"
+                onmouseout="this.style.backgroundColor='#ececec'; this.style.color='#333'; this.style.transform='scale(1)';">Read
+                More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="video-showcase" class="custom-padding">
+      <div class="d-flex justify-content-center align-items-center"
+        style="min-height: 80vh; padding: 0; margin-top: 50px;">
+        <div class="text-center p-3"
+          style="width: 100%; max-width: 1200px; font-size: 1.1rem; margin: auto; border-radius: 30px; overflow: hidden;">
+          <!-- วิดีโอ -->
+          <video autoplay controls preload="auto"
+            style="width: 100%; height: auto; max-height: 500px; object-fit: cover; border-radius: 20px;">
+            <source src="@/static/video/room-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-start align-items-center our-partners-section">
+          <div class="text-left p-3 about-content">
+            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+              <div
+                style="width: 10px; height: 10px; background-color: rgb(249, 204, 56); border-radius: 50%; margin-right: 5px;">
+              </div>
+              <h2 class="fs-14 text-bold mb-2" style="font-size: 1.3rem; font-weight: bold;">Our Partners</h2>
+            </div>
+            <p class="mb-3 about-text">
+              Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras justo odio,
+              dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl
+              consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui.
             </p>
-            <a href="#" class="cta-button"
-              style="padding: 10px 20px; background-color: #fff; color: #333; text-decoration: none; border-radius: 25px; margin-top: 20px; display: inline-block;">Contact
-              Us</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <MessegesComponent />
-  <FooterComponent class="footer-section" />
+    <!-- Moved section -->
+    <section class="wrapper bg-light wrapper-border" style="margin-top: -330px;">
+      <div class="container py-14 py-md-16">
+        <div class="swiper-container clients mb-0" data-margin="30" data-dots="false" data-loop="true"
+          data-autoplay="true" data-autoplaytime="1" data-drag="false" data-speed="5000" data-items-xxl="7"
+          data-items-xl="6" data-items-lg="5" data-items-md="4" data-items-xs="2">
+          <div class="swiper">
+            <div class="swiper-wrapper ticker">
+              <div class="swiper-slide px-5"><img src="@/static/clients/kwoon.png" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="@/static/clients/lomos.png" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="@/static/clients/malory.png" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="@/static/clients/morello.png" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="@/static/clients/slowave.png" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="@/static/clients/kwoon.png" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="@/static/clients/lomos.png" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="@/static/clients/malory.png" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="@/static/clients/morello.png" alt="" /></div>
+              <div class="swiper-slide px-5"><img src="@/static/clients/slowave.png" alt="" /></div>
+            </div>
+            <!--/.swiper-wrapper -->
+          </div>
+          <!-- /.swiper -->
+        </div>
+        <!-- /.swiper-container -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- End of moved section -->
+
+    <section class="section-spacing">
+      <div>
+        <div class="d-flex justify-content-center align-items-center" style="display: flex; margin-top: -30px;">
+          <div class="text-center p-3" :style="{
+            width: '1200px',
+            height: '450px',
+            fontSize: '1.1rem',
+            margin: 'auto',
+            marginBottom: '50px',
+            backgroundImage: `url(${require('@/static/contact.png')})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            borderRadius: '10px',
+            color: '#333',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }">
+            <div class="about-us" style="font-family: 'Athiti', sans-serif; text-align: center;">
+              <h2 class="widget-title text-center" style="font-size: 1.5rem; font-weight: 150px;">Get in Touch</h2>
+              <p class="widget-title text-center mb-0" style="font-size: 1.1rem;">
+                Have any questions? Reach out to us from our contact
+                form and we will get back to you shortly.
+              </p>
+              <a href="#" class="cta-button"
+                style="padding: 10px 20px; background-color: #fff; color: #333; text-decoration: none; border-radius: 25px; margin-top: 20px; display: inline-block;">Contact
+                Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <MessegesComponent />
+    <FooterComponent class="footer-section" />
   </div>
 </template>
 
@@ -425,60 +459,73 @@ export default {
     }
   },
   async asyncData({ $axios }) {
-  const serviceCategoryId1 = 113; // กำหนดค่า service_category_id1
-  const serviceCategoryId2 = 114; // กำหนดค่า service_category_id2
+    const serviceCategoryId1 = 113; // กำหนดค่า service_category_id1
+    const serviceCategoryId2 = 114; // กำหนดค่า service_category_id2
 
-  try {
-    // Request for services
-    const response1 = await $axios.get('/service', {
-      params: { service_category_id: serviceCategoryId1 },
-    });
+    try {
+      // Request for services
+      const response1 = await $axios.get('/service', {
+        params: { service_category_id: serviceCategoryId1 },
+      });
 
-    const response2 = await $axios.get('/service', {
-      params: { service_category_id: serviceCategoryId2 },
-    });
+      const response2 = await $axios.get('/service', {
+        params: { service_category_id: serviceCategoryId2 },
+      });
 
-    const filteredServices1 = response1.data.service.filter(
-      (service) => service.service_category_id === serviceCategoryId1
-    );
-    const filteredServices2 = response2.data.service.filter(
-      (service) => service.service_category_id === serviceCategoryId2
-    );
+      const filteredServices1 = response1.data.service.filter(
+        (service) => service.service_category_id === serviceCategoryId1
+      );
+      const filteredServices2 = response2.data.service.filter(
+        (service) => service.service_category_id === serviceCategoryId2
+      );
 
-    const combinedServices = [...filteredServices1, ...filteredServices2];
+      const combinedServices = [...filteredServices1, ...filteredServices2];
 
-    // Request for banners
-    const bannersResponse = await $axios.get('/bannerindex'); // Assuming '/banners' is your API endpoint for fetching banners
+      // Request for banners
+      const bannersResponse = await $axios.get('/bannerindex'); // Assuming '/banners' is your API endpoint for fetching banners
 
-    const slides = bannersResponse.data.map((banner) => ({
-      image: banner.img_website,
-      title: banner.title, // Add title to each slide
-    }));
+      const slides = bannersResponse.data.map((banner) => ({
+        image: banner.img_website,
+        title: banner.title, // Add title to each slide
+      }));
 
-    // Request for website data
-    const websiteResponse = await $axios.get('/website'); // ปรับ URL ให้ตรงกับ API ของคุณ
-    const websiteData = websiteResponse.data;
+      // Request for website data
+      const websiteResponse = await $axios.get('/website'); // ปรับ URL ให้ตรงกับ API ของคุณ
+      const websiteData = websiteResponse.data;
 
-    return {
-      services: Array.isArray(combinedServices) ? combinedServices : [],
-      banners: Array.isArray(bannersResponse.data) ? bannersResponse.data : [],
-      slides: slides,
-      websiteData: websiteData || {}, // เก็บข้อมูล websiteData เพิ่มเติม
-    };
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return {
-      services: [],
-      banners: [],
-      slides: [],
-      websiteData: {}, // กรณีเกิด error คืนค่า object ว่าง
-    };
-  }
-},
+      return {
+        services: Array.isArray(combinedServices) ? combinedServices : [],
+        banners: Array.isArray(bannersResponse.data) ? bannersResponse.data : [],
+        slides: slides,
+        websiteData: websiteData || {}, // เก็บข้อมูล websiteData เพิ่มเติม
+      };
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return {
+        services: [],
+        banners: [],
+        slides: [],
+        websiteData: {}, // กรณีเกิด error คืนค่า object ว่าง
+      };
+    }
+  },
   data() {
     return {
       currentDesign: 'house',
     };
+  },
+  computed: {
+    isMobile() {
+      return typeof window !== 'undefined' && window.innerWidth <= 480;
+    },
+    mobileImages() {
+      return [
+        { src: require('@/static/Imagine Interior/Modern.png'), alt: 'Modern' },
+        { src: require('@/static/Imagine Interior/Modern Classic.png'), alt: 'Modern Classic' },
+        { src: require('@/static/Imagine Interior/Modern Luxury.png'), alt: 'Modern Luxury' },
+        { src: require('@/static/Imagine Interior/Moji & Minimal.png'), alt: 'Moji & Minimal' }
+      ];
+    }
   },
 }
 </script>
@@ -634,6 +681,8 @@ h2 {
   background-color: rgb(249, 204, 56);
   border-radius: 50%;
   margin-right: 5px;
+  flex-shrink: 0;
+  /* Prevent the dot from shrinking */
 }
 
 /* Styles for new section */
@@ -881,6 +930,10 @@ img {
   display: flex;
 }
 
+.our-partners-section {
+  margin-top: -80px;
+}
+
 @keyframes ticker {
   0% {
     transform: translateX(0);
@@ -894,7 +947,8 @@ img {
 .carousel-section .VueCarousel-pagination {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 0px;
+  /* Further adjusted margin to move dots closer to images */
 }
 
 .carousel-section .VueCarousel-dot {
@@ -902,17 +956,25 @@ img {
   height: 12px;
   background-color: #ccc;
   border-radius: 50%;
-  margin: 0 5px;
+  margin: 0 0px;
   transition: background-color 0.3s ease;
 }
 
 .carousel-section .VueCarousel-dot--active {
   background-color: #333;
 }
-/* lg tablet horizon */
+
+.section-adjustment {
+  min-height: 90vh;
+  padding: 0;
+  margin-top: -50px;
+}
+
+
 @media (min-width: 992px) and (max-width: 1199px) {
   .carousel-section .slide-image {
-    height: 800px !important; /* Adjust the height as needed */
+    height: 800px !important;
+    /* Adjust the height as needed */
     object-fit: cover;
   }
 
@@ -935,15 +997,14 @@ img {
     font-size: 1.2rem;
     padding: 12px 20px;
   }
+
   .grid-container {
     grid-template-columns: repeat(3, 1fr) !important;
   }
-  .section-spacing {
-    margin-left: 0px 0;
-    padding: 10px 0;
-  }
+
   .section-spacing .d-flex {
-    margin-top: 0; /* Adjust margin as needed */
+    margin-top: 0;
+    /* Adjust margin as needed */
   }
 
   /* contact us */
@@ -957,7 +1018,8 @@ img {
   }
 
   .section-spacing .about-us h2 {
-    font-size: 2rem !important; /* Adjust font size */
+    font-size: 2rem !important;
+    font-weight: 500 !important;
   }
 
   .section-spacing .about-us p {
@@ -966,79 +1028,294 @@ img {
   }
 
   .section-spacing .cta-button {
-    padding: 8px 10px !important; /* Adjust padding */
-    font-size: 1rem; /* Adjust font size */
-    margin-top: 15px; /* Adjust margin */
+    padding: 8px 14px !important;
+    /* Adjust padding */
+    font-size: 1rem;
+    /* Adjust font size */
+    margin-top: 15px;
+    /* Adjust margin */
   }
+
   /* our partners */
-  .wrapper {
-    margin-top: -220px !important; /* Adjust margin as needed */
-  }
   .swiper-slide {
-    padding: 0 5px; /* Adjust padding for swiper slides */
+    padding: 0 5px;
+    /* Adjust padding for swiper slides */
   }
 
   .swiper-slide img {
-    width: 90%; /* Ensure images fit within the swiper slides */
-    height: auto; /* Maintain aspect ratio */
+    width: 90%;
+    /* Ensure images fit within the swiper slides */
+    height: auto;
+    /* Maintain aspect ratio */
   }
-  .Our-Partners .about-content {
-    margin-top: -90% !important;
+
+  .our-partners-section {
+    margin-top: -620px !important;
   }
 
   /* about us */
   .section-spacing .about-section {
-  flex-direction: column;
+    flex-direction: column;
   }
 
   .section-spacing .about-content {
-  width: 100%;
-  padding: 50px;
-  margin-top: -2%; /* Adjust margin */
+    width: 100%;
+    padding: 50px;
+    margin-top: -2%;
   }
 
   .section-spacing .about-content h2 {
-  font-size: 1.5rem; /* Adjust font size */
+    font-size: 1.5rem;
+    /* Adjust font size */
   }
 
   .section-spacing .about-content p {
-  font-size: 1.4rem; /* Adjust font size */
-  }
-  .section-spacing .about-btn {
-  margin-top: 10px; /* Adjust margin */
-  padding: 10px 25px; /* Adjust padding */
-  font-size: 1.2rem; /* Adjust font size */
-  }
+    font-size: 1.4rem;
+    /* Adjust font size */
   }
 
-/* md tablet */
-@media (min-width: 768px) and (max-width: 991px) {
+  .section-spacing .about-btn {
+    margin-top: 10px;
+    /* Adjust margin */
+    padding: 10px 25px;
+    /* Adjust padding */
+    font-size: 1.2rem;
+    /* Adjust font size */
+  }
+
+  .custom-padding {
+    padding: 30px !important;
+  }
+
+  .section-adjustment {
+    margin-top: -80% !important;
+  }
+
+  #video-showcase .d-flex {
+    margin-top: -220px !important;
+    /* Adjust this value as needed to move the video section up */
+  }
+
+  .steps-container {
+    margin-top: -700px !important;
+  }
+
+  .design-section {
+    margin-top: -300px !important;
+  }
+  .swiper-container {
+    margin-top: -100px !important;
+  }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
+  .carousel-section .slide-image {
+    height: 800px !important;
+    /* Adjust the height as needed */
+    object-fit: cover;
+  }
+
   .slide-overlay {
-    top: 25%;
+    top: 35%;
     left: 5%;
-    width: 80%;
+    width: 70%;
   }
 
   .slide-overlay h3 {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
 
   .slide-overlay span {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 
   .shop-now-btn {
-    font-size: 0.8rem;
-    padding: 10px 12px;
+    margin-top: 10px;
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .section-spacing .d-flex {
+    margin-top: -30px;
+  }
+
+  /* contact us */
+  .section-spacing .text-center.p-3 {
+    width: 100%;
+    height: 100% !important;
+    font-size: 0.9rem;
+    padding: 20px !important;
+    margin-left: 50px !important;
+    margin-right: 50px !important;
+  }
+
+  .section-spacing .about-us h2 {
+    font-size: 1.3rem !important;
+    font-weight: 500 !important;
+  }
+
+  .section-spacing .about-us p {
+    margin-top: 10px;
+    font-size: 1.2rem !important;
+    padding: 20px;
+  }
+
+  .section-spacing .cta-button {
+    padding: 8px 14px !important;
+    /* Adjust padding */
+    font-size: 1rem;
+    /* Adjust font size */
+    margin-top: 15px;
+    /* Adjust margin */
+  }
+
+  /* our partners */
+  .swiper-slide {
+    padding: 0 2px;
+    /* Adjust padding for swiper slides */
+  }
+
+  .swiper-slide img {
+    width: 80%;
+    /* Ensure images fit within the swiper slides */
+    height: auto;
+    /* Maintain aspect ratio */
+  }
+
+  .our-partners-section {
+    margin-top: -600px !important;
+  }
+
+  /* about us */
+  .section-spacing .about-section {
+    flex-direction: column;
+  }
+
+  .section-spacing .about-content {
+    width: 100%;
+    padding: 50px;
+    margin-top: -2%;
+  }
+
+  .custom-padding {
+    padding: 30px !important;
+  }
+
+  .section-adjustment {
+    margin-top: -85% !important;
+  }
+
+  #video-showcase .d-flex {
+    margin-top: -120px !important;
+    /* Adjust this value as needed to move the video section up */
+  }
+
+  .steps-container {
+    margin-top: -500px !important;
+  }
+
+  .design-section {
+    margin-top: -100px !important;
+  }
+  .swiper-container {
+    margin-top: -80px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .fs-14 {
+    font-size: 1.2rem !important;
+  }
+  .about-heading {
+    font-size: 1.2rem !important;
+    /* Ensure normal case */
+  }
+  .carousel-section .slide-image {
+    height: 800px !important;
+    /* Adjust the height as needed */
+    object-fit: cover;
+  }
+
+  .slide-overlay {
+    top: 35%;
+    left: 5%;
+    width: 70%;
+  }
+
+  .slide-overlay h3 {
+    font-size: 1.6rem;
+  }
+
+  .slide-overlay span {
+    font-size: 1.2rem;
+  }
+
+  .shop-now-btn {
+    margin-top: 10px;
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .section-spacing .d-flex {
+    margin-top: -30px;
+  }
+
+  .our-partners-section {
+    margin-top: -500px !important;
+  }
+
+  /* about us */
+  .section-spacing .about-section {
+    flex-direction: column;
+  }
+
+  .section-spacing .about-content {
+    width: 100%;
+    padding: 50px;
+    margin-top: -2%;
+  }
+
+  .custom-padding {
+    padding: 30px !important;
+  }
+
+  .section-adjustment {
+    margin-top: -75% !important;
+  }
+
+  #video-showcase .d-flex {
+    margin-top: -40px !important;
+    /* Adjust this value as needed to move the video section up */
+  }
+
+  .steps-container {
+    margin-top: -400px !important;
+  }
+
+  .design-section {
+    margin-top: -100px !important;
+  }
+  .swiper-container {
+    margin-top: -30px !important;
+  }
+  .mb-2 {
+    font-size: 1.2rem !important;
+    /* Ensure normal case */
   }
 }
 
 @media (max-width: 480px) {
   .carousel-section .slide-image {
-    height: 500px !important; /* Adjust the height as needed */
+    height: 500px !important;
+    /* Adjust the height as needed */
     object-fit: cover;
   }
 
@@ -1061,15 +1338,19 @@ img {
     font-size: 0.7rem;
     padding: 8px 12px;
   }
+
   .grid-container {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+
   .section-spacing {
     margin-left: 30px 0;
     padding: 10px 0;
   }
+
   .section-spacing .d-flex {
-    margin-top: 0; /* Adjust margin as needed */
+    margin-top: 0;
+    /* Adjust margin as needed */
   }
 
   /* contact us */
@@ -1083,59 +1364,127 @@ img {
   }
 
   .section-spacing .about-us h2 {
-    font-size: 1.2rem !important; /* Adjust font size */
+    font-size: 1.2rem !important;
+    /* Adjust font size */
   }
 
   .section-spacing .about-us p {
     margin-top: 15px;
-    font-size: 0.8rem !important; /* Adjust font size */
+    font-size: 0.8rem !important;
+    /* Adjust font size */
   }
 
   .section-spacing .cta-button {
-    padding: 8px 10px !important; /* Adjust padding */
-    font-size: 1rem; /* Adjust font size */
-    margin-top: 15px; /* Adjust margin */
+    padding: 8px 10px !important;
+    /* Adjust padding */
+    font-size: 1rem;
+    /* Adjust font size */
+    margin-top: 15px;
+    /* Adjust margin */
   }
+
   /* our partners */
   .wrapper {
-    margin-top: -220px !important; /* Adjust margin as needed */
+    margin-top: -300px !important;
+    /* Adjust margin as needed */
   }
+
   .swiper-slide {
-    padding: 0 5px; /* Adjust padding for swiper slides */
+    padding: 0 5px;
+    /* Adjust padding for swiper slides */
   }
 
   .swiper-slide img {
-    width: 90%; /* Ensure images fit within the swiper slides */
-    height: auto; /* Maintain aspect ratio */
+    width: 90%;
+    /* Ensure images fit within the swiper slides */
+    height: auto;
+    /* Maintain aspect ratio */
   }
-  .Our-Partners .about-content {
-    margin-top: -90% !important;
+
+  .our-partners-section {
+    margin-top: -520px !important;
+
   }
 
   /* about us */
   .section-spacing .about-section {
-  flex-direction: column; /* Stack items vertically */
-  margin-bottom: 20px; /* Adjust margin */
+    flex-direction: column;
+    /* Stack items vertically */
+    margin-bottom: 20px;
+    /* Adjust margin */
+  }
+
+  .section-spacing .about-content {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 100px;
+    /* Adjust margin */
+  }
+
+  .section-spacing .about-content h2 {
+    font-size: 1.2rem;
+    /* Adjust font size */
+  }
+
+  .section-spacing .about-content p {
+    font-size: 1.1rem;
+    /* Adjust font size */
+  }
+
+  .section-spacing .about-btn {
+    margin-top: 10px;
+    /* Adjust margin */
+    padding: 8px 18px;
+    /* Adjust padding */
+    font-size: 0.9rem;
+    /* Adjust font size */
+  }
+
+  .fs-14 {
+    font-size: 1rem !important;
+  }
+
+  .about-heading {
+    font-size: 1rem !important;
+    /* Ensure normal case */
+  }
+
+  .custom-padding {
+    padding: 10px !important;
+    /* Adjust the padding as needed */
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    /* Display one image per row */
+  }
+
+  #outside-grid,
+  #inside-grid {
+    grid-template-columns: 1fr !important;
+    /* Display one image per row */
+  }
+
+  .mb-2 {
+    font-size: 1rem !important;
+    /* Ensure normal case */
+  }
+  #video-showcase .d-flex {
+    margin-top: 10px !important;
+    /* Adjust this value as needed to move the video section up */
+  }
+
+  .steps-container {
+    margin-top: -200px !important;
+  }
+
+  .design-section {
+    margin-top: -40px !important;
+  }
+  .section-adjustment {
+    margin-top: -110% !important;
+  }
 }
 
-.section-spacing .about-content {
-  width: 100%;
-  padding: 20px;
-  margin-bottom: 100px; /* Adjust margin */
-}
-
-.section-spacing .about-content h2 {
-  font-size: 1.2rem; /* Adjust font size */
-}
-
-.section-spacing .about-content p {
-  font-size: 1.1rem; /* Adjust font size */
-}
-.section-spacing .about-btn {
-  margin-top: 10px; /* Adjust margin */
-  padding: 10px 10px; /* Adjust padding */
-  font-size: 0.8rem; /* Adjust font size */
-}
-
-}
 </style>

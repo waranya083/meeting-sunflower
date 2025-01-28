@@ -55,9 +55,15 @@
         <nuxt-link to="/about" class="menu-item" @click="toggleMenu">About Us</nuxt-link>
         <div class="menu-item dropdown" @click="toggleDropdown">
           Service
-          <div class="dropdown-content" v-if="dropdownOpen">
-            <nuxt-link to="/home" class="menu-item" @click="toggleMenu">Home</nuxt-link>
-            <nuxt-link to="/condo" class="menu-item" @click="toggleMenu">Condo</nuxt-link>
+          <div v-if="isDropdownOpen" class="dropdown-content">
+            <nuxt-link to="/home" class="menu-item" @click="toggleMenu">
+              <img src="@/static/home.png" alt="Home" class="icon">
+              <span class="text">Home</span>
+            </nuxt-link>
+            <nuxt-link to="/condo" class="menu-item" @click="toggleMenu">
+              <img src="@/static/condo.png" alt="Condo" class="icon">
+              <span class="text">Condo</span>
+            </nuxt-link>
           </div>
         </div>
         <nuxt-link to="/portfolio" class="menu-item" @click="toggleMenu">Portfolio</nuxt-link>
@@ -101,6 +107,9 @@ export default {
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
+      if (!this.isMenuOpen) {
+        this.isDropdownOpen = false; // Close dropdown when menu is closed
+      }
     },
     toggleDropdown(event) {
       event.preventDefault();
@@ -337,6 +346,22 @@ body {
   color: rgb(255, 213, 0); /* Change to desired color on click */
 }
 
+.menu-content .menu-item:hover,
+.menu-content .menu-item:focus,
+.menu-content .menu-item.active-tab,
+.menu-content .nuxt-link-exact-active {
+  background-color: transparent; /* Change to transparent */
+  border-color: none;
+}
+
+.menu-content .dropdown-content a:hover,
+.menu-content .dropdown-content a:focus,
+.menu-content .dropdown-content a.active-tab,
+.menu-content .dropdown-content .nuxt-link-exact-active {
+  background-color: transparent; /* Ensure no background color */
+  border-color: none;
+}
+
 .icon {
   width: 1.2em;
   height: 1.3em;
@@ -350,6 +375,33 @@ body {
   display: inline-block;
   vertical-align: middle;
   /* Ensure the text is vertically aligned with the icon */
+}
+
+.menu-content .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.menu-content .dropdown-content a {
+  display: flex;
+  align-items: center;
+  padding-left: 20px; /* Indent dropdown items */
+}
+
+.menu-content .dropdown-content a .icon {
+  width: 1.2em;
+  height: 1.3em;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.menu-content .dropdown-content a .text {
+  display: inline-block;
+  vertical-align: middle;
+  color: black;
 }
 
 @media (max-width: 480px) {
@@ -719,5 +771,13 @@ body {
     cursor: pointer;
     border: none;
   }
+
+  .half-screen-menu .close-btn {
+  top: 70px;
+  right: 30px;
+  font-size: 26px;
+  cursor: pointer;
+
+}
 }
 </style>
