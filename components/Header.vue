@@ -50,19 +50,24 @@
       <div class="close-btn" @click="toggleMenu">
         <i class="fas fa-times"></i>
       </div>
-      <div class="menu-content">
+      <div class="menu-content space-y-4">
         <nuxt-link to="/" class="menu-item" @click="toggleMenu">Home</nuxt-link>
         <nuxt-link to="/about" class="menu-item" @click="toggleMenu">About Us</nuxt-link>
-        <div class="menu-item dropdown" @click="toggleDropdown">
-          Service
-          <div v-if="isDropdownOpen" class="dropdown-content">
-            <nuxt-link to="/home" class="menu-item" @click="toggleMenu">
-              <img src="@/static/home.png" alt="Home" class="icon">
-              <span class="text">Home</span>
+        <!-- Service Dropdown Menu -->
+        <div class="menu-item dropdown">
+          <button class="menu-item dropbtn" @click="toggleDropdown">
+            Service
+            <i class="fas fa-chevron-down transition-transform duration-200"
+              :class="{ '-rotate-180': isDropdownOpen }"></i>
+          </button>
+          <div v-if="isDropdownOpen" class="dropdown-hamburger dropdown-open space-y-2">
+            <nuxt-link to="/home" class="menu-item flex items-center space-x-2" @click="toggleMenu">
+              <img src="@/static/homebg.png" alt="Home" class="icon w-6 h-6">
+              <span class="text">รับออกแบบตกแต่งภายใน บ้าน</span>
             </nuxt-link>
-            <nuxt-link to="/condo" class="menu-item" @click="toggleMenu">
-              <img src="@/static/condo.png" alt="Condo" class="icon">
-              <span class="text">Condo</span>
+            <nuxt-link to="/condo" class="menu-item flex items-center space-x-2" @click="toggleMenu">
+              <img src="@/static/condobg.png" alt="Condo" class="icon w-6 h-6">
+              <span class="text">รับออกแบบตกแต่งภายใน คอนโด</span>
             </nuxt-link>
           </div>
         </div>
@@ -112,7 +117,7 @@ export default {
       }
     },
     toggleDropdown(event) {
-      event.preventDefault();
+      event.stopPropagation();
       this.isDropdownOpen = !this.isDropdownOpen;
     }
   }
@@ -251,17 +256,46 @@ body {
   background-color: #f9f9f9;
   min-width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 1005;
+  /* Increase z-index to ensure it appears above other elements */
   border-radius: 10px;
-  /* Add border-radius to make corners rounded */
   top: 100%;
-  /* Adjust the top position to move the dropdown down */
   margin-top: 5px;
-  /* Add margin to create space between the button and the dropdown */
+}
+
+.dropdown-hamburger {
+  display: none;
+  position: relative;
+  /* Change to relative */
+  background-color: transparent;
+  /* Remove background color */
+  min-width: 300px;
+  box-shadow: none;
+  /* Remove box shadow */
+  z-index: 1005;
+  /* Ensure it appears above other elements */
+  border-radius: 10px;
+  top: 0;
+  /* Change to 0 to align directly below */
+  margin-top: 0;
+  /* Remove margin */
+  flex-direction: column;
+  /* Ensure items are displayed in a column */
 }
 
 .dropdown-content.dropdown-open {
   display: block;
+}
+
+.dropdown-hamburger.dropdown-open {
+  display: flex;
+  /* Change to flex */
+  position: absolute;
+  /* Ensure it stays in place */
+  left: 0;
+  /* Align to the left */
+  transform: none;
+  /* Remove centering transform */
 }
 
 .dropdown-content a {
@@ -311,11 +345,12 @@ body {
   width: 50%;
   height: 100%;
   background-color: #333;
-  z-index: 2000;
+  z-index: 2001;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding: 100px;
 }
 
 .half-screen-menu .close-btn {
@@ -330,7 +365,8 @@ body {
 .half-screen-menu .menu-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  /* Change to flex-start to align items to the left */
 }
 
 .half-screen-menu .menu-item {
@@ -339,18 +375,21 @@ body {
   margin: 10px 0;
   text-decoration: none;
 }
+
 .menu-content .menu-item:focus,
 .menu-content .menu-item:active {
   background: none !important;
   box-shadow: none !important;
-  color: rgb(255, 213, 0); /* Change to desired color on click */
+  color: rgb(255, 213, 0);
+  /* Change to desired color on click */
 }
 
 .menu-content .menu-item:hover,
 .menu-content .menu-item:focus,
 .menu-content .menu-item.active-tab,
 .menu-content .nuxt-link-exact-active {
-  background-color: transparent; /* Change to transparent */
+  background-color: transparent;
+  /* Change to transparent */
   border-color: none;
 }
 
@@ -358,7 +397,8 @@ body {
 .menu-content .dropdown-content a:focus,
 .menu-content .dropdown-content a.active-tab,
 .menu-content .dropdown-content .nuxt-link-exact-active {
-  background-color: transparent; /* Ensure no background color */
+  background-color: transparent;
+  /* Ensure no background color */
   border-color: none;
 }
 
@@ -382,12 +422,17 @@ body {
   flex-direction: column;
   align-items: flex-start;
   margin-top: 10px;
+  position: absolute;
+  /* Ensure it does not affect other elements */
+  top: 100%;
+  /* Position it below the dropdown button */
 }
 
 .menu-content .dropdown-content a {
   display: flex;
   align-items: center;
-  padding-left: 20px; /* Indent dropdown items */
+  padding-left: 20px;
+  /* Indent dropdown items */
 }
 
 .menu-content .dropdown-content a .icon {
@@ -403,6 +448,7 @@ body {
   vertical-align: middle;
   color: black;
 }
+
 
 @media (max-width: 480px) {
   .header .promo {
@@ -496,7 +542,8 @@ body {
 }
 
 /* xl Desktop */
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}
 
 /* lg tablet horizon */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -508,7 +555,7 @@ body {
     display: block;
     margin-top: 20px;
     margin-right: -100px;
-    font-size: 2.5rem;
+    font-size: 2rem;
     /* Increase font size */
     padding: 30px;
     /* Increase padding */
@@ -529,8 +576,8 @@ body {
   }
 
   .nav .logo img {
-    height: 60%;
-    width: 60%;
+    height: 50%;
+    width: 50%;
     margin-left: -130px;
     margin-top: 20px;
   }
@@ -556,7 +603,7 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
     padding: 10px 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     box-sizing: border-box;
     /* Ensure padding and border are included in the element's total width and height */
     overflow-x: hidden;
@@ -571,6 +618,10 @@ body {
     border-radius: 10px;
     cursor: pointer;
     border: none;
+  }
+
+  .move-down {
+    margin-top: 1rem;
   }
 }
 
@@ -624,7 +675,7 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
     padding: 10px 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     box-sizing: border-box;
     /* Ensure padding and border are included in the element's total width and height */
     overflow-x: hidden;
@@ -652,6 +703,11 @@ body {
 
   .nav .logo {
     margin-left: 60px;
+  }
+
+  .logo img {
+    height: 40% !important;
+    width: 40% !important;
   }
 
   .nav .menu {
@@ -718,7 +774,7 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
     padding: 10px 0;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     box-sizing: border-box;
     /* Ensure padding and border are included in the element's total width and height */
     overflow-x: hidden;
@@ -773,11 +829,11 @@ body {
   }
 
   .half-screen-menu .close-btn {
-  top: 70px;
-  right: 30px;
-  font-size: 26px;
-  cursor: pointer;
+    top: 70px;
+    right: 30px;
+    font-size: 26px;
+    cursor: pointer;
 
-}
+  }
 }
 </style>
