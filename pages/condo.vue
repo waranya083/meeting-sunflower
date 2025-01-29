@@ -40,11 +40,11 @@
           </div>
         </div>
       </div>
-      <div class="d-flex justify-content-center" style="margin-top: 30px; margin-bottom: 60px;">
-        <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
-      </div>
     </div>
     <MessegesComponent />
+    <div class="d-flex justify-content-center work-button">
+        <a href="#" class="btn btn-primary rounded-pill work-btn">ดูผลงาน</a>
+    </div>
     <FooterComponent class="footer-section" />
   </div>
 </template>
@@ -117,7 +117,10 @@ span,
 button {
   font-family: 'Athiti', sans-serif;
 }
-
+.work-button {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
 .header-section {
   position: absolute;
   top: 0;
@@ -292,6 +295,63 @@ h1 {
 }
 
 
+@media (max-width: 600px) {
+  .content-container {
+    margin-top: 90vh !important;
+    margin-bottom: -25% !important;
+  }
+
+  .about-section {
+    margin-top: -35%;
+    margin-bottom: 15%;
+    flex-direction: column;
+    /* Stack content vertically */
+  }
+
+  .about-content {
+    max-width: 100% !important;
+    margin-left: 10px;
+    margin-bottom: -20px;
+  }
+
+  .about-text {
+    font-size: 1.1rem !important;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    /* Reduce margin-bottom to make text closer to button */
+  }
+
+  .text-white {
+    font-size: 1.2rem !important;
+    white-space: nowrap;
+  }
+
+  .work-btn {
+    /* Increase margin-bottom to create more space from the bottom edge */
+    padding: 10px 40px;
+    font-size: 0.9rem !important;
+    left: 35%;
+    transform: translateX(-50%);
+  }
+
+  .about-image {
+  order: -1;
+  /* Move image above text */
+  margin-top: 30px;
+  margin-bottom: 0px;
+  width: calc(100vw - 20px); /* Adjust width to account for the left margin */
+  margin-left: 20px; /* Add left margin */
+  margin-right: 0;
+  height: auto; /* Change to auto to ensure it fits within the screen height */
+  max-height: 200px; /* Set a maximum height */
+}
+
+  .fs-14 {
+    font-size: 1.2rem;
+  }
+}
+
+/* xl Desktop */
 @media (min-width: 992px) and (max-width: 1199px) {
   .content-container {
     margin-top: 110vh;
@@ -300,7 +360,6 @@ h1 {
 
   .about-section {
     margin-top: -55%;
-
   }
 
   .about-content {
@@ -309,21 +368,19 @@ h1 {
   }
 
   .about-text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-top: 20px;
     margin-bottom: 10px;
-    /* Reduce margin-bottom to make text closer to button */
   }
 
   .text-white {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .work-btn {
     left: 45%;
     transform: translateX(-50%);
   }
-
 }
 
 /* md tablet */
@@ -393,8 +450,8 @@ h1 {
   }
 
   .about-section {
-    margin-top: -35%;
-    margin-bottom: 15%;
+    margin-top: -55%;
+    margin-bottom: 5%;
     flex-direction: column;
     /* Stack content vertically */
   }
@@ -402,7 +459,7 @@ h1 {
   .about-content {
     max-width: 100%;
     margin-left: 10px;
-    margin-bottom: -20px;
+    margin-bottom: 15%;
   }
 
   .about-text {
@@ -423,6 +480,7 @@ h1 {
     font-size: 0.9rem;
     left: 35%;
     transform: translateX(-50%);
+    margin-top: 0% !important;
   }
 
   .about-image {
@@ -441,4 +499,5 @@ h1 {
     font-size: 1.2rem;
   }
 }
+
 </style>

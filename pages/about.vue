@@ -730,7 +730,10 @@ h1 {
   .fs-14 {
     font-size: 1.2rem !important;
   }
-
+  .mission-section {
+    flex-direction: column;
+    padding-right: 30px;
+  }
   .mission-images {
     flex-direction: column;
     align-items: center;
