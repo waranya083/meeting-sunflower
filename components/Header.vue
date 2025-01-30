@@ -43,36 +43,48 @@
         </div>
       </nav>
       <div class="hamburger" @click="toggleMenu">
-        <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+        <div :class="isMenuOpen ? 'hamburger-icon open' : 'hamburger-icon'">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
-    <div v-if="isMenuOpen" class="half-screen-menu">
-      <div class="close-btn" @click="toggleMenu">
-        <i class="fas fa-times"></i>
+    <div :class="['sidebar-menu', { 'menu-open': isMenuOpen }]">
+      <div class="sidebar-logo">
+        <img v-if="websiteData && websiteData.logo" :src="websiteData.logo" alt="Website Logo" />
       </div>
-      <div class="menu-content space-y-4">
-        <nuxt-link to="/" class="menu-item" @click="toggleMenu">Home</nuxt-link>
-        <nuxt-link to="/about" class="menu-item" @click="toggleMenu">About Us</nuxt-link>
-        <!-- Service Dropdown Menu -->
-        <div class="menu-item dropdown">
+      <div class="menu-content">
+        <nuxt-link to="/" class="menu-item" @click="toggleMenu">
+          <i class="fas fa-home"></i> Home
+        </nuxt-link>
+        <nuxt-link to="/about" class="menu-item" @click="toggleMenu">
+          <i class="fas fa-info-circle"></i> About Us
+        </nuxt-link>
+        <!-- Service Submenu -->
+        <div class="menu-item">
           <button class="menu-item dropbtn" @click="toggleDropdown">
-            Service
+            <i class="fas fa-concierge-bell"></i> Service
             <i class="fas fa-chevron-down transition-transform duration-200"
               :class="{ '-rotate-180': isDropdownOpen }"></i>
           </button>
-          <div v-if="isDropdownOpen" class="dropdown-hamburger dropdown-open space-y-2">
-            <nuxt-link to="/home" class="menu-item flex items-center space-x-2" @click="toggleMenu">
+          <div :class="['submenu', { 'submenu-open': isDropdownOpen }]">
+            <nuxt-link to="/home" class="menu-item flex items-center" @click="toggleMenu">
               <img src="@/static/homebg.png" alt="Home" class="icon w-6 h-6">
               <span class="text">รับออกแบบตกแต่งภายใน บ้าน</span>
             </nuxt-link>
-            <nuxt-link to="/condo" class="menu-item flex items-center space-x-2" @click="toggleMenu">
+            <nuxt-link to="/condo" class="menu-item flex items-center" @click="toggleMenu">
               <img src="@/static/condobg.png" alt="Condo" class="icon w-6 h-6">
               <span class="text">รับออกแบบตกแต่งภายใน คอนโด</span>
             </nuxt-link>
           </div>
         </div>
-        <nuxt-link to="/portfolio" class="menu-item" @click="toggleMenu">Portfolio</nuxt-link>
-        <nuxt-link to="/contact" class="menu-item" @click="toggleMenu">Contact Us</nuxt-link>
+        <nuxt-link to="/portfolio" class="menu-item" @click="toggleMenu">
+          <i class="fas fa-briefcase"></i> Portfolio
+        </nuxt-link>
+        <nuxt-link to="/contact" class="menu-item" @click="toggleMenu">
+          <i class="fas fa-envelope"></i> Contact Us
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -261,6 +273,9 @@ body {
   border-radius: 10px;
   top: 100%;
   margin-top: 5px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .dropdown-hamburger {
@@ -285,6 +300,8 @@ body {
 
 .dropdown-content.dropdown-open {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .dropdown-hamburger.dropdown-open {
@@ -331,49 +348,99 @@ body {
 }
 
 .hamburger {
-  display: none;
+  display: block;
   cursor: pointer;
-  font-size: 24px;
   margin-left: auto;
   margin-right: -70px;
 }
 
-.half-screen-menu {
+.hamburger-icon {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-icon span {
+  display: block;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-icon.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.sidebar-menu {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 50%;
   height: 100%;
-  background-color: #333;
-  z-index: 2001;
+  background-color: #414042;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  padding: 100px;
+  justify-content: flex-start;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateX(-100%);
+  opacity: 0;
 }
 
-.half-screen-menu .close-btn {
-  position: absolute;
-  top: 100px;
-  right: 40px;
-  font-size: 46px;
-  cursor: pointer;
-  color: #fff;
+.sidebar-menu.menu-open {
+  transform: translateX(0);
+  opacity: 1;
 }
 
-.half-screen-menu .menu-content {
+.sidebar-menu .sidebar-logo {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-left: 10%;
+}
+
+.sidebar-menu .sidebar-logo img {
+  margin-top: 10%;
+  max-width: 50%;
+  height: auto;
+}
+
+.sidebar-menu .menu-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* Change to flex-start to align items to the left */
+  gap: 2rem; /* Increase spacing between menu items */
+  margin-top: 15%;
+  margin-left: 10%; /* Move menu items down */
 }
 
-.half-screen-menu .menu-item {
+.sidebar-menu .menu-item {
   color: #fff;
-  font-size: 1.2rem;
-  margin: 10px 0;
+  font-weight: 600;
+  font-size: 1.5rem; /* Increase font size */
+  margin: 0; /* Remove margin */
+  padding: 0.5rem 0; /* Add padding for spacing */
+  text-align: left; /* Align text to the left */
+  width: 100%; /* Ensure full width */
   text-decoration: none;
+}
+
+.sidebar-menu .menu-item i {
+  margin-right: 10px;;
 }
 
 .menu-content .menu-item:focus,
@@ -431,7 +498,7 @@ body {
 .menu-content .dropdown-content a {
   display: flex;
   align-items: center;
-  padding-left: 20px;
+  padding-left: 10px;
   /* Indent dropdown items */
 }
 
@@ -447,6 +514,42 @@ body {
   display: inline-block;
   vertical-align: middle;
   color: black;
+}
+
+.submenu {
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: relative; /* Ensure it does not push other elements */
+  top: 0; /* Position it below the dropdown button */
+  left: 40px; /* Move submenu slightly to the left */
+}
+
+.submenu-open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-content .menu-item {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-content .submenu-open ~ .menu-item {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.menu-content .submenu-open ~ .menu-item.submenu-open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.submenu.space-y-2 {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
