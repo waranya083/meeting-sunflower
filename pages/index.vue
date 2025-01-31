@@ -598,7 +598,7 @@ button {
 
 h2,
 p {
-  z-index: 3;
+  z-index: 1;
   /* ตั้งค่า z-index ให้สูงกว่า overlay */
 }
 

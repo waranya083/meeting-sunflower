@@ -52,7 +52,8 @@
     </div>
     <div :class="['sidebar-menu', { 'menu-open': isMenuOpen }]">
       <div class="sidebar-logo">
-        <img v-if="websiteData && websiteData.logo" :src="websiteData.logo" alt="Website Logo" />
+        <!-- <img v-if="websiteData && websiteData.logo" :src="websiteData.logo" alt="Website Logo" /> -->
+        <img src="@/static/logow.png" alt="New Logo" class="logo" />
       </div>
       <div class="menu-content">
         <nuxt-link to="/" class="menu-item" @click="toggleMenu">
@@ -170,7 +171,7 @@ body {
   background-color: rgba(255, 255, 255, 0.9);
   text-align: center;
   padding: 10px 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .promo button {
@@ -224,7 +225,7 @@ body {
 .nav .menu a {
   text-decoration: none;
   color: #333;
-  font-size: 1.1rem;
+  font-size: 1rem;
   display: inline-block;
   padding: 10px 10px;
   /* Adjust padding to ensure tabs are close together */
@@ -237,7 +238,7 @@ body {
   border-radius: 30px;
   padding: 5px 10px;
   /* Adjust padding to make tabs smaller */
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   /* Adjust font size */
   transition: background-color 0.3s, border-color 0.3s;
 }
@@ -348,7 +349,8 @@ body {
 }
 
 .hamburger {
-  display: block;
+  display: none;
+  /* Hide hamburger by default */
   cursor: pointer;
   margin-left: auto;
   margin-right: -70px;
@@ -414,8 +416,8 @@ body {
 }
 
 .sidebar-menu .sidebar-logo img {
-  margin-top: 10%;
-  max-width: 50%;
+  margin-top: 15%;
+  max-width: 40%;
   height: auto;
 }
 
@@ -423,31 +425,39 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2rem; /* Increase spacing between menu items */
+  gap: 2rem;
+  /* Increase spacing between menu items */
   margin-top: 15%;
-  margin-left: 10%; /* Move menu items down */
+  margin-left: 10%;
+  /* Move menu items down */
 }
 
 .sidebar-menu .menu-item {
   color: #fff;
   font-weight: 600;
-  font-size: 1.5rem; /* Increase font size */
-  margin: 0; /* Remove margin */
-  padding: 0.5rem 0; /* Add padding for spacing */
-  text-align: left; /* Align text to the left */
-  width: 100%; /* Ensure full width */
+  font-size: 1.2rem;
+  /* Increase font size */
+  margin: 0;
+  /* Remove margin */
+  padding: 0.5rem 0;
+  /* Add padding for spacing */
+  text-align: left;
+  /* Align text to the left */
+  width: 100%;
+  /* Ensure full width */
   text-decoration: none;
 }
 
 .sidebar-menu .menu-item i {
-  margin-right: 10px;;
+  margin-right: 10px;
+  ;
 }
 
 .menu-content .menu-item:focus,
 .menu-content .menu-item:active {
   background: none !important;
   box-shadow: none !important;
-  color: rgb(255, 213, 0);
+  color: #F7B951;
   /* Change to desired color on click */
 }
 
@@ -521,9 +531,12 @@ body {
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  position: relative; /* Ensure it does not push other elements */
-  top: 0; /* Position it below the dropdown button */
-  left: 40px; /* Move submenu slightly to the left */
+  position: relative;
+  /* Ensure it does not push other elements */
+  top: 0;
+  /* Position it below the dropdown button */
+  left: 40px;
+  /* Move submenu slightly to the left */
 }
 
 .submenu-open {
@@ -536,12 +549,12 @@ body {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.menu-content .submenu-open ~ .menu-item {
+.menu-content .submenu-open~.menu-item {
   transform: translateY(20px);
   opacity: 0;
 }
 
-.menu-content .submenu-open ~ .menu-item.submenu-open {
+.menu-content .submenu-open~.menu-item.submenu-open {
   transform: translateY(0);
   opacity: 1;
 }
@@ -555,7 +568,7 @@ body {
 
 @media (max-width: 480px) {
   .header .promo {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 6px;
     width: 100vw;
   }
@@ -582,6 +595,15 @@ body {
 
   .nav .menu a {
     color: #fff;
+    font-size: 0.9rem;
+  }
+
+  .menu-item {
+    font-size: 0.8rem;
+  }
+
+  .sidebar-menu .menu-item {
+    font-size: 1rem;
   }
 
   .dropdown {
@@ -628,6 +650,17 @@ body {
   .hamburger {
     display: block;
     margin-left: auto;
+    width: 25px;
+    height: 25px;
+  }
+
+  .hamburger-icon {
+    width: 25px;
+    height: 18px;
+  }
+
+  .hamburger-icon span {
+    height: 2px;
   }
 
   .header .promo {
@@ -644,9 +677,6 @@ body {
   }
 }
 
-/* xl Desktop */
-@media (min-width: 1200px) {
-}
 
 /* lg tablet horizon */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -657,7 +687,7 @@ body {
   .hamburger {
     display: block;
     margin-top: 20px;
-    margin-right: -100px;
+    margin-right: -80px;
     font-size: 2rem;
     /* Increase font size */
     padding: 30px;
@@ -667,6 +697,7 @@ body {
     height: 100px;
     /* Set height */
   }
+
 
   .nav .menu.menu-open {
     display: flex;
@@ -713,6 +744,21 @@ body {
     /* Prevent horizontal scrolling */
   }
 
+  .header .promo {
+    font-size: 1.1rem;
+  }
+
+  .nav .menu a {
+    font-size: 1.1rem;
+  }
+
+  .menu-item {
+    font-size: 1rem;
+  }
+
+  .sidebar-menu .menu-item {
+    font-size: 1.2rem;
+  }
 
   .promo button {
     background-color: #333;
@@ -738,6 +784,22 @@ body {
     display: block;
   }
 
+  .hamburger {
+    display: block;
+    margin-left: auto;
+    width: 35px;
+    height: 35px;
+  }
+
+  .hamburger-icon {
+    width: 35px;
+    height: 25px;
+  }
+
+  .hamburger-icon span {
+    height: 3px;
+  }
+
   .nav .menu.menu-open {
     display: flex;
     flex-direction: column;
@@ -750,6 +812,15 @@ body {
 
   .nav .menu a {
     color: #fff;
+    font-size: 1rem;
+  }
+
+  .menu-item {
+    font-size: 0.9rem;
+  }
+
+  .sidebar-menu .menu-item {
+    font-size: 1.1rem;
   }
 
   .nav .logo img {
@@ -783,6 +854,22 @@ body {
     /* Ensure padding and border are included in the element's total width and height */
     overflow-x: hidden;
     /* Prevent horizontal scrolling */
+  }
+
+  .header .promo {
+    font-size: 1rem;
+  }
+
+  .nav .menu a {
+    font-size: 1rem;
+  }
+
+  .menu-item {
+    font-size: 0.9rem;
+  }
+
+  .sidebar-menu .menu-item {
+    font-size: 1.1rem;
   }
 
   .promo button {
@@ -834,6 +921,18 @@ body {
     color: #fff;
   }
 
+  .nav .menu a {
+    font-size: 0.9rem;
+  }
+
+  .menu-item {
+    font-size: 0.8rem;
+  }
+
+  .sidebar-menu .menu-item {
+    font-size: 1rem;
+  }
+
   .dropdown-content {
     position: relative;
     background-color: #333;
@@ -856,6 +955,17 @@ body {
   .hamburger {
     display: block;
     margin-left: auto;
+    width: 30px;
+    height: 30px;
+  }
+
+  .hamburger-icon {
+    width: 30px;
+    height: 20px;
+  }
+
+  .hamburger-icon span {
+    height: 3px;
   }
 
   .promo {
@@ -882,6 +992,22 @@ body {
     /* Ensure padding and border are included in the element's total width and height */
     overflow-x: hidden;
     /* Prevent horizontal scrolling */
+  }
+
+  .header .promo {
+    font-size: 0.9rem;
+  }
+
+  .nav .menu a {
+    font-size: 0.9rem;
+  }
+
+  .menu-item {
+    font-size: 0.8rem;
+  }
+
+  .sidebar-menu .menu-item {
+    font-size: 1rem;
   }
 
   .promo button {
@@ -931,12 +1057,24 @@ body {
     border: none;
   }
 
-  .half-screen-menu .close-btn {
-    top: 70px;
-    right: 30px;
-    font-size: 26px;
-    cursor: pointer;
 
+  .sidebar-menu .sidebar-logo img {
+    margin-top: 30%;
+    max-width: 60%;
+    height: auto;
   }
+
+  .sidebar-menu .menu-content {
+    gap: 0.5rem;
+    margin-top: 15%;
+    margin-left: 10%;
+  }
+
+  .sidebar-menu .menu-item {
+    font-size: 1rem;
+    padding: 0.3rem 0;
+    width: 100%;
+  }
+
 }
 </style>
